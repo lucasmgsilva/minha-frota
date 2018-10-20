@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_SISTEMAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_SISTEMAConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Trinity.Properties.Settings.GlobalReference.Default.BD_SISTEMAConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_SELECIONA_MANUTENCAOTableAdapter" GeneratorDataComponentClassName="VW_SELECIONA_MANUTENCAOTableAdapter" Name="VW_SELECIONA_MANUTENCAO" UserDataComponentName="VW_SELECIONA_MANUTENCAOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BD_SISTEMAConnectionString (Settings)" DbObjectName="BD_SISTEMA.dbo.VW_SELECIONA_MANUTENCAO" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VW_SELECIONA_MANUTENCAO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idManutencao" DataSetColumn="idManutencao" />
+              <Mapping SourceColumn="dataManutencao" DataSetColumn="dataManutencao" />
+              <Mapping SourceColumn="tipo" DataSetColumn="tipo" />
+              <Mapping SourceColumn="idVeiculo" DataSetColumn="idVeiculo" />
+              <Mapping SourceColumn="placa" DataSetColumn="placa" />
+              <Mapping SourceColumn="idMotorista" DataSetColumn="idMotorista" />
+              <Mapping SourceColumn="nome" DataSetColumn="nome" />
+              <Mapping SourceColumn="valorTotal" DataSetColumn="valorTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VW_SELECIONA_MANUTENCAO" msprop:Generator_TableClassName="VW_SELECIONA_MANUTENCAODataTable" msprop:Generator_TableVarName="tableVW_SELECIONA_MANUTENCAO" msprop:Generator_TablePropName="VW_SELECIONA_MANUTENCAO" msprop:Generator_RowDeletingName="VW_SELECIONA_MANUTENCAORowDeleting" msprop:Generator_RowChangingName="VW_SELECIONA_MANUTENCAORowChanging" msprop:Generator_RowEvHandlerName="VW_SELECIONA_MANUTENCAORowChangeEventHandler" msprop:Generator_RowDeletedName="VW_SELECIONA_MANUTENCAORowDeleted" msprop:Generator_UserTableName="VW_SELECIONA_MANUTENCAO" msprop:Generator_RowChangedName="VW_SELECIONA_MANUTENCAORowChanged" msprop:Generator_RowEvArgName="VW_SELECIONA_MANUTENCAORowChangeEvent" msprop:Generator_RowClassName="VW_SELECIONA_MANUTENCAORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idManutencao" msprop:Generator_ColumnVarNameInTable="columnidManutencao" msprop:Generator_ColumnPropNameInRow="idManutencao" msprop:Generator_ColumnPropNameInTable="idManutencaoColumn" msprop:Generator_UserColumnName="idManutencao" type="xs:int" />
+              <xs:element name="dataManutencao" msprop:Generator_ColumnVarNameInTable="columndataManutencao" msprop:Generator_ColumnPropNameInRow="dataManutencao" msprop:Generator_ColumnPropNameInTable="dataManutencaoColumn" msprop:Generator_UserColumnName="dataManutencao" type="xs:dateTime" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idVeiculo" msprop:Generator_ColumnVarNameInTable="columnidVeiculo" msprop:Generator_ColumnPropNameInRow="idVeiculo" msprop:Generator_ColumnPropNameInTable="idVeiculoColumn" msprop:Generator_UserColumnName="idVeiculo" type="xs:int" />
+              <xs:element name="placa" msprop:Generator_ColumnVarNameInTable="columnplaca" msprop:Generator_ColumnPropNameInRow="placa" msprop:Generator_ColumnPropNameInTable="placaColumn" msprop:Generator_UserColumnName="placa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idMotorista" msprop:Generator_ColumnVarNameInTable="columnidMotorista" msprop:Generator_ColumnPropNameInRow="idMotorista" msprop:Generator_ColumnPropNameInTable="idMotoristaColumn" msprop:Generator_UserColumnName="idMotorista" type="xs:int" />
+              <xs:element name="nome" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_UserColumnName="nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valorTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnvalorTotal" msprop:Generator_ColumnPropNameInRow="valorTotal" msprop:Generator_ColumnPropNameInTable="valorTotalColumn" msprop:Generator_UserColumnName="valorTotal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_SELECIONA_MANUTENCAO" />
+      <xs:field xpath="mstns:idManutencao" />
+      <xs:field xpath="mstns:idVeiculo" />
+      <xs:field xpath="mstns:idMotorista" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
