@@ -42,15 +42,19 @@
             this.txtRenavam = new System.Windows.Forms.MaskedTextBox();
             this.txtPlaca = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtKmAtual = new System.Windows.Forms.NumericUpDown();
+            this.cmbCombustivel = new System.Windows.Forms.ComboBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtKmInicial = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtAnoModelo = new System.Windows.Forms.DateTimePicker();
             this.txtAnoFabricacao = new System.Windows.Forms.DateTimePicker();
             this.cmbModelo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -60,7 +64,6 @@
             this.cmbCor = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -69,11 +72,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.cmbCombustivel = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKmAtual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKmInicial)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -209,7 +209,7 @@
             this.groupBox2.Controls.Add(this.cmbCombustivel);
             this.groupBox2.Controls.Add(this.cmbCategoria);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtKmAtual);
+            this.groupBox2.Controls.Add(this.txtKmInicial);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtRenavam);
@@ -247,17 +247,100 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações do Veículo";
             // 
-            // txtKmAtual
+            // cmbCombustivel
             // 
-            this.txtKmAtual.Location = new System.Drawing.Point(532, 100);
-            this.txtKmAtual.Maximum = new decimal(new int[] {
+            this.cmbCombustivel.FormattingEnabled = true;
+            this.cmbCombustivel.Location = new System.Drawing.Point(445, 47);
+            this.cmbCombustivel.MaxLength = 25;
+            this.cmbCombustivel.Name = "cmbCombustivel";
+            this.cmbCombustivel.Size = new System.Drawing.Size(193, 26);
+            this.cmbCombustivel.TabIndex = 86;
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "AB",
+            "AC",
+            "AD",
+            "AE"});
+            this.cmbCategoria.Location = new System.Drawing.Point(133, 154);
+            this.cmbCategoria.MaxLength = 120;
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(136, 26);
+            this.cmbCategoria.TabIndex = 59;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Chartreuse;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(638, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 19);
+            this.label4.TabIndex = 85;
+            this.label4.Text = "+";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // txtKmInicial
+            // 
+            this.txtKmInicial.Location = new System.Drawing.Point(532, 100);
+            this.txtKmInicial.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.txtKmAtual.Name = "txtKmAtual";
-            this.txtKmAtual.Size = new System.Drawing.Size(124, 26);
-            this.txtKmAtual.TabIndex = 86;
+            this.txtKmInicial.Name = "txtKmInicial";
+            this.txtKmInicial.Size = new System.Drawing.Size(124, 26);
+            this.txtKmInicial.TabIndex = 86;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(254, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 19);
+            this.label8.TabIndex = 61;
+            this.label8.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(441, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 19);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Combustível:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(129, 135);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 19);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "Categ. Exigida:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(369, 135);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 19);
+            this.label13.TabIndex = 61;
+            this.label13.Text = "*";
             // 
             // txtAnoModelo
             // 
@@ -298,57 +381,16 @@
             this.label2.Text = "+";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // cmbCategoria
-            // 
-            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "AB",
-            "AC",
-            "AD",
-            "AE"});
-            this.cmbCategoria.Location = new System.Drawing.Point(133, 154);
-            this.cmbCategoria.MaxLength = 120;
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(136, 26);
-            this.cmbCategoria.TabIndex = 59;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(254, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 19);
-            this.label8.TabIndex = 61;
-            this.label8.Text = "*";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(615, 81);
+            this.label23.Location = new System.Drawing.Point(621, 81);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 19);
             this.label23.TabIndex = 80;
             this.label23.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(129, 135);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 19);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "Categ. Exigida:";
             // 
             // label24
             // 
@@ -356,9 +398,9 @@
             this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(528, 81);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(87, 19);
+            this.label24.Size = new System.Drawing.Size(93, 19);
             this.label24.TabIndex = 79;
-            this.label24.Text = "Km. Atual:";
+            this.label24.Text = "Km. Inicial:";
             // 
             // label21
             // 
@@ -445,17 +487,6 @@
             this.label35.Size = new System.Drawing.Size(15, 19);
             this.label35.TabIndex = 67;
             this.label35.Text = "*";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(369, 135);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 19);
-            this.label13.TabIndex = 61;
-            this.label13.Text = "*";
             // 
             // label36
             // 
@@ -545,37 +576,6 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // cmbCombustivel
-            // 
-            this.cmbCombustivel.FormattingEnabled = true;
-            this.cmbCombustivel.Location = new System.Drawing.Point(445, 47);
-            this.cmbCombustivel.MaxLength = 25;
-            this.cmbCombustivel.Name = "cmbCombustivel";
-            this.cmbCombustivel.Size = new System.Drawing.Size(193, 26);
-            this.cmbCombustivel.TabIndex = 86;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Chartreuse;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(638, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 19);
-            this.label4.TabIndex = 85;
-            this.label4.Text = "+";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(441, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 19);
-            this.label5.TabIndex = 84;
-            this.label5.Text = "Combustível:";
-            // 
             // FrmVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,7 +590,7 @@
             this.Text = "Gestão de Veículos";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKmAtual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKmInicial)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -640,7 +640,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker txtAnoModelo;
         private System.Windows.Forms.DateTimePicker txtAnoFabricacao;
-        private System.Windows.Forms.NumericUpDown txtKmAtual;
+        private System.Windows.Forms.NumericUpDown txtKmInicial;
         private System.Windows.Forms.ComboBox cmbCombustivel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

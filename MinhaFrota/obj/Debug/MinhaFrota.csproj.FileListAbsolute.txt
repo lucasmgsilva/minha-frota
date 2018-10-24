@@ -135,3 +135,4 @@ C:\Users\Lucas Matheus\Desktop\MinhaFrota\MinhaFrota\obj\Debug\MinhaFrota.csproj
 C:\Users\Lucas Matheus\Desktop\MinhaFrota\MinhaFrota\obj\Debug\MinhaFrota.csproj.CopyComplete
 C:\Users\Lucas Matheus\Desktop\MinhaFrota\MinhaFrota\obj\Debug\Trinity.exe
 C:\Users\Lucas Matheus\Desktop\MinhaFrota\MinhaFrota\obj\Debug\Trinity.pdb
+C:\Users\Lucas Matheus\Desktop\MinhaFrota\MinhaFrota\obj\Debug\Trinity.View.FrmAbastecimento.resources
