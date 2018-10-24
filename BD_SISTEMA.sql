@@ -256,14 +256,18 @@ CREATE TABLE SERVICO_MANUTENCAO (
 GO
 
 CREATE TABLE ABASTECIMENTO (
-	idAbastecimento INT NOT NULL IDENTITY,
 	idMotorista INT NOT NULL,
 	idVeiculo INT NOT NULL,
+	dataAbastecimento DATE NOT NULL,
 	litros DECIMAL(9, 2) NOT NULL,
-	kmAtual INT NOT NULL
+	valorLitro DECIMAL (9, 2) NOT NULL,
+	kmAnterior INT NOT NULL,
+	kmAtual INT NOT NULL,
+	PRIMARY KEY (idMotorista, idVeiculo, dataAbastecimento),
+	FOREIGN KEY (idMotorista) REFERENCES MOTORISTA (idMotorista),
+	FOREIGN KEY (idVeiculo) REFERENCES VEICULO (idVeiculo)
 )
 GO
-
 -- FIM CRIAÇÃO TABELAS
 
 -- INICIO VIEW'S
