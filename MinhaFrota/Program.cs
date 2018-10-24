@@ -20,11 +20,12 @@ namespace Trinity
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FrmAbastecimento());
             //Application.Run(new FrmRelatorioManutencao());
             //Application.Run(new FrmConsultaManutencao());
             //Application.Run(new FrmConsultaMulta());
             //Application.Run(new FrmInfracao());
-            Application.Run(new FrmApresentacao());
+            //Application.Run(new FrmApresentacao());
             //Application.Run(new FrmInfracao());
             //Application.Run(new FrmMulta(null));
             //Application.Run(new FrmInfracao());

@@ -48,7 +48,7 @@ namespace Trinity.View
             SelecionaCor();
             txtAnoFabricacao.Text = this.veiculoCarregado.AnoFabricacao.ToString();
             txtAnoModelo.Text = this.veiculoCarregado.AnoModelo.ToString();
-            txtKmAtual.Value = this.veiculoCarregado.KmAtual;
+            txtKmInicial.Value = this.veiculoCarregado.KmAtual;
             txtRenavam.Text = this.veiculoCarregado.Renavam;
         }
 
@@ -114,7 +114,7 @@ namespace Trinity.View
             cmbCor.Enabled = false;
             txtAnoFabricacao.Enabled = false;
             txtAnoModelo.Enabled = false;
-            txtKmAtual.Enabled = false;
+            txtKmInicial.Enabled = false;
             txtRenavam.Enabled = false;
         }
 
@@ -128,7 +128,7 @@ namespace Trinity.View
             cmbCor.Enabled = !false;
             txtAnoFabricacao.Enabled = !false;
             txtAnoModelo.Enabled = !false;
-            txtKmAtual.Enabled = !false;
+            txtKmInicial.Enabled = !false;
             txtRenavam.Enabled = !false;
             cmbMarca.Focus();
         }
@@ -162,7 +162,7 @@ namespace Trinity.View
             cmbCor.SelectedItem = null;
             txtAnoFabricacao.Text = String.Empty;
             txtAnoModelo.Text = String.Empty;
-            txtKmAtual.Text = String.Empty;
+            txtKmInicial.Text = String.Empty;
             txtRenavam.Text = String.Empty;
         }
 
@@ -240,7 +240,7 @@ namespace Trinity.View
                     this.veiculoCarregado.Cor = (Cor) cmbCor.SelectedItem;
                     this.veiculoCarregado.AnoFabricacao = txtAnoFabricacao.Value;
                     this.veiculoCarregado.AnoModelo = txtAnoModelo.Value;
-                    this.veiculoCarregado.KmAtual = Convert.ToInt32(txtKmAtual.Value);
+                    this.veiculoCarregado.KmAtual = Convert.ToInt32(txtKmInicial.Value);
                     this.veiculoCarregado.Renavam = txtRenavam.Text;
 
                     VeiculoDAO dao = new VeiculoDAO();
