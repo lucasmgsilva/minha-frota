@@ -24,6 +24,7 @@ namespace Trinity.View
             this.editando = false;
             CarregaListaVeiculos();
             CarregaListaCombustiveis();
+            CarregaListaMotoristas();
             LimpaCampos();
         }
 
@@ -39,6 +40,13 @@ namespace Trinity.View
             cmbCombustivel.SelectedItem = null;
             cmbCombustivel.DisplayMember = "combustivel";
             cmbCombustivel.DataSource = new CombustivelDAO().GetListaCombustiveis();
+        }
+
+        private void CarregaListaMotoristas()
+        {
+            cmbMotorista.SelectedItem = null;
+            cmbMotorista.DisplayMember = "nome";
+            cmbMotorista.DataSource = new MotoristaDAO().GetListaMotoristas();
         }
 
         private void DesabilitaCampos()
@@ -77,6 +85,7 @@ namespace Trinity.View
             HabilitaBotoes();
             cmbVeiculo.SelectedItem = null;
             cmbCombustivel.SelectedItem = null;
+            cmbMotorista.SelectedItem = null;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -194,6 +203,57 @@ namespace Trinity.View
             FrmCombustivel combustivel = new FrmCombustivel();
             combustivel.ShowDialog();
             CarregaListaCombustiveis();
+        }
+
+        private void realizaCalculos()
+        {
+            this.txtLitros.ValueChanged -= new System.EventHandler(this.txtValorLitro_ValueChanged);
+            this.txtValorLitro.ValueChanged -= new System.EventHandler(this.txtValorLitro_ValueChanged);
+            this.txtValorTotal.ValueChanged -= new System.EventHandler(this.txtValorLitro_ValueChanged);
+
+            if (txtLitros.Focused)
+            {
+                if (txtValorLitro.Value != 0) //Calcula Litros
+                    txtLitros.Value = txtValorTotal.Value / txtValorLitro.Value;
+            }
+
+            //Calcular litros
+            if (txtValorLitro.Value != 0)
+                txtLitros.Value = txtValorTotal.Value / txtValorLitro.Value;
+
+            //Calcular valor litro
+            if(txtLitros.Value != 0)
+                txtValorLitro.Value = txtValorTotal.Value / txtLitros.Value;
+
+            //Calcular valor total
+            txtValorTotal.Value = txtValorLitro.Value * txtLitros.Value;
+
+            this.txtValorLitro.ValueChanged += new System.EventHandler(this.txtValorLitro_ValueChanged);
+            this.txtValorLitro.ValueChanged += new System.EventHandler(this.txtValorLitro_ValueChanged);
+            this.txtValorLitro.ValueChanged += new System.EventHandler(this.txtValorLitro_ValueChanged);
+        }
+
+        private void txtLitros_ValueChanged(object sender, EventArgs e)
+        {
+            realizaCalculos();
+        }
+
+        private void txtValorLitro_ValueChanged(object sender, EventArgs e)
+        {
+            realizaCalculos();
+        }
+
+        private void txtValorTotal_ValueChanged(object sender, EventArgs e)
+        {
+            realizaCalculos();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            FrmMotorista motorista = new FrmMotorista(null);
+            motorista.ShowDialog();
+            CarregaListaMotoristas();
+
         }
     }
 }

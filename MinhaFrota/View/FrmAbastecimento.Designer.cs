@@ -34,10 +34,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbCombustivel = new System.Windows.Forms.ComboBox();
+            this.txtValorLitro = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtValorTotal = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtKmAtual = new System.Windows.Forms.NumericUpDown();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtLitros = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtData = new System.Windows.Forms.DateTimePicker();
+            this.label37 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -50,28 +61,17 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.DateTimePicker();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtLitros = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtKmAtual = new System.Windows.Forms.NumericUpDown();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbMotorista = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLitros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorLitro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKmAtual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLitros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,10 +97,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.cmbMotorista);
+            this.groupBox1.Controls.Add(this.txtValorLitro);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtValor);
+            this.groupBox1.Controls.Add(this.txtValorTotal);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtKmAtual);
@@ -112,10 +116,6 @@
             this.groupBox1.Controls.Add(this.label38);
             this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Controls.Add(this.label37);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbCombustivel);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.label36);
@@ -129,47 +129,173 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Abastecimento";
             // 
-            // label2
+            // txtValorLitro
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Chartreuse;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(420, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 19);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "+";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.txtValorLitro.DecimalPlaces = 2;
+            this.txtValorLitro.Location = new System.Drawing.Point(245, 102);
+            this.txtValorLitro.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtValorLitro.Name = "txtValorLitro";
+            this.txtValorLitro.Size = new System.Drawing.Size(98, 26);
+            this.txtValorLitro.TabIndex = 110;
+            this.txtValorLitro.ValueChanged += new System.EventHandler(this.txtValorLitro_ValueChanged);
             // 
-            // label3
+            // label9
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(334, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 19);
-            this.label3.TabIndex = 75;
-            this.label3.Text = "*";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(334, 81);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 19);
+            this.label9.TabIndex = 112;
+            this.label9.Text = "*";
             // 
-            // label4
+            // label10
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(223, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 19);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Combustível:";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(241, 81);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 19);
+            this.label10.TabIndex = 111;
+            this.label10.Text = "Valor/Litro:";
             // 
-            // cmbCombustivel
+            // txtValorTotal
             // 
-            this.cmbCombustivel.FormattingEnabled = true;
-            this.cmbCombustivel.Location = new System.Drawing.Point(227, 47);
-            this.cmbCombustivel.MaxLength = 25;
-            this.cmbCombustivel.Name = "cmbCombustivel";
-            this.cmbCombustivel.Size = new System.Drawing.Size(193, 26);
-            this.cmbCombustivel.TabIndex = 73;
+            this.txtValorTotal.DecimalPlaces = 2;
+            this.txtValorTotal.Location = new System.Drawing.Point(349, 102);
+            this.txtValorTotal.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(98, 26);
+            this.txtValorTotal.TabIndex = 107;
+            this.txtValorTotal.ValueChanged += new System.EventHandler(this.txtValorTotal_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(440, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 19);
+            this.label5.TabIndex = 109;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(345, 81);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.TabIndex = 108;
+            this.label6.Text = "Valor Total:";
+            // 
+            // txtKmAtual
+            // 
+            this.txtKmAtual.Location = new System.Drawing.Point(11, 102);
+            this.txtKmAtual.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtKmAtual.Name = "txtKmAtual";
+            this.txtKmAtual.Size = new System.Drawing.Size(124, 26);
+            this.txtKmAtual.TabIndex = 106;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(100, 83);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(15, 19);
+            this.label23.TabIndex = 105;
+            this.label23.Text = "*";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(7, 83);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(87, 19);
+            this.label24.TabIndex = 104;
+            this.label24.Text = "Km. Atual:";
+            // 
+            // txtLitros
+            // 
+            this.txtLitros.DecimalPlaces = 2;
+            this.txtLitros.Location = new System.Drawing.Point(141, 102);
+            this.txtLitros.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtLitros.Name = "txtLitros";
+            this.txtLitros.Size = new System.Drawing.Size(98, 26);
+            this.txtLitros.TabIndex = 101;
+            this.txtLitros.ValueChanged += new System.EventHandler(this.txtLitros_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(191, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 19);
+            this.label7.TabIndex = 103;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(137, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.TabIndex = 102;
+            this.label8.Text = "Litros:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Red;
+            this.label38.Location = new System.Drawing.Point(490, 28);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(15, 19);
+            this.label38.TabIndex = 79;
+            this.label38.Text = "*";
+            // 
+            // txtData
+            // 
+            this.txtData.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtData.Location = new System.Drawing.Point(444, 47);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(165, 26);
+            this.txtData.TabIndex = 77;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(440, 28);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(50, 19);
+            this.label37.TabIndex = 78;
+            this.label37.Text = "Data:";
             // 
             // label20
             // 
@@ -312,170 +438,47 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // label38
+            // label11
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(490, 28);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(15, 19);
-            this.label38.TabIndex = 79;
-            this.label38.Text = "*";
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Chartreuse;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(654, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 19);
+            this.label11.TabIndex = 116;
+            this.label11.Text = "+";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // txtData
+            // label12
             // 
-            this.txtData.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtData.Location = new System.Drawing.Point(444, 47);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(165, 26);
-            this.txtData.TabIndex = 77;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(568, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 19);
+            this.label12.TabIndex = 115;
+            this.label12.Text = "*";
             // 
-            // label37
+            // label13
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(440, 28);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(50, 19);
-            this.label37.TabIndex = 78;
-            this.label37.Text = "Data:";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(457, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 19);
+            this.label13.TabIndex = 114;
+            this.label13.Text = "Motorista:";
             // 
-            // txtLitros
+            // cmbMotorista
             // 
-            this.txtLitros.DecimalPlaces = 2;
-            this.txtLitros.Location = new System.Drawing.Point(141, 102);
-            this.txtLitros.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.txtLitros.Name = "txtLitros";
-            this.txtLitros.Size = new System.Drawing.Size(98, 26);
-            this.txtLitros.TabIndex = 101;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(191, 81);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 19);
-            this.label7.TabIndex = 103;
-            this.label7.Text = "*";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(137, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 19);
-            this.label8.TabIndex = 102;
-            this.label8.Text = "Litros:";
-            // 
-            // txtKmAtual
-            // 
-            this.txtKmAtual.Location = new System.Drawing.Point(11, 102);
-            this.txtKmAtual.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.txtKmAtual.Name = "txtKmAtual";
-            this.txtKmAtual.Size = new System.Drawing.Size(124, 26);
-            this.txtKmAtual.TabIndex = 106;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(100, 83);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(15, 19);
-            this.label23.TabIndex = 105;
-            this.label23.Text = "*";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(7, 83);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(87, 19);
-            this.label24.TabIndex = 104;
-            this.label24.Text = "Km. Atual:";
-            // 
-            // txtValor
-            // 
-            this.txtValor.DecimalPlaces = 2;
-            this.txtValor.Location = new System.Drawing.Point(349, 102);
-            this.txtValor.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(98, 26);
-            this.txtValor.TabIndex = 107;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(440, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 19);
-            this.label5.TabIndex = 109;
-            this.label5.Text = "*";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(345, 81);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
-            this.label6.TabIndex = 108;
-            this.label6.Text = "Valor Total:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(245, 102);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(98, 26);
-            this.numericUpDown1.TabIndex = 110;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(334, 81);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 19);
-            this.label9.TabIndex = 112;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(241, 81);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 19);
-            this.label10.TabIndex = 111;
-            this.label10.Text = "Valor/Litro:";
+            this.cmbMotorista.FormattingEnabled = true;
+            this.cmbMotorista.Location = new System.Drawing.Point(461, 101);
+            this.cmbMotorista.MaxLength = 25;
+            this.cmbMotorista.Name = "cmbMotorista";
+            this.cmbMotorista.Size = new System.Drawing.Size(193, 26);
+            this.cmbMotorista.TabIndex = 113;
             // 
             // FrmAbastecimento
             // 
@@ -499,11 +502,11 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLitros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorLitro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKmAtual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLitros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -525,10 +528,6 @@
         private System.Windows.Forms.ComboBox cmbVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbCombustivel;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.DateTimePicker txtData;
         private System.Windows.Forms.Label label37;
@@ -538,11 +537,15 @@
         private System.Windows.Forms.NumericUpDown txtKmAtual;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown txtValorLitro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown txtValor;
+        private System.Windows.Forms.NumericUpDown txtValorTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbMotorista;
     }
 }
