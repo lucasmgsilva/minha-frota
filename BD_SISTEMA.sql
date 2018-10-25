@@ -901,12 +901,20 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,2), @ValorLitro DECIMAL(9, 2), @KmAnterior INT, @KmAtual INT)
+CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,2), @ValorLitro DECIMAL(9, 2), @KmAtual INT)
 AS
+BEGIN
+	DECLARE @KmAnterior INT = (SELECT MAX(kmAtual) AS 'kmAnterior' FROM ABASTECIMENTO WHERE idVeiculo = 4)
+
+	IF @KmAnterior IS NULL
+		SET @KmAnterior = (SELECT km FROM VEICULO WHERE idVeiculo = 4)
+		PRINT @KmAnterior
+
 	INSERT INTO
 		ABASTECIMENTO (idMotorista, idVeiculo, dataAbastecimento, litros, valorLitro, kmAnterior, kmAtual)
 	VALUES
 		(@IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAnterior, @KmAtual)
+END
 GO
 -- FIM STORED PROCEDURES
 
