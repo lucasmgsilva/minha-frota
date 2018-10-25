@@ -21,7 +21,7 @@ namespace Trinity.Model.DAO
 
         public void AdicionaAbastecimento(Abastecimento abastecimento)
         {
-            string sql = "EXECUTE SP_INSERE_ABASTECIMENTO @IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAnterior, @KmAtual";
+            string sql = "EXECUTE SP_INSERE_ABASTECIMENTO @IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAtual";
             try
             {
                 this.connection.Open();
@@ -31,7 +31,6 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@DataAbastecimento", abastecimento.DataAbastecimento);
                 cmd.Parameters.AddWithValue("@Litros", abastecimento.Litros);
                 cmd.Parameters.AddWithValue("@ValorLitro", abastecimento.ValorLitro);
-                cmd.Parameters.AddWithValue("@KmAnterior", abastecimento.KmAnterior);
                 cmd.Parameters.AddWithValue("@KmAtual", abastecimento.KmAtual);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("O abastecimento foi cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

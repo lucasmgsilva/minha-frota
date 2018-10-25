@@ -89,7 +89,6 @@ namespace Trinity.View
                     DataAbastecimento = Convert.ToDateTime(txtData.Text),
                     Litros = float.Parse(txtLitros.Value.ToString()),
                     ValorLitro = float.Parse(txtValorLitro.Value.ToString()),
-                    KmAnterior = ((Veiculo)cmbVeiculo.SelectedItem).KmAtual,
                     KmAtual = int.Parse(txtKmAtual.Value.ToString())
                 };
 
