@@ -258,7 +258,7 @@ GO
 CREATE TABLE ABASTECIMENTO (
 	idMotorista INT NOT NULL,
 	idVeiculo INT NOT NULL,
-	dataAbastecimento DATE NOT NULL,
+	dataAbastecimento DATETIME NOT NULL,
 	litros DECIMAL(9, 2) NOT NULL,
 	valorLitro DECIMAL (9, 2) NOT NULL,
 	kmAnterior INT NOT NULL,
@@ -888,6 +888,14 @@ BEGIN
 	WHERE 
 		idPessoa = @idPessoa
 END
+GO
+
+CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,2), @ValorLitro DECIMAL(9, 2), @KmAnterior INT, @KmAtual INT)
+AS
+	INSERT INTO
+		ABASTECIMENTO (idMotorista, idVeiculo, dataAbastecimento, litros, valorLitro, kmAnterior, kmAtual)
+	VALUES
+		(@IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAnterior, @KmAtual)
 GO
 -- FIM STORED PROCEDURES
 
