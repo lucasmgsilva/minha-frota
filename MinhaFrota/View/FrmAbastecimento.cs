@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace Trinity.View
 {
     public partial class FrmAbastecimento : Form
     {
-        List<Modelo> listaModelos;
+        List<Abastecimento> listaAbastecimento;
         bool editando;
         Modelo modeloCarregado;
 
@@ -43,12 +44,12 @@ namespace Trinity.View
 
         private void DesabilitaCampos()
         {
-            cmbVeiculo.Enabled = !false;
+            cmbVeiculo.Enabled = false;
         }
 
         private void HabilitaCampos()
         {
-            cmbVeiculo.Enabled = false;
+            cmbVeiculo.Enabled = !false;
         }
 
         private void HabilitaBotoes()
@@ -81,7 +82,20 @@ namespace Trinity.View
         {
             if (cmbVeiculo.SelectedItem != null && cmbMotorista.SelectedItem != null)
             {
-                if (this.modeloCarregado == null)
+                Abastecimento abastecimento = new Abastecimento()
+                {
+                    Motorista = (Motorista)cmbMotorista.SelectedItem,
+                    Veiculo = (Veiculo)cmbVeiculo.SelectedItem,
+                    DataAbastecimento = Convert.ToDateTime(txtData.Text),
+                    Litros = float.Parse(txtLitros.Value.ToString()),
+                    ValorLitro = float.Parse(txtValorLitro.Value.ToString()),
+                    KmAnterior = ((Veiculo)cmbVeiculo.SelectedItem).KmAtual,
+                    KmAtual = int.Parse(txtKmAtual.Value.ToString())
+                };
+
+                new AbastecimentoDAO().AdicionaAbastecimento(abastecimento);
+
+                /*if (this.modeloCarregado == null)
                     this.modeloCarregado = new Modelo();
 
                 this.modeloCarregado.Marca = (Marca)cmbVeiculo.SelectedItem;
@@ -92,7 +106,7 @@ namespace Trinity.View
                 if (!this.editando)
                     dao.AdicionaModelo(this.modeloCarregado);
                 else dao.AlteraModelo(this.modeloCarregado);
-                CarregaListaModelos();
+                CarregaListaModelos();*/
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -110,21 +124,21 @@ namespace Trinity.View
             else this.Close();
         }
 
-        public void CarregaListaModelos()
+        public void CarregaListaAbastecimentos()
         {
-            /*if (cmbVeiculo.SelectedItem != null)
+            if (cmbVeiculo.SelectedItem != null)
             {
-                dgvModelos.AutoGenerateColumns = false;
-                listaModelos = new ModeloDAO().GetListaModelos(((Marca) cmbVeiculo.SelectedItem).IdMarca);
-                dgvModelos.DataSource = new BindingList<Modelo>(listaModelos);
-            }*/
+                dgvAbastecimentos.AutoGenerateColumns = false;
+                listaAbastecimento = new AbastecimentoDAO().GetListaAbastecimento(((Veiculo) cmbVeiculo.SelectedItem).IdVeiculo);
+                dgvAbastecimentos.DataSource = new BindingList<Abastecimento>(listaAbastecimento);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvModelos.RowCount != 0)
+            if (dgvAbastecimentos.RowCount != 0)
             {
-                if (dgvModelos.CurrentRow.Selected)
+                if (dgvAbastecimentos.CurrentRow.Selected)
                 {
                     this.editando = true;
                     DesabilitaBotoes();
@@ -136,19 +150,20 @@ namespace Trinity.View
 
         private void dgvMarcas_SelectionChanged(object sender, EventArgs e)
         {
-            LimpaCampos();
-            if (dgvModelos.RowCount != 0)
+            /*LimpaCampos();
+            if (dgvAbastecimentos.RowCount != 0)
             {
-                if (dgvModelos.CurrentRow.Selected)
+                if (dgvAbastecimentos.CurrentRow.Selected)
                 {
                     this.editando = false;
-                    int idModelo = Convert.ToInt32(dgvModelos.CurrentRow.Cells["idModelo"].Value.ToString());
-                    this.modeloCarregado = this.listaModelos.Find(u => u.IdModelo == idModelo);
+                    int idModelo = Convert.ToInt32(dgvAbastecimentos.CurrentRow.Cells["idModelo"].Value.ToString());
+                    //this.modeloCarregado = this.listaAbastecimento.Find(u => u.IdModelo == idModelo);
                     //CarregaModelos();
                 }
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MODELO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            */
+    }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -159,25 +174,20 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (dgvModelos.RowCount != 0)
+            if (dgvAbastecimentos.RowCount != 0)
             {
-                if (dgvModelos.CurrentRow.Selected)
+                if (dgvAbastecimentos.CurrentRow.Selected)
                 {
                     if (MessageBox.Show("Você realmente quer excluir este MODELO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         ModeloDAO dao = new ModeloDAO();
                         dao.DeletaModelo(this.modeloCarregado.IdModelo);
-                        CarregaListaModelos();
+                        //CarregaListaModelos();
                     }
                 }
                 else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MODELO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MODELO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarregaListaModelos();
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -209,6 +219,50 @@ namespace Trinity.View
         private void txtLitros_ValueChanged(object sender, EventArgs e)
         {
             txtValorTotal.Value = txtValorLitro.Value * txtLitros.Value;
+        }
+
+        private void cmbVeiculo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CarregaListaAbastecimentos();
+        }
+
+        private string BindProperty(object property, string propertyName)
+        {
+            string retValue = "";
+            if (propertyName.Contains("."))
+            {
+                PropertyInfo[] arrayProperties;
+                string leftPropertyName;
+                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
+                arrayProperties = property.GetType().GetProperties();
+                foreach (PropertyInfo propertyInfo in arrayProperties)
+                {
+                    if (propertyInfo.Name == leftPropertyName)
+                    {
+                        retValue = BindProperty(
+                          propertyInfo.GetValue(property, null),
+                          propertyName.Substring(propertyName.IndexOf(".") + 1));
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Type propertyType;
+                PropertyInfo propertyInfo;
+                propertyType = property.GetType();
+                propertyInfo = propertyType.GetProperty(propertyName);
+                retValue = propertyInfo.GetValue(property, null).ToString();
+            }
+            return retValue;
+        }
+
+        private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((dgvAbastecimentos.Rows[e.RowIndex].DataBoundItem != null) && (dgvAbastecimentos.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
+            {
+                e.Value = BindProperty(dgvAbastecimentos.Rows[e.RowIndex].DataBoundItem, dgvAbastecimentos.Columns[e.ColumnIndex].DataPropertyName);
+            }
         }
     }
 }
