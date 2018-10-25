@@ -34,6 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbMotorista = new System.Windows.Forms.ComboBox();
             this.txtValorLitro = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,10 +65,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbMotorista = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorLitro)).BeginInit();
@@ -128,6 +128,48 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Abastecimento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Chartreuse;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(654, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 19);
+            this.label11.TabIndex = 116;
+            this.label11.Text = "+";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(568, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 19);
+            this.label12.TabIndex = 115;
+            this.label12.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(457, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 19);
+            this.label13.TabIndex = 114;
+            this.label13.Text = "Motorista:";
+            // 
+            // cmbMotorista
+            // 
+            this.cmbMotorista.FormattingEnabled = true;
+            this.cmbMotorista.Location = new System.Drawing.Point(461, 101);
+            this.cmbMotorista.MaxLength = 25;
+            this.cmbMotorista.Name = "cmbMotorista";
+            this.cmbMotorista.Size = new System.Drawing.Size(193, 26);
+            this.cmbMotorista.TabIndex = 113;
             // 
             // txtValorLitro
             // 
@@ -437,48 +479,6 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Chartreuse;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(654, 105);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(18, 19);
-            this.label11.TabIndex = 116;
-            this.label11.Text = "+";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(568, 82);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 19);
-            this.label12.TabIndex = 115;
-            this.label12.Text = "*";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(457, 82);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 19);
-            this.label13.TabIndex = 114;
-            this.label13.Text = "Motorista:";
-            // 
-            // cmbMotorista
-            // 
-            this.cmbMotorista.FormattingEnabled = true;
-            this.cmbMotorista.Location = new System.Drawing.Point(461, 101);
-            this.cmbMotorista.MaxLength = 25;
-            this.cmbMotorista.Name = "cmbMotorista";
-            this.cmbMotorista.Size = new System.Drawing.Size(193, 26);
-            this.cmbMotorista.TabIndex = 113;
             // 
             // FrmAbastecimento
             // 
