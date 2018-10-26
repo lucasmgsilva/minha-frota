@@ -260,8 +260,8 @@ CREATE TABLE ABASTECIMENTO (
 	idMotorista INT NOT NULL,
 	idVeiculo INT NOT NULL,
 	dataAbastecimento DATETIME NOT NULL,
-	litros DECIMAL(9, 2) NOT NULL,
-	valorLitro DECIMAL (9, 2) NOT NULL,
+	litros DECIMAL(9, 3) NOT NULL,
+	valorLitro DECIMAL (9, 3) NOT NULL,
 	kmAnterior INT NOT NULL,
 	kmAtual INT NOT NULL,
 	PRIMARY KEY (idAbastecimento),
@@ -337,7 +337,7 @@ GO
 CREATE PROCEDURE SP_OBTEM_ABASTECIMENTOS (@IdVeiculo INT) 
 AS
 	SELECT 
-		ABASTECIMENTO.*, MOTORISTA.nome, VEICULO.placa, kmAtual - kmAnterior as 'kmPercorridos' ,ROUND((kmAtual - kmAnterior)/litros, 2) as 'consumo'
+		ABASTECIMENTO.*, MOTORISTA.nome, VEICULO.placa, kmAtual - kmAnterior as 'kmPercorridos', ROUND((kmAtual - kmAnterior)/litros, 2) as 'consumo'
 	FROM 
 		ABASTECIMENTO
 	INNER JOIN MOTORISTA ON MOTORISTA.idMotorista = ABASTECIMENTO.idMotorista
@@ -903,7 +903,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,2), @ValorLitro DECIMAL(9, 2), @KmAtual INT)
+CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,3), @ValorLitro DECIMAL(9, 3), @KmAtual INT)
 AS
 BEGIN
 	DECLARE @KmAnterior INT = (SELECT MAX(kmAtual) AS 'kmAnterior' FROM ABASTECIMENTO WHERE idVeiculo = @IdVeiculo)
@@ -916,6 +916,22 @@ BEGIN
 	VALUES
 		(@IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAnterior, @KmAtual)
 END
+GO
+
+CREATE PROCEDURE SP_ALTERA_ABASTECIMENTO (@IdAbastecimento INT, @IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,3), @ValorLitro DECIMAL(9, 3), @KmAtual INT)
+AS
+	UPDATE
+		ABASTECIMENTO
+	SET idMotorista = @IdMotorista, idVeiculo = @IdVeiculo, dataAbastecimento = @DataAbastecimento, litros = @Litros, valorLitro = @ValorLitro, kmAtual = @KmAtual
+	WHERE idAbastecimento = @IdAbastecimento
+GO
+
+CREATE PROCEDURE SP_DELETA_ABASTECIMENTO (@IdAbastecimento INT)
+AS
+	DELETE
+		FROM
+	ABASTECIMENTO
+		WHERE idAbastecimento = @IdAbastecimento
 GO
 -- FIM STORED PROCEDURES
 

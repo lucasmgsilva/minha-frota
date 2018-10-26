@@ -46,6 +46,53 @@ namespace Trinity.Model.DAO
             }
         }
 
+        public void AlteraAbastecimento(Abastecimento abastecimento)
+        {
+            string sql = "EXECUTE SP_ALTERA_ABASTECIMENTO @IdAbastecimento, @IdMotorista, @IdVeiculo, @DataAbastecimento, @Litros, @ValorLitro, @KmAtual";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(sql, this.connection);
+                cmd.Parameters.AddWithValue("@IdAbastecimento", abastecimento.IdAbastecimento);
+                cmd.Parameters.AddWithValue("@IdMotorista", abastecimento.Motorista.IdMotorista);
+                cmd.Parameters.AddWithValue("@IdVeiculo", abastecimento.Veiculo.IdVeiculo);
+                cmd.Parameters.AddWithValue("@DataAbastecimento", abastecimento.DataAbastecimento);
+                cmd.Parameters.AddWithValue("@Litros", abastecimento.Litros);
+                cmd.Parameters.AddWithValue("@ValorLitro", abastecimento.ValorLitro);
+                cmd.Parameters.AddWithValue("@KmAtual", abastecimento.KmAtual);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("O abastecimento foi alterado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CARGO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+        }
+
+        public void DeletaAbastecimento(int idAbastecimento)
+        {
+            string query = "EXECUTE SP_DELETA_ABASTECIMENTO @IdAbastecimento";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@IdAbastecimento", idAbastecimento);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("O ABASTECIMENTO foi excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.connection.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+        }
+
         public List<Abastecimento> GetListaAbastecimento(int IdVeiculo)
         {
             string sql = "EXECUTE SP_OBTEM_ABASTECIMENTOS @IdVeiculo";
@@ -59,6 +106,7 @@ namespace Trinity.Model.DAO
 
                 while (dtr.Read())
                 {
+
                     Abastecimento abastecimento = new Abastecimento()
                     {
                         IdAbastecimento = Convert.ToInt32(dtr["idAbastecimento"].ToString()),

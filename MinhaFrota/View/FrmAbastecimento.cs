@@ -111,7 +111,7 @@ namespace Trinity.View
                 AbastecimentoDAO dao = new AbastecimentoDAO();
                 if (!this.editando)
                     dao.AdicionaAbastecimento(this.abastecimentoCarregado);
-                //else dao.AlteraModelo(this.modeloCarregado);
+                else dao.AlteraAbastecimento(this.abastecimentoCarregado);
                 CarregaListaAbastecimentos();
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -185,9 +185,9 @@ namespace Trinity.View
                 {
                     if (MessageBox.Show("Você realmente quer excluir este ABASTECIMENTO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        ModeloDAO dao = new ModeloDAO();
-                        //dao.DeletaModelo(this.modeloCarregado.IdModelo);
-                        //CarregaListaModelos();
+                        AbastecimentoDAO dao = new AbastecimentoDAO();
+                        dao.DeletaAbastecimento(this.abastecimentoCarregado.IdAbastecimento);
+                        CarregaListaAbastecimentos();
                     }
                 }
                 else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
