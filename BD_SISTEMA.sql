@@ -336,7 +336,7 @@ GO
 CREATE PROCEDURE SP_OBTEM_ABASTECIMENTOS (@IdVeiculo INT) 
 AS
 	SELECT 
-		ABASTECIMENTO.*, MOTORISTA.nome, VEICULO.placa
+		ABASTECIMENTO.*, MOTORISTA.nome, VEICULO.placa, kmAtual - kmAnterior as 'kmPercorridos' ,ROUND((kmAtual - kmAnterior)/litros, 2) as 'consumo'
 	FROM 
 		ABASTECIMENTO
 	INNER JOIN MOTORISTA ON MOTORISTA.idMotorista = ABASTECIMENTO.idMotorista
@@ -904,11 +904,10 @@ GO
 CREATE PROCEDURE SP_INSERE_ABASTECIMENTO (@IdMotorista INT, @IdVeiculo INT, @DataAbastecimento DATETIME, @Litros DECIMAL(9,2), @ValorLitro DECIMAL(9, 2), @KmAtual INT)
 AS
 BEGIN
-	DECLARE @KmAnterior INT = (SELECT MAX(kmAtual) AS 'kmAnterior' FROM ABASTECIMENTO WHERE idVeiculo = 4)
+	DECLARE @KmAnterior INT = (SELECT MAX(kmAtual) AS 'kmAnterior' FROM ABASTECIMENTO WHERE idVeiculo = @IdVeiculo)
 
 	IF @KmAnterior IS NULL
-		SET @KmAnterior = (SELECT km FROM VEICULO WHERE idVeiculo = 4)
-		PRINT @KmAnterior
+		SET @KmAnterior = (SELECT km FROM VEICULO WHERE idVeiculo = @IdVeiculo)
 
 	INSERT INTO
 		ABASTECIMENTO (idMotorista, idVeiculo, dataAbastecimento, litros, valorLitro, kmAnterior, kmAtual)
