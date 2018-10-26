@@ -8,6 +8,7 @@ namespace Trinity.Model.Bean
 {
     public class Abastecimento
     {
+        public int IdAbastecimento { get; set; }
         public Motorista Motorista { get; set; }
         public Veiculo Veiculo { get; set; }
         public DateTime DataAbastecimento { get; set; }

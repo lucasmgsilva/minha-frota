@@ -43,7 +43,11 @@ namespace Trinity
                         motoristasToolStripMenuItem1.Enabled = true;
                     else if (permissoes.Substring(i, 2) == "VE")
                         veiculosToolStripMenuItem.Enabled = true;
-                }
+                    else if (permissoes.Substring(i, 2) == "AB")
+                        abastecimentosToolStripMenuItem.Enabled = true;
+                    else if (permissoes.Substring(i, 2) == "MA")
+                        manutencaoToolStripMenuItem.Enabled = true;
+            }
         }
 
         private void soreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,7 +113,8 @@ namespace Trinity
 
         private void abastecimentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmAbastecimento telaAbastecimento = new FrmAbastecimento();
+            telaAbastecimento.ShowDialog();
         }
     }
 }

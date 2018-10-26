@@ -83,9 +83,9 @@
             this.lblTrabalhoDeConclusaoDeCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(149)))), ((int)(((byte)(152)))));
             this.lblTrabalhoDeConclusaoDeCurso.Location = new System.Drawing.Point(46, 333);
             this.lblTrabalhoDeConclusaoDeCurso.Name = "lblTrabalhoDeConclusaoDeCurso";
-            this.lblTrabalhoDeConclusaoDeCurso.Size = new System.Drawing.Size(236, 18);
+            this.lblTrabalhoDeConclusaoDeCurso.Size = new System.Drawing.Size(368, 18);
             this.lblTrabalhoDeConclusaoDeCurso.TabIndex = 3;
-            this.lblTrabalhoDeConclusaoDeCurso.Text = "Trabalho de Conclusão de Curso";
+            this.lblTrabalhoDeConclusaoDeCurso.Text = "Instituto Federal de São Paulo - Campus Catanduva";
             // 
             // lblIFSPCampusCatanduva
             // 
@@ -94,9 +94,9 @@
             this.lblIFSPCampusCatanduva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(149)))), ((int)(((byte)(152)))));
             this.lblIFSPCampusCatanduva.Location = new System.Drawing.Point(46, 359);
             this.lblIFSPCampusCatanduva.Name = "lblIFSPCampusCatanduva";
-            this.lblIFSPCampusCatanduva.Size = new System.Drawing.Size(368, 18);
+            this.lblIFSPCampusCatanduva.Size = new System.Drawing.Size(469, 18);
             this.lblIFSPCampusCatanduva.TabIndex = 4;
-            this.lblIFSPCampusCatanduva.Text = "Instituto Federal de São Paulo - Campus Catanduva";
+            this.lblIFSPCampusCatanduva.Text = "Lucas Matheus Gomes da Silva - Trabalho de Conclusão de Curso";
             // 
             // pctLogo
             // 

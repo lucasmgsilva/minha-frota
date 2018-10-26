@@ -17,7 +17,7 @@ namespace Trinity.View
     {
         List<Abastecimento> listaAbastecimento;
         bool editando;
-        Modelo modeloCarregado;
+        Abastecimento abastecimentoCarregado;
 
         public FrmAbastecimento()
         {
@@ -44,12 +44,24 @@ namespace Trinity.View
 
         private void DesabilitaCampos()
         {
-            cmbVeiculo.Enabled = false;
+            txtData.Enabled = false;
+            cmbMotorista.Enabled = false;
+            cmbVeiculo.Enabled = !false;
+            txtKmAtual.Enabled = false;
+            txtLitros.Enabled = false;
+            txtValorLitro.Enabled = false;
+            txtValorTotal.Enabled = false;
         }
 
         private void HabilitaCampos()
         {
-            cmbVeiculo.Enabled = !false;
+            txtData.Enabled = !false;
+            cmbMotorista.Enabled = !false;
+            cmbVeiculo.Enabled = false;
+            txtKmAtual.Enabled = !false;
+            txtLitros.Enabled = !false;
+            txtValorLitro.Enabled = !false;
+            txtValorTotal.Enabled = !false;
         }
 
         private void HabilitaBotoes()
@@ -64,7 +76,6 @@ namespace Trinity.View
         private void DesabilitaBotoes()
         {
             HabilitaCampos();
-
             btnNovo.Enabled = !true;
             btnSalvar.Enabled = !false;
             btnEditar.Enabled = !true;
@@ -74,38 +85,34 @@ namespace Trinity.View
         private void LimpaCampos()
         {
             HabilitaBotoes();
-            cmbVeiculo.SelectedItem = null;
+            txtData.Value = DateTime.Now;
             cmbMotorista.SelectedItem = null;
+            txtKmAtual.Value = 0;
+            txtLitros.Value = 0;
+            txtValorLitro.Value = 0;
+            txtValorTotal.Value = 0;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (cmbVeiculo.SelectedItem != null && cmbMotorista.SelectedItem != null)
             {
-                Abastecimento abastecimento = new Abastecimento()
-                {
-                    Motorista = (Motorista)cmbMotorista.SelectedItem,
-                    Veiculo = (Veiculo)cmbVeiculo.SelectedItem,
-                    DataAbastecimento = Convert.ToDateTime(txtData.Text),
-                    Litros = float.Parse(txtLitros.Value.ToString()),
-                    ValorLitro = float.Parse(txtValorLitro.Value.ToString()),
-                    KmAtual = int.Parse(txtKmAtual.Value.ToString())
-                };
 
-                new AbastecimentoDAO().AdicionaAbastecimento(abastecimento);
+                if (this.abastecimentoCarregado == null)
+                    this.abastecimentoCarregado = new Abastecimento();
 
-                /*if (this.modeloCarregado == null)
-                    this.modeloCarregado = new Modelo();
+                this.abastecimentoCarregado.Motorista = (Motorista)cmbMotorista.SelectedItem;
+                this.abastecimentoCarregado.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
+                this.abastecimentoCarregado.DataAbastecimento = Convert.ToDateTime(txtData.Text);
+                this.abastecimentoCarregado.Litros = float.Parse(txtLitros.Value.ToString());
+                this.abastecimentoCarregado.ValorLitro = float.Parse(txtValorLitro.Value.ToString());
+                this.abastecimentoCarregado.KmAtual = int.Parse(txtKmAtual.Value.ToString());
 
-                this.modeloCarregado.Marca = (Marca)cmbVeiculo.SelectedItem;
-                //this.modeloCarregado.modelo = txtModelo.Text;
-                
-
-                ModeloDAO dao = new ModeloDAO();
+                AbastecimentoDAO dao = new AbastecimentoDAO();
                 if (!this.editando)
-                    dao.AdicionaModelo(this.modeloCarregado);
-                else dao.AlteraModelo(this.modeloCarregado);
-                CarregaListaModelos();*/
+                    dao.AdicionaAbastecimento(this.abastecimentoCarregado);
+                //else dao.AlteraModelo(this.modeloCarregado);
+                CarregaListaAbastecimentos();
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -113,11 +120,11 @@ namespace Trinity.View
         {
             if (this.editando)
             {
-                if (MessageBox.Show("Você realmente quer desfazer as alterações deste MODELO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Você realmente quer desfazer as alterações deste ABASTECIMENTO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     HabilitaBotoes();
                     this.editando = false;
-                    //CarregaModelos();
+                    CarregaAbastecimento();
                 }
             }
             else this.Close();
@@ -142,26 +149,25 @@ namespace Trinity.View
                     this.editando = true;
                     DesabilitaBotoes();
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MODELO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MODELO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvMarcas_SelectionChanged(object sender, EventArgs e)
         {
-            /*LimpaCampos();
+            LimpaCampos();
             if (dgvAbastecimentos.RowCount != 0)
             {
                 if (dgvAbastecimentos.CurrentRow.Selected)
                 {
                     this.editando = false;
-                    int idModelo = Convert.ToInt32(dgvAbastecimentos.CurrentRow.Cells["idModelo"].Value.ToString());
-                    //this.modeloCarregado = this.listaAbastecimento.Find(u => u.IdModelo == idModelo);
-                    //CarregaModelos();
+                    int idAbastecimento = Convert.ToInt32(dgvAbastecimentos.CurrentRow.Cells["idAbastecimento"].Value.ToString());
+                    this.abastecimentoCarregado = this.listaAbastecimento.Find(u => u.IdAbastecimento == idAbastecimento);
+                    CarregaAbastecimento();
                 }
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MODELO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            */
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -177,16 +183,16 @@ namespace Trinity.View
             {
                 if (dgvAbastecimentos.CurrentRow.Selected)
                 {
-                    if (MessageBox.Show("Você realmente quer excluir este MODELO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Você realmente quer excluir este ABASTECIMENTO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         ModeloDAO dao = new ModeloDAO();
-                        dao.DeletaModelo(this.modeloCarregado.IdModelo);
+                        //dao.DeletaModelo(this.modeloCarregado.IdModelo);
                         //CarregaListaModelos();
                     }
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MODELO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MODELO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ABASTECIMENTO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -262,6 +268,29 @@ namespace Trinity.View
             {
                 e.Value = BindProperty(dgvAbastecimentos.Rows[e.RowIndex].DataBoundItem, dgvAbastecimentos.Columns[e.ColumnIndex].DataPropertyName);
             }
+        }
+
+        private void SelecionaMotorista()
+        {
+            
+            foreach (Motorista item in cmbMotorista.Items)
+            {
+                if (item.IdMotorista == this.abastecimentoCarregado.Motorista.IdMotorista)
+                {
+                    cmbMotorista.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+
+        private void CarregaAbastecimento()
+        {
+            txtData.Value = this.abastecimentoCarregado.DataAbastecimento;
+            SelecionaMotorista();
+            cmbMotorista.SelectedItem = this.abastecimentoCarregado.Motorista;
+            txtKmAtual.Value = this.abastecimentoCarregado.KmAtual;
+            txtLitros.Value = Decimal.Parse(this.abastecimentoCarregado.Litros.ToString());
+            txtValorLitro.Value = Decimal.Parse(this.abastecimentoCarregado.ValorLitro.ToString());
         }
     }
 }

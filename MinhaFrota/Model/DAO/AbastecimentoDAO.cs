@@ -61,12 +61,15 @@ namespace Trinity.Model.DAO
                 {
                     Abastecimento abastecimento = new Abastecimento()
                     {
+                        IdAbastecimento = Convert.ToInt32(dtr["idAbastecimento"].ToString()),
                         Motorista = new Motorista()
                         {
+                            IdMotorista = Convert.ToInt32(dtr["idMotorista"].ToString()),
                             Nome = dtr["nome"].ToString()
                         },
                         Veiculo = new Veiculo()
                         {
+                            IdVeiculo = Convert.ToInt32(dtr["idVeiculo"].ToString()),
                             Placa = dtr["placa"].ToString()
                         },
                         DataAbastecimento = Convert.ToDateTime(dtr["dataAbastecimento"].ToString()),

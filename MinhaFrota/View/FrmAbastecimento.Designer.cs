@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbastecimento));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.IdAbastecimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataAbastecimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +131,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(674, 421);
+            this.groupBox1.Size = new System.Drawing.Size(674, 461);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Abastecimento";
@@ -327,7 +329,7 @@
             // 
             // txtData
             // 
-            this.txtData.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.txtData.CustomFormat = "dd/MM/yyyy HH:mm";
             this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtData.Location = new System.Drawing.Point(11, 50);
             this.txtData.Name = "txtData";
@@ -396,18 +398,19 @@
             this.dgvAbastecimentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAbastecimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAbastecimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdAbastecimento,
             this.DataAbastecimento,
             this.placa,
             this.nome,
             this.litros,
             this.KmPercorridos,
             this.Consumo});
-            this.dgvAbastecimentos.Location = new System.Drawing.Point(11, 146);
+            this.dgvAbastecimentos.Location = new System.Drawing.Point(11, 135);
             this.dgvAbastecimentos.MultiSelect = false;
             this.dgvAbastecimentos.Name = "dgvAbastecimentos";
             this.dgvAbastecimentos.ReadOnly = true;
             this.dgvAbastecimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAbastecimentos.Size = new System.Drawing.Size(653, 269);
+            this.dgvAbastecimentos.Size = new System.Drawing.Size(653, 320);
             this.dgvAbastecimentos.TabIndex = 18;
             this.dgvAbastecimentos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgvAbastecimentos.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
@@ -415,7 +418,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(568, 520);
+            this.btnCancelar.Location = new System.Drawing.Point(576, 520);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
             this.btnCancelar.TabIndex = 5;
@@ -427,7 +430,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(464, 520);
+            this.btnExcluir.Location = new System.Drawing.Point(472, 520);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 3;
@@ -439,7 +442,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(223, 480);
+            this.btnEditar.Location = new System.Drawing.Point(212, 520);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
             this.btnEditar.TabIndex = 4;
@@ -451,7 +454,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(119, 480);
+            this.btnSalvar.Location = new System.Drawing.Point(108, 520);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
             this.btnSalvar.TabIndex = 2;
@@ -463,7 +466,7 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(13, 480);
+            this.btnNovo.Location = new System.Drawing.Point(2, 520);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
             this.btnNovo.TabIndex = 1;
@@ -472,12 +475,24 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // IdAbastecimento
+            // 
+            this.IdAbastecimento.DataPropertyName = "IdAbastecimento";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.IdAbastecimento.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IdAbastecimento.HeaderText = "ID";
+            this.IdAbastecimento.Name = "IdAbastecimento";
+            this.IdAbastecimento.ReadOnly = true;
+            this.IdAbastecimento.Width = 60;
+            // 
             // DataAbastecimento
             // 
             this.DataAbastecimento.DataPropertyName = "DataAbastecimento";
             this.DataAbastecimento.HeaderText = "DATA";
             this.DataAbastecimento.Name = "DataAbastecimento";
             this.DataAbastecimento.ReadOnly = true;
+            this.DataAbastecimento.Width = 140;
             // 
             // placa
             // 
@@ -485,7 +500,7 @@
             this.placa.HeaderText = "VEÍCULO";
             this.placa.Name = "placa";
             this.placa.ReadOnly = true;
-            this.placa.Width = 241;
+            this.placa.Width = 90;
             // 
             // nome
             // 
@@ -493,33 +508,37 @@
             this.nome.HeaderText = "MOTORISTA";
             this.nome.Name = "nome";
             this.nome.ReadOnly = true;
+            this.nome.Width = 120;
             // 
             // litros
             // 
             this.litros.DataPropertyName = "Litros";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.litros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.litros.DefaultCellStyle = dataGridViewCellStyle3;
             this.litros.HeaderText = "LITROS";
             this.litros.Name = "litros";
             this.litros.ReadOnly = true;
+            this.litros.Width = 65;
             // 
             // KmPercorridos
             // 
             this.KmPercorridos.DataPropertyName = "KmPercorridos";
-            this.KmPercorridos.HeaderText = "KM PERCORRIDOS";
+            this.KmPercorridos.HeaderText = "KM PER.";
             this.KmPercorridos.Name = "KmPercorridos";
             this.KmPercorridos.ReadOnly = true;
+            this.KmPercorridos.Width = 65;
             // 
             // Consumo
             // 
             this.Consumo.DataPropertyName = "Consumo";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Consumo.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Consumo.HeaderText = "CONSUMO/L";
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Consumo.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Consumo.HeaderText = "KM/L";
             this.Consumo.Name = "Consumo";
             this.Consumo.ReadOnly = true;
+            this.Consumo.Width = 70;
             // 
             // FrmAbastecimento
             // 
@@ -586,6 +605,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbMotorista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdAbastecimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataAbastecimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;

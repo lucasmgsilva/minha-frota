@@ -256,6 +256,7 @@ CREATE TABLE SERVICO_MANUTENCAO (
 GO
 
 CREATE TABLE ABASTECIMENTO (
+	idAbastecimento INT NOT NULL IDENTITY,
 	idMotorista INT NOT NULL,
 	idVeiculo INT NOT NULL,
 	dataAbastecimento DATETIME NOT NULL,
@@ -263,7 +264,7 @@ CREATE TABLE ABASTECIMENTO (
 	valorLitro DECIMAL (9, 2) NOT NULL,
 	kmAnterior INT NOT NULL,
 	kmAtual INT NOT NULL,
-	PRIMARY KEY (idMotorista, idVeiculo, dataAbastecimento),
+	PRIMARY KEY (idAbastecimento),
 	FOREIGN KEY (idMotorista) REFERENCES MOTORISTA (idMotorista),
 	FOREIGN KEY (idVeiculo) REFERENCES VEICULO (idVeiculo)
 )
@@ -342,6 +343,7 @@ AS
 	INNER JOIN MOTORISTA ON MOTORISTA.idMotorista = ABASTECIMENTO.idMotorista
 	INNER JOIN VEICULO ON VEICULO.idVeiculo = ABASTECIMENTO.idVeiculo
 	WHERE ABASTECIMENTO.idVeiculo = @IdVeiculo
+	ORDER BY idAbastecimento DESC 
 GO
 
 CREATE VIEW VW_SELECIONA_EMPRESA 
