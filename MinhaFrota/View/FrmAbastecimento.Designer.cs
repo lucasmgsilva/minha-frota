@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbastecimento));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,6 +68,8 @@
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.litros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KmPercorridos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Consumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorLitro)).BeginInit();
@@ -395,7 +399,9 @@
             this.DataAbastecimento,
             this.placa,
             this.nome,
-            this.litros});
+            this.litros,
+            this.KmPercorridos,
+            this.Consumo});
             this.dgvAbastecimentos.Location = new System.Drawing.Point(11, 146);
             this.dgvAbastecimentos.MultiSelect = false;
             this.dgvAbastecimentos.Name = "dgvAbastecimentos";
@@ -491,9 +497,29 @@
             // litros
             // 
             this.litros.DataPropertyName = "Litros";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.litros.DefaultCellStyle = dataGridViewCellStyle2;
             this.litros.HeaderText = "LITROS";
             this.litros.Name = "litros";
             this.litros.ReadOnly = true;
+            // 
+            // KmPercorridos
+            // 
+            this.KmPercorridos.DataPropertyName = "KmPercorridos";
+            this.KmPercorridos.HeaderText = "KM PERCORRIDOS";
+            this.KmPercorridos.Name = "KmPercorridos";
+            this.KmPercorridos.ReadOnly = true;
+            // 
+            // Consumo
+            // 
+            this.Consumo.DataPropertyName = "Consumo";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Consumo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Consumo.HeaderText = "CONSUMO/L";
+            this.Consumo.Name = "Consumo";
+            this.Consumo.ReadOnly = true;
             // 
             // FrmAbastecimento
             // 
@@ -564,5 +590,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn litros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KmPercorridos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Consumo;
     }
 }

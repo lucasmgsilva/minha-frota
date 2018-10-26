@@ -73,7 +73,9 @@ namespace Trinity.Model.DAO
                         Litros = float.Parse(dtr["litros"].ToString()),
                         ValorLitro = float.Parse(dtr["valorLitro"].ToString()),
                         KmAnterior = Convert.ToInt32(dtr["kmAnterior"].ToString()),
-                        KmAtual = Convert.ToInt32(dtr["kmAtual"].ToString())
+                        KmAtual = Convert.ToInt32(dtr["kmAtual"].ToString()),
+                        KmPercorridos = Convert.ToInt32(dtr["kmPercorridos"].ToString()),
+                        Consumo = float.Parse(dtr["consumo"].ToString())
                     };
 
                     listaAbastecimentos.Add(abastecimento);

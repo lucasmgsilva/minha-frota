@@ -15,5 +15,7 @@ namespace Trinity.Model.Bean
         public float ValorLitro { get; set; }
         public int KmAnterior { get; set; }
         public int KmAtual { get; set; }
+        public int KmPercorridos { get; set; }
+        public float Consumo { get; set; }
     }
 }
