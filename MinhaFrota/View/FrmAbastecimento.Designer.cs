@@ -483,7 +483,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(576, 520);
+            this.btnCancelar.Location = new System.Drawing.Point(568, 520);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
             this.btnCancelar.TabIndex = 5;
@@ -495,7 +495,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(472, 520);
+            this.btnExcluir.Location = new System.Drawing.Point(464, 520);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 3;
@@ -507,7 +507,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(212, 520);
+            this.btnEditar.Location = new System.Drawing.Point(223, 520);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
             this.btnEditar.TabIndex = 4;
@@ -519,7 +519,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(108, 520);
+            this.btnSalvar.Location = new System.Drawing.Point(119, 520);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
             this.btnSalvar.TabIndex = 2;
@@ -531,7 +531,7 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(2, 520);
+            this.btnNovo.Location = new System.Drawing.Point(13, 520);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
             this.btnNovo.TabIndex = 1;
