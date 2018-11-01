@@ -228,11 +228,11 @@
     <Compile Include="View\FrmModelo.Designer.cs">
       <DependentUpon>FrmModelo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmMarca .cs">
+    <Compile Include="View\FrmMarca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmMarca .Designer.cs">
-      <DependentUpon>FrmMarca .cs</DependentUpon>
+    <Compile Include="View\FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmCargo.cs">
       <SubType>Form</SubType>
@@ -353,8 +353,8 @@
     <EmbeddedResource Include="View\FrmModelo.resx">
       <DependentUpon>FrmModelo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmMarca .resx">
-      <DependentUpon>FrmMarca .cs</DependentUpon>
+    <EmbeddedResource Include="View\FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
