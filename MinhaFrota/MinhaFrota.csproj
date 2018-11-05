@@ -198,6 +198,12 @@
     <Compile Include="View\FrmAbastecimento.Designer.cs">
       <DependentUpon>FrmAbastecimento.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmViagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmViagem.designer.cs">
+      <DependentUpon>FrmViagem.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmMulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmAbastecimento.resx">
       <DependentUpon>FrmAbastecimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmViagem.resx">
+      <DependentUpon>FrmViagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMulta.resx">
       <DependentUpon>FrmMulta.cs</DependentUpon>
