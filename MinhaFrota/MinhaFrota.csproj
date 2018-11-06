@@ -308,18 +308,6 @@
     <Compile Include="View\FrmVeiculo.Designer.cs">
       <DependentUpon>FrmVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reports\FrmRelatorioManutencao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Reports\FrmRelatorioManutencao.Designer.cs">
-      <DependentUpon>FrmRelatorioManutencao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Reports\RptRelatorioManutencao.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RptRelatorioManutencao.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="View\FrmConsultaMulta.resx">
       <DependentUpon>FrmConsultaMulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,13 +390,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmVeiculo.resx">
       <DependentUpon>FrmVeiculo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Reports\FrmRelatorioManutencao.resx">
-      <DependentUpon>FrmRelatorioManutencao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Reports\RptRelatorioManutencao.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RptRelatorioManutencao.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

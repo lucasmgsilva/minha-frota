@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trinity.Model.Bean;
 using Trinity.Model.DAO;
-using Trinity.View.Reports;
 
 namespace Trinity.View
 {
@@ -114,12 +113,6 @@ namespace Trinity.View
             {
                 e.Value = BindProperty(dgvManutencoes.Rows[e.RowIndex].DataBoundItem, dgvManutencoes.Columns[e.ColumnIndex].DataPropertyName);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmRelatorioManutencao frmRelatorioManutencao = new FrmRelatorioManutencao();
-            frmRelatorioManutencao.ShowDialog();
         }
     }
 }

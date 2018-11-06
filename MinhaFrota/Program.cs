@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trinity.Factory;
 using Trinity.View;
-using Trinity.View.Reports;
-
 namespace Trinity
 {
     static class Program
@@ -21,7 +19,8 @@ namespace Trinity
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmApresentacao());
-            Application.Run(new FrmAbastecimento());
+            Application.Run(new FrmViagem(null));
+            //Application.Run(new FrmAbastecimento());
             //Application.Run(new FrmRelatorioManutencao());
             //Application.Run(new FrmConsultaManutencao());
             //Application.Run(new FrmConsultaMulta());

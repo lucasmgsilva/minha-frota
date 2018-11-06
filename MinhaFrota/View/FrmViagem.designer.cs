@@ -34,29 +34,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.txtDataCadastro = new System.Windows.Forms.MaskedTextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtDataNascimento = new System.Windows.Forms.DateTimePicker();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtApelido = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbSexo = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtTelefoneCelular = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTelefoneFixo = new System.Windows.Forms.MaskedTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtRG = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbMotorista = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.cmbVeiculo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDataManutencao = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -83,11 +73,18 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.txtKmInicial = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKmInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -137,29 +134,24 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label41);
-            this.groupBox2.Controls.Add(this.txtDataCadastro);
-            this.groupBox2.Controls.Add(this.label38);
-            this.groupBox2.Controls.Add(this.txtDataNascimento);
-            this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.txtApelido);
-            this.groupBox2.Controls.Add(this.label49);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cmbSexo);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtTelefoneCelular);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtTelefoneFixo);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.txtCpf);
+            this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txtRG);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.txtNome);
-            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.txtKmInicial);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cmbMotorista);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.cmbVeiculo);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtDataManutencao);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(4, 0);
             this.groupBox2.Name = "groupBox2";
@@ -168,232 +160,136 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações do Motorista";
             // 
-            // label18
+            // dateTimePicker1
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(754, 28);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 19);
-            this.label18.TabIndex = 60;
-            this.label18.Text = "*";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(607, 28);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(147, 19);
-            this.label41.TabIndex = 59;
-            this.label41.Text = "Data de Cadastro:";
-            // 
-            // txtDataCadastro
-            // 
-            this.txtDataCadastro.Enabled = false;
-            this.txtDataCadastro.Location = new System.Drawing.Point(611, 47);
-            this.txtDataCadastro.Mask = "00/00/0000 90:00";
-            this.txtDataCadastro.Name = "txtDataCadastro";
-            this.txtDataCadastro.ReadOnly = true;
-            this.txtDataCadastro.Size = new System.Drawing.Size(154, 26);
-            this.txtDataCadastro.TabIndex = 1;
-            this.txtDataCadastro.ValidatingType = typeof(System.DateTime);
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(746, 134);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(15, 19);
-            this.label38.TabIndex = 57;
-            this.label38.Text = "*";
-            // 
-            // txtDataNascimento
-            // 
-            this.txtDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataNascimento.Location = new System.Drawing.Point(611, 153);
-            this.txtDataNascimento.Name = "txtDataNascimento";
-            this.txtDataNascimento.Size = new System.Drawing.Size(155, 26);
-            this.txtDataNascimento.TabIndex = 8;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(607, 134);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(139, 19);
-            this.label37.TabIndex = 56;
-            this.label37.Text = "Data de Nascmt.:";
-            // 
-            // txtApelido
-            // 
-            this.txtApelido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtApelido.Location = new System.Drawing.Point(11, 100);
-            this.txtApelido.MaxLength = 50;
-            this.txtApelido.Name = "txtApelido";
-            this.txtApelido.Size = new System.Drawing.Size(594, 26);
-            this.txtApelido.TabIndex = 2;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(7, 81);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(73, 19);
-            this.label49.TabIndex = 54;
-            this.label49.Text = "Apelido:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(61, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 19);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "*";
-            // 
-            // cmbSexo
-            // 
-            this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSexo.FormattingEnabled = true;
-            this.cmbSexo.Items.AddRange(new object[] {
-            "MASCULINO",
-            "FEMININO"});
-            this.cmbSexo.Location = new System.Drawing.Point(11, 153);
-            this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(142, 26);
-            this.cmbSexo.TabIndex = 4;
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(181, 92);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(165, 26);
+            this.dateTimePicker1.TabIndex = 92;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(666, 81);
+            this.label7.Location = new System.Drawing.Point(177, 73);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 19);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "*";
+            this.label7.Size = new System.Drawing.Size(164, 19);
+            this.label7.TabIndex = 93;
+            this.label7.Text = "Data/Hora Chegada:";
             // 
-            // label9
+            // label2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(453, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 19);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Telefone Celular:";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Chartreuse;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(436, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 19);
+            this.label2.TabIndex = 91;
+            this.label2.Text = "+";
             // 
-            // txtTelefoneCelular
+            // label18
             // 
-            this.txtTelefoneCelular.Location = new System.Drawing.Point(457, 153);
-            this.txtTelefoneCelular.Mask = "(99) 00000-0000";
-            this.txtTelefoneCelular.Name = "txtTelefoneCelular";
-            this.txtTelefoneCelular.Size = new System.Drawing.Size(144, 26);
-            this.txtTelefoneCelular.TabIndex = 7;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(224, 22);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(15, 19);
+            this.label18.TabIndex = 90;
+            this.label18.Text = "*";
             // 
-            // label10
+            // label3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(303, 134);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 19);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Telefone Fixo:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(138, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 19);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "Motorista:";
             // 
-            // txtTelefoneFixo
+            // cmbMotorista
             // 
-            this.txtTelefoneFixo.Location = new System.Drawing.Point(307, 153);
-            this.txtTelefoneFixo.Mask = "(99) 0000-0000";
-            this.txtTelefoneFixo.Name = "txtTelefoneFixo";
-            this.txtTelefoneFixo.Size = new System.Drawing.Size(144, 26);
-            this.txtTelefoneFixo.TabIndex = 6;
+            this.cmbMotorista.FormattingEnabled = true;
+            this.cmbMotorista.Location = new System.Drawing.Point(142, 41);
+            this.cmbMotorista.MaxLength = 25;
+            this.cmbMotorista.Name = "cmbMotorista";
+            this.cmbMotorista.Size = new System.Drawing.Size(294, 26);
+            this.cmbMotorista.TabIndex = 88;
             // 
-            // label12
+            // label13
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(607, 81);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 19);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "CPF:";
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Chartreuse;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(118, 44);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 19);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "+";
             // 
-            // txtCpf
+            // label15
             // 
-            this.txtCpf.Location = new System.Drawing.Point(611, 100);
-            this.txtCpf.Mask = "000,000,000-00";
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(155, 26);
-            this.txtCpf.TabIndex = 3;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(77, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 19);
+            this.label15.TabIndex = 86;
+            this.label15.Text = "*";
             // 
-            // label14
+            // label27
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(7, 134);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 19);
-            this.label14.TabIndex = 36;
-            this.label14.Text = "Sexo:";
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(6, 22);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(71, 19);
+            this.label27.TabIndex = 85;
+            this.label27.Text = "Veículo:";
             // 
-            // label16
+            // cmbVeiculo
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(67, 28);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(15, 19);
-            this.label16.TabIndex = 16;
-            this.label16.Text = "*";
+            this.cmbVeiculo.FormattingEnabled = true;
+            this.cmbVeiculo.Location = new System.Drawing.Point(10, 41);
+            this.cmbVeiculo.MaxLength = 25;
+            this.cmbVeiculo.Name = "cmbVeiculo";
+            this.cmbVeiculo.Size = new System.Drawing.Size(108, 26);
+            this.cmbVeiculo.TabIndex = 84;
             // 
-            // txtRG
+            // label4
             // 
-            this.txtRG.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRG.Location = new System.Drawing.Point(159, 153);
-            this.txtRG.MaxLength = 25;
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(142, 26);
-            this.txtRG.TabIndex = 5;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(144, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 19);
+            this.label4.TabIndex = 83;
+            this.label4.Text = "*";
             // 
-            // label17
+            // txtDataManutencao
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(155, 134);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 19);
-            this.label17.TabIndex = 10;
-            this.label17.Text = "RG:";
+            this.txtDataManutencao.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.txtDataManutencao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtDataManutencao.Location = new System.Drawing.Point(10, 92);
+            this.txtDataManutencao.Name = "txtDataManutencao";
+            this.txtDataManutencao.Size = new System.Drawing.Size(165, 26);
+            this.txtDataManutencao.TabIndex = 81;
             // 
-            // txtNome
+            // label5
             // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(11, 47);
-            this.txtNome.MaxLength = 80;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(594, 26);
-            this.txtNome.TabIndex = 0;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(7, 28);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 19);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Nome:";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 19);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Data/Hora Saída:";
             // 
             // btnCancelar
             // 
@@ -687,6 +583,61 @@
             this.label29.TabIndex = 49;
             this.label29.Text = "Logradouro:";
             // 
+            // txtKmInicial
+            // 
+            this.txtKmInicial.Location = new System.Drawing.Point(352, 92);
+            this.txtKmInicial.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtKmInicial.Name = "txtKmInicial";
+            this.txtKmInicial.Size = new System.Drawing.Size(124, 26);
+            this.txtKmInicial.TabIndex = 100;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(441, 73);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 19);
+            this.label8.TabIndex = 99;
+            this.label8.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(348, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 19);
+            this.label11.TabIndex = 98;
+            this.label11.Text = "Km. Saída:";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(482, 91);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(124, 26);
+            this.numericUpDown1.TabIndex = 103;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(478, 72);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 19);
+            this.label14.TabIndex = 101;
+            this.label14.Text = "Km. Chegada:";
+            // 
             // FrmViagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -699,6 +650,7 @@
             this.Name = "FrmViagem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão de Viagens";
+            this.Load += new System.EventHandler(this.FrmViagem_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -707,6 +659,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKmInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,29 +672,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.MaskedTextBox txtDataCadastro;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.DateTimePicker txtDataNascimento;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox txtApelido;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbSexo;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox txtTelefoneCelular;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox txtTelefoneFixo;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox txtCpf;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtRG;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
@@ -767,5 +698,23 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbMotorista;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox cmbVeiculo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker txtDataManutencao;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown txtKmInicial;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
     }
 }
