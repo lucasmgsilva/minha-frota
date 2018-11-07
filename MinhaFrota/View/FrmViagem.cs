@@ -26,6 +26,7 @@ namespace Trinity.View
             CarregaVeiculos();
             CarregaMotoristas();
             CarregaEstado();
+            BuscaRotaEntreOrigemEDestino();
             if (this.motoristaCarregado != null)
             {
                 this.editando = true;
@@ -203,19 +204,31 @@ namespace Trinity.View
         private void cmbUfDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCidadeDestino.DisplayMember = "cidade";
-            cmbCidadeDestino.DataSource = new CidadeDAO().GetListaCidade((Estado)cmbUf.SelectedItem);
+            cmbCidadeDestino.DataSource = new CidadeDAO().GetListaCidade((Estado)cmbUfDestino.SelectedItem);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BuscaRotaEntreOrigemEDestino()
         {
             string logradouroOrigem = txtLogradouro.Text;
-            string cidadeOrigem = ((Cidade)cmbCidade.SelectedItem).cidade;
-            string ufOrigem = ((Estado)cmbUf.SelectedItem).Uf;
+            string numeroOrigem = txtNumero.Text;
+            string bairroOrigem = txtBairro.Text;
+            string cidadeOrigem = String.Empty;
+            if (cmbCidade.SelectedItem != null)
+                cidadeOrigem = ((Cidade)cmbCidade.SelectedItem).cidade;
+            string ufOrigem = String.Empty;
+            if (cmbUf.SelectedItem != null)
+                ufOrigem = ((Estado)cmbUf.SelectedItem).Uf;
             string cepOrigem = txtCep.Text;
 
             string logradouroDestino = txtLogradouroDestino.Text;
-            string cidadeDestino = ((Cidade)cmbCidadeDestino.SelectedItem).cidade;
-            string ufDestino = ((Estado)cmbUfDestino.SelectedItem).Uf;
+            string numeroDestino = txtNumeroDestino.Text;
+            string bairroDestino = txtBairroDestino.Text;
+            string cidadeDestino = String.Empty;
+            if (cmbCidadeDestino.SelectedItem != null)
+                cidadeDestino = ((Cidade)cmbCidadeDestino.SelectedItem).cidade;
+            string ufDestino = String.Empty;
+            if (cmbUfDestino.SelectedItem != null)
+                ufDestino = ((Estado)cmbUfDestino.SelectedItem).Uf;
             string cepDestino = txtCEPDestino.Text;
 
             try
@@ -224,6 +237,12 @@ namespace Trinity.View
                 queryAddress.Append("https://www.google.com.br/maps/dir/");
 
                 if (!String.IsNullOrWhiteSpace(logradouroOrigem))
+                    queryAddress.Append(logradouroOrigem + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(numeroOrigem))
+                    queryAddress.Append(logradouroOrigem + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(bairroOrigem))
                     queryAddress.Append(logradouroOrigem + "," + "+");
 
                 if (!String.IsNullOrWhiteSpace(cidadeOrigem))
@@ -241,6 +260,12 @@ namespace Trinity.View
                 if (!String.IsNullOrWhiteSpace(logradouroDestino))
                     queryAddress.Append(logradouroDestino + "," + "+");
 
+                if (!String.IsNullOrWhiteSpace(numeroDestino))
+                    queryAddress.Append(numeroDestino + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(bairroDestino))
+                    queryAddress.Append(bairroDestino + "," + "+");
+
                 if (!String.IsNullOrWhiteSpace(cidadeDestino))
                     queryAddress.Append(cidadeDestino + "," + "+");
 
@@ -250,13 +275,17 @@ namespace Trinity.View
                 if (!String.IsNullOrWhiteSpace(cepDestino))
                     queryAddress.Append(cepDestino + "," + "+");
 
-                MessageBox.Show("Query: \n" + queryAddress.ToString());
                 webBrowser1.Navigate(queryAddress.ToString());
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message.ToString());
             }
+        }
+
+        private void btnTracarRota_Click(object sender, EventArgs e)
+        {
+            BuscaRotaEntreOrigemEDestino();
         }
     }
 }

@@ -973,8 +973,8 @@ SET IDENTITY_INSERT PESSOA ON
 GO
 
 INSERT INTO PESSOA 
-	(idPessoa, logradouro, numero, bairro, idCidade, cep) 
-		VALUES (1, 'LOGRADOURO DA EMPRESA', 'S/N', 'BAIRRO DA EMPRESA', 4832 /*Catanduva*/, '99999-999')
+	(idPessoa, logradouro, numero, bairro, idCidade, cep, telefoneFixo, telefoneCelular) 
+		VALUES (1, 'AV. NICOLAU PIZZOLANTE', '407', 'CENTRO', 4789 /*Borborema*/, '14955-000', '(16) 3266-1885', '(16) 99727-4472')
 GO
 
 SET IDENTITY_INSERT PESSOA OFF
@@ -984,8 +984,8 @@ SET IDENTITY_INSERT EMPRESA ON
 GO
 
 INSERT INTO EMPRESA
-	(idEmpresa, razaoSocial, cnpj, dataAbertura, idPessoa) 
-		VALUES (1, 'RAZÃO SOCIAL DA EMPRESA', '11111111111111', '1-1-1', 1 /*ID Herança Pessoa*/)
+	(idEmpresa, razaoSocial, nomeFantasia, cnpj, ie, dataAbertura, idPessoa) 
+		VALUES (1, 'LUCIO RODRIGO DA SILVA - ME', 'UNIÃO AUTOPEÇAS', '18.782.936/0001-87', '223.018.404.116', '30-08-2013', 1 /*ID Herança Pessoa*/)
 GO
 
 SET IDENTITY_INSERT EMPRESA OFF

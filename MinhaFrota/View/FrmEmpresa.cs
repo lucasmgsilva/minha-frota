@@ -88,16 +88,16 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtRazaoSocial.Text.Trim()) && !String.IsNullOrEmpty(txtDataAbertura.Text.Trim()) && !String.IsNullOrEmpty(txtCnpj.Text.Trim()) && !String.IsNullOrEmpty(txtLogradouro.Text.Trim()) && !String.IsNullOrEmpty(txtNumero.Text.Trim()) && !String.IsNullOrEmpty(txtBairro.Text.Trim()) && !String.IsNullOrEmpty(txtCep.Text.Trim()) && cmbUf.SelectedItem != null && cmbCidade.SelectedItem != null)
+            if (!String.IsNullOrWhiteSpace(txtRazaoSocial.Text.Trim()) && !String.IsNullOrWhiteSpace(txtDataAbertura.Text.Trim()) && !String.IsNullOrWhiteSpace(txtCnpj.Text.Trim()) && !String.IsNullOrWhiteSpace(txtLogradouro.Text.Trim()) && !String.IsNullOrWhiteSpace(txtNumero.Text.Trim()) && !String.IsNullOrWhiteSpace(txtBairro.Text.Trim()) && !String.IsNullOrWhiteSpace(txtCep.Text.Trim()) && cmbUf.SelectedItem != null && cmbCidade.SelectedItem != null)
             {
-                if (Validacao.ValidaCNPJ(txtCnpj.Text))
+                if (Validacao.ValidaCNPJ(txtCnpj.Text.Trim()))
                     {
                     if (this.empresaCarregada == null)
                         this.empresaCarregada = new Empresa();
                     this.empresaCarregada.RazaoSocial = txtRazaoSocial.Text.Trim();
-                    this.empresaCarregada.DataAbertura = Convert.ToDateTime(txtDataAbertura.Text);
+                    this.empresaCarregada.DataAbertura = Convert.ToDateTime(txtDataAbertura.Text.Trim());
                     this.empresaCarregada.NomeFantasia = txtNomeFantasia.Text.Trim();
-                    this.empresaCarregada.Cnpj = txtCnpj.Text;
+                    this.empresaCarregada.Cnpj = txtCnpj.Text.Trim();
                     this.empresaCarregada.Ie = txtIe.Text.Trim();
                     this.empresaCarregada.Im = txtIm.Text.Trim();
                     this.empresaCarregada.TelefoneFixo = txtTelefoneFixo.Text.Trim();
@@ -106,7 +106,7 @@ namespace Trinity.View
                     this.empresaCarregada.Numero = txtNumero.Text.Trim();
                     this.empresaCarregada.Complemento = txtComplemento.Text.Trim();
                     this.empresaCarregada.Bairro = txtBairro.Text.Trim();
-                    this.empresaCarregada.Cep = txtCep.Text;
+                    this.empresaCarregada.Cep = txtCep.Text.Trim();
                     this.empresaCarregada.Cidade = (Cidade)cmbCidade.SelectedItem;
                     this.empresaCarregada.Cidade.Estado = (Estado)cmbUf.SelectedItem;
 

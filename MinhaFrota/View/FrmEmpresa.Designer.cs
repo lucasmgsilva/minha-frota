@@ -110,7 +110,8 @@
             // 
             // cmbCidade
             // 
-            this.cmbCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCidade.FormattingEnabled = true;
             this.cmbCidade.Location = new System.Drawing.Point(554, 95);
             this.cmbCidade.MaxLength = 120;
@@ -162,7 +163,8 @@
             // 
             // cmbUf
             // 
-            this.cmbUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUf.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUf.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUf.FormattingEnabled = true;
             this.cmbUf.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmbUf.Location = new System.Drawing.Point(494, 95);
@@ -461,9 +463,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
             this.label1.Location = new System.Drawing.Point(297, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 23);
+            this.label1.Size = new System.Drawing.Size(189, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "GESTÃO DE EMPRESA";
+            this.label1.Text = "GESTÃO DE EMPRESAS";
             // 
             // panel1
             // 
