@@ -37,7 +37,6 @@ namespace Trinity.View
         {
             txtLogradouro.Text = this.motoristaCarregado.Logradouro;
             txtNumero.Text = this.motoristaCarregado.Numero;
-            txtComplemento.Text = motoristaCarregado.Complemento;
             txtBairro.Text = this.motoristaCarregado.Bairro;
             txtCep.Text = this.motoristaCarregado.Cep;
             SelecionaEstado();
@@ -48,7 +47,6 @@ namespace Trinity.View
         {
             txtLogradouro.Enabled = false;
             txtNumero.Enabled = false;
-            txtComplemento.Enabled = false;
             txtBairro.Enabled = false;
             txtCep.Enabled = false;
             cmbUf.Enabled = false;
@@ -59,7 +57,6 @@ namespace Trinity.View
         {
             txtLogradouro.Enabled = !false;
             txtNumero.Enabled = !false;
-            txtComplemento.Enabled = !false;
             txtBairro.Enabled = !false;
             txtCep.Enabled = !false;
             cmbUf.Enabled = !false;
@@ -89,7 +86,6 @@ namespace Trinity.View
             DesabilitaBotoes();
             txtLogradouro.Text = String.Empty;
             txtNumero.Text = String.Empty;
-            txtComplemento.Text = String.Empty;
             txtBairro.Text = String.Empty;
             txtCep.Text = String.Empty;
             //cmbUf.SelectedItem = null;
@@ -112,6 +108,8 @@ namespace Trinity.View
         {
             cmbUf.DisplayMember = "uf";
             cmbUf.DataSource = new EstadoDAO().GetListaEstados();
+            cmbUfDestino.DisplayMember = "uf";
+            cmbUfDestino.DataSource = new EstadoDAO().GetListaEstados();
         }
 
         public void SelecionaEstado()
@@ -132,7 +130,6 @@ namespace Trinity.View
                 
             this.motoristaCarregado.Logradouro = txtLogradouro.Text;
             this.motoristaCarregado.Numero = txtNumero.Text;
-            this.motoristaCarregado.Complemento = txtComplemento.Text;
             this.motoristaCarregado.Bairro = txtBairro.Text;
             this.motoristaCarregado.Cep = txtCep.Text;
             this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
@@ -203,9 +200,63 @@ namespace Trinity.View
 
         }
 
-        private void FrmViagem_Load(object sender, EventArgs e)
+        private void cmbUfDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbCidadeDestino.DisplayMember = "cidade";
+            cmbCidadeDestino.DataSource = new CidadeDAO().GetListaCidade((Estado)cmbUf.SelectedItem);
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string logradouroOrigem = txtLogradouro.Text;
+            string cidadeOrigem = ((Cidade)cmbCidade.SelectedItem).cidade;
+            string ufOrigem = ((Estado)cmbUf.SelectedItem).Uf;
+            string cepOrigem = txtCep.Text;
+
+            string logradouroDestino = txtLogradouroDestino.Text;
+            string cidadeDestino = ((Cidade)cmbCidadeDestino.SelectedItem).cidade;
+            string ufDestino = ((Estado)cmbUfDestino.SelectedItem).Uf;
+            string cepDestino = txtCEPDestino.Text;
+
+            try
+            {
+                StringBuilder queryAddress = new StringBuilder();
+                queryAddress.Append("https://www.google.com.br/maps/dir/");
+
+                if (!String.IsNullOrWhiteSpace(logradouroOrigem))
+                    queryAddress.Append(logradouroOrigem + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(cidadeOrigem))
+                    queryAddress.Append(cidadeOrigem + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(ufOrigem))
+                    queryAddress.Append(ufOrigem + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(cepOrigem))
+                    queryAddress.Append(cepOrigem + "," + "+");
+                // ------ //
+                queryAddress.Append("/");
+                // ------ //
+
+                if (!String.IsNullOrWhiteSpace(logradouroDestino))
+                    queryAddress.Append(logradouroDestino + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(cidadeDestino))
+                    queryAddress.Append(cidadeDestino + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(ufDestino))
+                    queryAddress.Append(ufDestino + "," + "+");
+
+                if (!String.IsNullOrWhiteSpace(cepDestino))
+                    queryAddress.Append(cepDestino + "," + "+");
+
+                MessageBox.Show("Query: \n" + queryAddress.ToString());
+                webBrowser1.Navigate(queryAddress.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message.ToString());
+            }
         }
     }
 }
