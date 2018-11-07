@@ -346,6 +346,23 @@ AS
 	ORDER BY idAbastecimento DESC 
 GO
 
+CREATE PROCEDURE SP_BUSCA_USUARIO (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		USUARIO.idUsuario, USUARIO.usuario, USUARIO.senha, CARGO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura, CIDADE.cidade, ESTADO.*, PESSOA.* 
+	FROM 
+		USUARIO
+	INNER JOIN CARGO ON CARGO.idCargo = USUARIO.idCargo
+	INNER JOIN EMPRESA ON EMPRESA.idEmpresa = USUARIO.idEmpresa
+	INNER JOIN PESSOA ON PESSOA.idPessoa = EMPRESA.idPessoa
+	INNER JOIN CIDADE ON PESSOA.idCidade = CIDADE.idCidade 
+	INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
+	WHERE
+		USUARIO.idUsuario like '%' + @PalavraChave + '%' OR
+		USUARIO.usuario like '%' + @PalavraChave + '%' OR
+		EMPRESA.razaoSocial like '%' + @PalavraChave + '%'
+GO
+
 CREATE VIEW VW_SELECIONA_EMPRESA 
 AS 
 SELECT PESSOA.*, CIDADE.cidade, ESTADO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura FROM PESSOA
@@ -997,7 +1014,7 @@ GO
 SET IDENTITY_INSERT CARGO ON
 GO
 
-INSERT INTO CARGO (idCargo, cargo, permissoes) VALUES (2, 'GESTOR DE FROTA', 'EMUSCLVE')
+INSERT INTO CARGO (idCargo, cargo, permissoes) VALUES (2, 'GESTOR DE FROTA', 'EMUSMOVEABMA')
 GO
 
 SET IDENTITY_INSERT CARGO OFF

@@ -34,9 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPalavraChave = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razaoSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,7 +67,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(300, 9);
+            this.label1.Location = new System.Drawing.Point(355, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 23);
             this.label1.TabIndex = 0;
@@ -73,9 +75,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPalavraChave);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F);
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
             this.groupBox1.Name = "groupBox1";
@@ -83,6 +86,18 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnBuscar.Location = new System.Drawing.Point(768, 39);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(98, 29);
+            this.btnBuscar.TabIndex = 39;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label11
             // 
@@ -105,12 +120,14 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Palavras-Chave:";
             // 
-            // textBox1
+            // txtPalavraChave
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(856, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtPalavraChave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPalavraChave.Location = new System.Drawing.Point(10, 41);
+            this.txtPalavraChave.Name = "txtPalavraChave";
+            this.txtPalavraChave.Size = new System.Drawing.Size(752, 26);
+            this.txtPalavraChave.TabIndex = 0;
+            this.txtPalavraChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavraChave_KeyPress);
             // 
             // btnExcluir
             // 
@@ -169,7 +186,8 @@
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idUsuario,
-            this.usuario});
+            this.usuario,
+            this.razaoSocial});
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsuarios.Location = new System.Drawing.Point(3, 22);
             this.dgvUsuarios.MultiSelect = false;
@@ -178,6 +196,7 @@
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(866, 361);
             this.dgvUsuarios.TabIndex = 0;
+            this.dgvUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
             // idUsuario
             // 
@@ -188,7 +207,6 @@
             this.idUsuario.HeaderText = "ID";
             this.idUsuario.Name = "idUsuario";
             this.idUsuario.ReadOnly = true;
-            this.idUsuario.Width = 241;
             // 
             // usuario
             // 
@@ -196,7 +214,15 @@
             this.usuario.HeaderText = "USUÁRIO";
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
-            this.usuario.Width = 241;
+            this.usuario.Width = 200;
+            // 
+            // razaoSocial
+            // 
+            this.razaoSocial.DataPropertyName = "Empresa.RazaoSocial";
+            this.razaoSocial.HeaderText = "RAZÃO SOCIAL";
+            this.razaoSocial.Name = "razaoSocial";
+            this.razaoSocial.ReadOnly = true;
+            this.razaoSocial.Width = 520;
             // 
             // FrmConsultaUsuario
             // 
@@ -230,7 +256,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPalavraChave;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNovo;
@@ -240,5 +266,7 @@
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razaoSocial;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

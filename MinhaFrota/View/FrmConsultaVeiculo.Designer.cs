@@ -36,7 +36,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPalavraChave = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -77,7 +77,7 @@
             // 
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPalavraChave);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F);
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
             this.groupBox1.Name = "groupBox1";
@@ -107,12 +107,12 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Palavras-Chave:";
             // 
-            // textBox1
+            // txtPalavraChave
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(856, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtPalavraChave.Location = new System.Drawing.Point(10, 41);
+            this.txtPalavraChave.Name = "txtPalavraChave";
+            this.txtPalavraChave.Size = new System.Drawing.Size(856, 26);
+            this.txtPalavraChave.TabIndex = 0;
             // 
             // btnExcluir
             // 
@@ -249,7 +249,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNovo;
@@ -261,5 +260,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.TextBox txtPalavraChave;
     }
 }

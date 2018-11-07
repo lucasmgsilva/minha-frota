@@ -1,11 +1,9 @@
 -Pendentes:
 FrmAbastecimento
-FrmCargo
 FrmCombustivel
 FrmConsultaManutencao
 FrmConsultaMotorista
 FrmConsultaMulta
-FrmConsultaUsuario
 FrmConsultaVeiculo
 FrmCor
 FrmInfracao
@@ -17,13 +15,15 @@ FrmMulta
 FrmPrincipal
 FrmProduto
 FrmServico
-FrmSobre
 FrmUnidadeMedida
-FrmUsuario
 FrmVeiculo
 FrmViagem
 
 -Finalizados:
+FrmSobre
 FrmAcesso
 FrmApresentacao
 FrmEmpresa
+FrmConsultaUsuario
+FrmUsuario
+FrmCargo

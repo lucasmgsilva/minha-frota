@@ -35,18 +35,20 @@ namespace Trinity
                 string permissoes = UsuarioSessaoAtual.Cargo.Permissoes;
                 for (int i = 0; i < permissoes.Length; i += 2)
                 {
-                    if (permissoes.Substring(i, 2) == "EM")
-                        minhaEmpresaToolStripMenuItem1.Enabled = true;
-                    else if (permissoes.Substring(i, 2) == "US")
-                        usuariosToolStripMenuItem1.Enabled = true;
-                    else if (permissoes.Substring(i, 2) == "MO")
-                        motoristasToolStripMenuItem1.Enabled = true;
-                    else if (permissoes.Substring(i, 2) == "VE")
-                        veiculosToolStripMenuItem.Enabled = true;
-                    else if (permissoes.Substring(i, 2) == "AB")
-                        abastecimentosToolStripMenuItem.Enabled = true;
-                    else if (permissoes.Substring(i, 2) == "MA")
-                        manutencaoToolStripMenuItem.Enabled = true;
+                if (permissoes.Substring(i, 2) == "EM")
+                    minhaEmpresaToolStripMenuItem1.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "US")
+                    usuariosToolStripMenuItem1.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "MO")
+                    motoristasToolStripMenuItem1.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "VE")
+                    veiculosToolStripMenuItem.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "VI")
+                    viagensToolStripMenuItem1.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "AB")
+                    abastecimentosToolStripMenuItem.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "MA")
+                    manutencaoToolStripMenuItem.Enabled = true;
             }
         }
 

@@ -32,6 +32,9 @@ namespace Trinity.View
             chkUsuarios.Enabled = false;
             chkMotoristas.Enabled = false;
             chkVeiculos.Enabled = false;
+            chkViagens.Enabled = false;
+            chkAbastecimentos.Enabled = false;
+            chkManutencoes.Enabled = false;
         }
 
         private void HabilitaCampos()
@@ -41,6 +44,9 @@ namespace Trinity.View
             chkUsuarios.Enabled = !false;
             chkMotoristas.Enabled = !false;
             chkVeiculos.Enabled = !false;
+            chkViagens.Enabled = !false;
+            chkAbastecimentos.Enabled = !false;
+            chkManutencoes.Enabled = !false;
         }
 
         private void HabilitaBotoes()
@@ -69,11 +75,14 @@ namespace Trinity.View
             chkUsuarios.Checked = false;
             chkMotoristas.Checked = false;
             chkVeiculos.Checked = false;
+            chkViagens.Checked = false;
+            chkAbastecimentos.Checked = false;
+            chkManutencoes.Checked = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtCargo.Text))
+            if (!String.IsNullOrWhiteSpace(txtCargo.Text.Trim()))
             {
                 string permissoes = String.Empty;
                 if (chkEmpresas.Checked)
@@ -84,11 +93,17 @@ namespace Trinity.View
                     permissoes += "MO";
                 if (chkVeiculos.Checked)
                     permissoes += "VE";
+                if (chkViagens.Checked)
+                    permissoes += "VI";
+                if (chkAbastecimentos.Checked)
+                    permissoes += "AB";
+                if (chkManutencoes.Checked)
+                    permissoes += "MA";
 
                 if (this.cargoCarregado == null)
                     this.cargoCarregado = new Cargo();
 
-                this.cargoCarregado.cargo = txtCargo.Text;
+                this.cargoCarregado.cargo = txtCargo.Text.Trim();
                 this.cargoCarregado.Permissoes = permissoes;
 
                 CargoDAO dao = new CargoDAO();
@@ -169,6 +184,12 @@ namespace Trinity.View
                     chkMotoristas.Checked = true;
                 else if (permissoes.Substring(i, 2) == "VE")
                     chkVeiculos.Checked = true;
+                else if (permissoes.Substring(i, 2) == "VI")
+                    chkViagens.Checked = true;
+                else if (permissoes.Substring(i, 2) == "AB")
+                    chkAbastecimentos.Checked = true;
+                else if (permissoes.Substring(i, 2) == "MA")
+                    chkManutencoes.Checked = true;
             }
         }
 

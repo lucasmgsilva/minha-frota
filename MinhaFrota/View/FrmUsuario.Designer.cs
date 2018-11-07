@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(300, 9);
+            this.label1.Location = new System.Drawing.Point(303, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 23);
             this.label1.TabIndex = 0;
@@ -131,6 +131,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Chartreuse;
+            this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(605, 157);
             this.label8.Name = "label8";
@@ -157,6 +158,9 @@
             // 
             // cmbRazaoSocial
             // 
+            this.cmbRazaoSocial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRazaoSocial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbRazaoSocial.Enabled = false;
             this.cmbRazaoSocial.FormattingEnabled = true;
             this.cmbRazaoSocial.Location = new System.Drawing.Point(11, 153);
             this.cmbRazaoSocial.MaxLength = 80;
@@ -208,6 +212,8 @@
             // 
             // cmbCargo
             // 
+            this.cmbCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCargo.FormattingEnabled = true;
             this.cmbCargo.Location = new System.Drawing.Point(11, 100);
             this.cmbCargo.MaxLength = 25;

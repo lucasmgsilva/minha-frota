@@ -82,7 +82,7 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(txtUsuario.Text.Trim()) && !String.IsNullOrEmpty(txtSenha.Text.Trim()) && !String.IsNullOrEmpty(txtConfirmacaoSenha.Text.Trim()) && cmbCargo.SelectedItem!=null && cmbRazaoSocial.SelectedItem != null)
+            if(!String.IsNullOrWhiteSpace(txtUsuario.Text.Trim()) && !String.IsNullOrWhiteSpace(txtSenha.Text.Trim()) && !String.IsNullOrWhiteSpace(txtConfirmacaoSenha.Text.Trim()) && cmbCargo.SelectedItem!=null && cmbRazaoSocial.SelectedItem != null)
             {
                 if (ValidaSenha())
                 {
@@ -160,7 +160,6 @@ namespace Trinity.View
             txtSenha.Enabled = false;
             txtConfirmacaoSenha.Enabled = false;
             cmbCargo.Enabled = false;
-            cmbRazaoSocial.Enabled = false;
         }
 
         private void HabilitaCampos()
@@ -169,7 +168,6 @@ namespace Trinity.View
             txtSenha.Enabled = !false;
             txtConfirmacaoSenha.Enabled = !false;
             cmbCargo.Enabled = !false;
-            cmbRazaoSocial.Enabled = !false;
             txtUsuario.Focus();
         }
 
@@ -221,28 +219,15 @@ namespace Trinity.View
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
             if (!ValidaSenha())
-            {
-                txtSenha.ForeColor = Color.Red;
                 txtConfirmacaoSenha.ForeColor = Color.Red;
-            }
-            else
-            {
-                txtSenha.ForeColor = Color.Green;
-                txtConfirmacaoSenha.ForeColor = Color.Green;
-            }
+            else txtConfirmacaoSenha.ForeColor = Color.Green;
         }
 
         private void txtConfirmacaoSenha_TextChanged(object sender, EventArgs e)
         {
             if (!ValidaSenha())
-            {
-                txtSenha.ForeColor = Color.Red;
                 txtConfirmacaoSenha.ForeColor = Color.Red;
-            }
-            else {
-                txtSenha.ForeColor = Color.Green;
-                txtConfirmacaoSenha.ForeColor = Color.Green;
-            }
+            else txtConfirmacaoSenha.ForeColor = Color.Green;
         }
     }
 }

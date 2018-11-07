@@ -111,7 +111,7 @@ namespace Trinity.View
             if ((dgvVeiculos.Rows[e.RowIndex].DataBoundItem != null) && (dgvVeiculos.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
             {
                 e.Value = BindProperty(dgvVeiculos.Rows[e.RowIndex].DataBoundItem, dgvVeiculos.Columns[e.ColumnIndex].DataPropertyName);
-            }   
+            }
         }
     }
 }

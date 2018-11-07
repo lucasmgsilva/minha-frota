@@ -46,6 +46,7 @@
             this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viagensToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -131,6 +132,7 @@
             this.usuariosToolStripMenuItem1,
             this.motoristasToolStripMenuItem1,
             this.veiculosToolStripMenuItem,
+            this.viagensToolStripMenuItem1,
             this.abastecimentosToolStripMenuItem,
             this.manutencaoToolStripMenuItem,
             this.cadastrosBaseStripMenuItem,
@@ -250,6 +252,16 @@
             this.sAIRToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
             // 
+            // viagensToolStripMenuItem1
+            // 
+            this.viagensToolStripMenuItem1.Enabled = false;
+            this.viagensToolStripMenuItem1.Image = global::Trinity.Properties.Resources.abastecimento_32px;
+            this.viagensToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.viagensToolStripMenuItem1.Name = "viagensToolStripMenuItem1";
+            this.viagensToolStripMenuItem1.Size = new System.Drawing.Size(66, 51);
+            this.viagensToolStripMenuItem1.Text = "VIAGENS";
+            this.viagensToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,5 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrosBaseStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abastecimentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viagensToolStripMenuItem1;
     }
 }

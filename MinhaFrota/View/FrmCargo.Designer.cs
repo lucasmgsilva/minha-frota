@@ -41,6 +41,9 @@
             this.idCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkViagens = new System.Windows.Forms.CheckBox();
+            this.chkManutencoes = new System.Windows.Forms.CheckBox();
+            this.chkAbastecimentos = new System.Windows.Forms.CheckBox();
             this.chkVeiculos = new System.Windows.Forms.CheckBox();
             this.chkEmpresas = new System.Windows.Forms.CheckBox();
             this.chkMotoristas = new System.Windows.Forms.CheckBox();
@@ -64,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 47);
+            this.panel1.Size = new System.Drawing.Size(532, 47);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -72,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Location = new System.Drawing.Point(182, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 23);
             this.label1.TabIndex = 0;
@@ -94,7 +97,7 @@
             this.txtCargo.Location = new System.Drawing.Point(11, 47);
             this.txtCargo.MaxLength = 40;
             this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(425, 26);
+            this.txtCargo.Size = new System.Drawing.Size(508, 26);
             this.txtCargo.TabIndex = 0;
             // 
             // label11
@@ -119,7 +122,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 398);
+            this.groupBox1.Size = new System.Drawing.Size(528, 398);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Cargo";
@@ -140,7 +143,7 @@
             this.dgvCargos.Name = "dgvCargos";
             this.dgvCargos.ReadOnly = true;
             this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargos.Size = new System.Drawing.Size(765, 154);
+            this.dgvCargos.Size = new System.Drawing.Size(508, 154);
             this.dgvCargos.TabIndex = 18;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvcargos_SelectionChanged);
             // 
@@ -153,7 +156,6 @@
             this.idCargo.HeaderText = "ID";
             this.idCargo.Name = "idCargo";
             this.idCargo.ReadOnly = true;
-            this.idCargo.Width = 241;
             // 
             // cargo
             // 
@@ -161,28 +163,61 @@
             this.cargo.HeaderText = "CARGO";
             this.cargo.Name = "cargo";
             this.cargo.ReadOnly = true;
-            this.cargo.Width = 241;
+            this.cargo.Width = 360;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.chkViagens);
+            this.panel2.Controls.Add(this.chkManutencoes);
+            this.panel2.Controls.Add(this.chkAbastecimentos);
             this.panel2.Controls.Add(this.chkVeiculos);
             this.panel2.Controls.Add(this.chkEmpresas);
             this.panel2.Controls.Add(this.chkMotoristas);
             this.panel2.Controls.Add(this.chkUsuarios);
             this.panel2.Location = new System.Drawing.Point(11, 111);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(765, 121);
+            this.panel2.Size = new System.Drawing.Size(508, 121);
             this.panel2.TabIndex = 1;
+            // 
+            // chkViagens
+            // 
+            this.chkViagens.AutoSize = true;
+            this.chkViagens.Location = new System.Drawing.Point(229, 10);
+            this.chkViagens.Name = "chkViagens";
+            this.chkViagens.Size = new System.Drawing.Size(162, 22);
+            this.chkViagens.TabIndex = 6;
+            this.chkViagens.Text = "Módulo de Viagens";
+            this.chkViagens.UseVisualStyleBackColor = true;
+            // 
+            // chkManutencoes
+            // 
+            this.chkManutencoes.AutoSize = true;
+            this.chkManutencoes.Location = new System.Drawing.Point(229, 66);
+            this.chkManutencoes.Name = "chkManutencoes";
+            this.chkManutencoes.Size = new System.Drawing.Size(197, 22);
+            this.chkManutencoes.TabIndex = 5;
+            this.chkManutencoes.Text = "Módulo de Manutenções";
+            this.chkManutencoes.UseVisualStyleBackColor = true;
+            // 
+            // chkAbastecimentos
+            // 
+            this.chkAbastecimentos.AutoSize = true;
+            this.chkAbastecimentos.Location = new System.Drawing.Point(229, 38);
+            this.chkAbastecimentos.Name = "chkAbastecimentos";
+            this.chkAbastecimentos.Size = new System.Drawing.Size(216, 22);
+            this.chkAbastecimentos.TabIndex = 4;
+            this.chkAbastecimentos.Text = "Módulo de Abastecimentos";
+            this.chkAbastecimentos.UseVisualStyleBackColor = true;
             // 
             // chkVeiculos
             // 
             this.chkVeiculos.AutoSize = true;
             this.chkVeiculos.Location = new System.Drawing.Point(9, 94);
             this.chkVeiculos.Name = "chkVeiculos";
-            this.chkVeiculos.Size = new System.Drawing.Size(241, 22);
+            this.chkVeiculos.Size = new System.Drawing.Size(162, 22);
             this.chkVeiculos.TabIndex = 3;
-            this.chkVeiculos.Text = "Acesso ao módulo de Veículos";
+            this.chkVeiculos.Text = "Módulo de Veículos";
             this.chkVeiculos.UseVisualStyleBackColor = true;
             // 
             // chkEmpresas
@@ -190,9 +225,9 @@
             this.chkEmpresas.AutoSize = true;
             this.chkEmpresas.Location = new System.Drawing.Point(9, 10);
             this.chkEmpresas.Name = "chkEmpresas";
-            this.chkEmpresas.Size = new System.Drawing.Size(293, 22);
+            this.chkEmpresas.Size = new System.Drawing.Size(214, 22);
             this.chkEmpresas.TabIndex = 0;
-            this.chkEmpresas.Text = "Acesso ao módulo de Minha Empresa";
+            this.chkEmpresas.Text = "Módulo de Minha Empresa";
             this.chkEmpresas.UseVisualStyleBackColor = true;
             // 
             // chkMotoristas
@@ -200,9 +235,9 @@
             this.chkMotoristas.AutoSize = true;
             this.chkMotoristas.Location = new System.Drawing.Point(9, 66);
             this.chkMotoristas.Name = "chkMotoristas";
-            this.chkMotoristas.Size = new System.Drawing.Size(256, 22);
+            this.chkMotoristas.Size = new System.Drawing.Size(177, 22);
             this.chkMotoristas.TabIndex = 2;
-            this.chkMotoristas.Text = "Acesso ao módulo de Motoristas";
+            this.chkMotoristas.Text = "Módulo de Motoristas";
             this.chkMotoristas.UseVisualStyleBackColor = true;
             // 
             // chkUsuarios
@@ -210,9 +245,9 @@
             this.chkUsuarios.AutoSize = true;
             this.chkUsuarios.Location = new System.Drawing.Point(9, 38);
             this.chkUsuarios.Name = "chkUsuarios";
-            this.chkUsuarios.Size = new System.Drawing.Size(245, 22);
+            this.chkUsuarios.Size = new System.Drawing.Size(166, 22);
             this.chkUsuarios.TabIndex = 1;
-            this.chkUsuarios.Text = "Acesso ao módulo de Usuários";
+            this.chkUsuarios.Text = "Módulo de Usuários";
             this.chkUsuarios.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -228,7 +263,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(678, 457);
+            this.btnCancelar.Location = new System.Drawing.Point(432, 457);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
             this.btnCancelar.TabIndex = 5;
@@ -240,7 +275,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(574, 457);
+            this.btnExcluir.Location = new System.Drawing.Point(328, 457);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 3;
@@ -289,7 +324,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 490);
+            this.ClientSize = new System.Drawing.Size(532, 490);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
@@ -335,6 +370,9 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvCargos;
+        private System.Windows.Forms.CheckBox chkManutencoes;
+        private System.Windows.Forms.CheckBox chkAbastecimentos;
+        private System.Windows.Forms.CheckBox chkViagens;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
     }
