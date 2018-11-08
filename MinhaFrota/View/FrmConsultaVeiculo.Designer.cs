@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPalavraChave = new System.Windows.Forms.TextBox();
@@ -43,9 +44,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvVeiculos = new System.Windows.Forms.DataGridView();
             this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combustivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,7 +71,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(300, 9);
+            this.label1.Location = new System.Drawing.Point(354, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 23);
             this.label1.TabIndex = 0;
@@ -75,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtPalavraChave);
@@ -82,9 +87,21 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 75);
-            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnBuscar.Location = new System.Drawing.Point(771, 40);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(98, 29);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label11
             // 
@@ -111,8 +128,9 @@
             // 
             this.txtPalavraChave.Location = new System.Drawing.Point(10, 41);
             this.txtPalavraChave.Name = "txtPalavraChave";
-            this.txtPalavraChave.Size = new System.Drawing.Size(856, 26);
+            this.txtPalavraChave.Size = new System.Drawing.Size(755, 26);
             this.txtPalavraChave.TabIndex = 0;
+            this.txtPalavraChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavraChave_KeyPress);
             // 
             // btnExcluir
             // 
@@ -171,9 +189,12 @@
             this.dgvVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVeiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idVeiculo,
-            this.modelo,
+            this.renavam,
+            this.placa,
             this.marca,
-            this.placa});
+            this.modelo,
+            this.combustivel,
+            this.cor});
             this.dgvVeiculos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVeiculos.Location = new System.Drawing.Point(3, 22);
             this.dgvVeiculos.MultiSelect = false;
@@ -193,14 +214,22 @@
             this.idVeiculo.HeaderText = "ID";
             this.idVeiculo.Name = "idVeiculo";
             this.idVeiculo.ReadOnly = true;
-            this.idVeiculo.Width = 241;
             // 
-            // modelo
+            // renavam
             // 
-            this.modelo.DataPropertyName = "Modelo.modelo";
-            this.modelo.HeaderText = "MODELO";
-            this.modelo.Name = "modelo";
-            this.modelo.ReadOnly = true;
+            this.renavam.DataPropertyName = "RENAVAM";
+            this.renavam.HeaderText = "RENAVAM";
+            this.renavam.Name = "renavam";
+            this.renavam.ReadOnly = true;
+            this.renavam.Width = 120;
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "Placa";
+            this.placa.HeaderText = "PLACA";
+            this.placa.Name = "placa";
+            this.placa.ReadOnly = true;
+            this.placa.Width = 90;
             // 
             // marca
             // 
@@ -209,13 +238,28 @@
             this.marca.Name = "marca";
             this.marca.ReadOnly = true;
             // 
-            // placa
+            // modelo
             // 
-            this.placa.DataPropertyName = "Placa";
-            this.placa.HeaderText = "PLACA";
-            this.placa.Name = "placa";
-            this.placa.ReadOnly = true;
-            this.placa.Width = 241;
+            this.modelo.DataPropertyName = "Modelo.modelo";
+            this.modelo.HeaderText = "MODELO";
+            this.modelo.Name = "modelo";
+            this.modelo.ReadOnly = true;
+            // 
+            // combustivel
+            // 
+            this.combustivel.DataPropertyName = "Combustivel.combustivel";
+            this.combustivel.HeaderText = "COMBUSTÍVEL";
+            this.combustivel.Name = "combustivel";
+            this.combustivel.ReadOnly = true;
+            this.combustivel.Width = 180;
+            // 
+            // cor
+            // 
+            this.cor.DataPropertyName = "Cor.cor";
+            this.cor.HeaderText = "COR";
+            this.cor.Name = "cor";
+            this.cor.ReadOnly = true;
+            this.cor.Width = 130;
             // 
             // FrmConsultaVeiculo
             // 
@@ -256,10 +300,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvVeiculos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idVeiculo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.TextBox txtPalavraChave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn renavam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn combustivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cor;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

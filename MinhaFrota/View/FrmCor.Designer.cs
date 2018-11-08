@@ -95,7 +95,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(142, 28);
+            this.label11.Location = new System.Drawing.Point(122, 28);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(15, 19);
             this.label11.TabIndex = 16;
@@ -132,7 +132,7 @@
             this.dgvCores.ReadOnly = true;
             this.dgvCores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCores.Size = new System.Drawing.Size(425, 154);
-            this.dgvCores.TabIndex = 18;
+            this.dgvCores.TabIndex = 1;
             this.dgvCores.SelectionChanged += new System.EventHandler(this.dgvCores_SelectionChanged);
             // 
             // idCor
@@ -171,7 +171,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(125, 347);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.btnEditar.Location = new System.Drawing.Point(282, 310);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;

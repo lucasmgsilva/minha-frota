@@ -97,7 +97,7 @@
             this.cmbUsuario.MaxLength = 20;
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(244, 26);
-            this.cmbUsuario.TabIndex = 1;
+            this.cmbUsuario.TabIndex = 0;
             this.cmbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbUsuario_KeyPress);
             // 
             // chkSenha
@@ -107,7 +107,7 @@
             this.chkSenha.Location = new System.Drawing.Point(41, 284);
             this.chkSenha.Name = "chkSenha";
             this.chkSenha.Size = new System.Drawing.Size(116, 22);
-            this.chkSenha.TabIndex = 12;
+            this.chkSenha.TabIndex = 2;
             this.chkSenha.TabStop = false;
             this.chkSenha.Text = "Exibir Senha";
             this.chkSenha.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.btnAcessar.Location = new System.Drawing.Point(41, 322);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(244, 31);
-            this.btnAcessar.TabIndex = 2;
+            this.btnAcessar.TabIndex = 3;
             this.btnAcessar.TabStop = false;
             this.btnAcessar.Text = "ACESSAR";
             this.btnAcessar.UseVisualStyleBackColor = false;
@@ -172,7 +172,7 @@
             this.txtSenha.MaxLength = 20;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(244, 26);
-            this.txtSenha.TabIndex = 0;
+            this.txtSenha.TabIndex = 1;
             this.txtSenha.UseSystemPasswordChar = true;
             this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 

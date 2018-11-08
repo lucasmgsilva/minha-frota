@@ -61,12 +61,12 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtCombustivel.Text))
+            if (!String.IsNullOrWhiteSpace(txtCombustivel.Text.Trim()))
             {
                 if (this.combustivelCarregado == null)
                     this.combustivelCarregado = new Combustivel();
 
-                this.combustivelCarregado.combustivel = txtCombustivel.Text;
+                this.combustivelCarregado.combustivel = txtCombustivel.Text.Trim();
 
                 CombustivelDAO dao = new CombustivelDAO();
                 if (!this.editando)

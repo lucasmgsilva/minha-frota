@@ -43,6 +43,7 @@
             this.viagensToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abastecimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutencaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.multasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +79,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 507);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(989, 63);
-            this.panel2.TabIndex = 0;
+            this.panel2.TabIndex = 1;
             // 
             // lblRazaoSocial
             // 
@@ -88,7 +89,7 @@
             this.lblRazaoSocial.Location = new System.Drawing.Point(33, 38);
             this.lblRazaoSocial.Name = "lblRazaoSocial";
             this.lblRazaoSocial.Size = new System.Drawing.Size(106, 20);
-            this.lblRazaoSocial.TabIndex = 3;
+            this.lblRazaoSocial.TabIndex = 1;
             this.lblRazaoSocial.Text = "RAZÃO SOCIAL";
             // 
             // pictureBox2
@@ -110,7 +111,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(33, 7);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(68, 20);
-            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "USUÁRIO";
             // 
             // pictureBox1
@@ -133,6 +134,7 @@
             this.veiculosToolStripMenuItem,
             this.viagensToolStripMenuItem1,
             this.abastecimentosToolStripMenuItem,
+            this.multasToolStripMenuItem1,
             this.manutencaoToolStripMenuItem,
             this.trocaUsuarioToolStripMenuItem,
             this.sobreOSistemaToolStripMenuItem,
@@ -140,7 +142,7 @@
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
             this.mnPrincipal.Size = new System.Drawing.Size(995, 55);
-            this.mnPrincipal.TabIndex = 1;
+            this.mnPrincipal.TabIndex = 0;
             this.mnPrincipal.Text = "menuStrip2";
             // 
             // minhaEmpresaToolStripMenuItem1
@@ -191,12 +193,13 @@
             // viagensToolStripMenuItem1
             // 
             this.viagensToolStripMenuItem1.Enabled = false;
-            this.viagensToolStripMenuItem1.Image = global::Trinity.Properties.Resources.abastecimento_32px;
+            this.viagensToolStripMenuItem1.Image = global::Trinity.Properties.Resources.viagem_32px;
             this.viagensToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.viagensToolStripMenuItem1.Name = "viagensToolStripMenuItem1";
             this.viagensToolStripMenuItem1.Size = new System.Drawing.Size(66, 51);
             this.viagensToolStripMenuItem1.Text = "VIAGENS";
             this.viagensToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.viagensToolStripMenuItem1.Click += new System.EventHandler(this.viagensToolStripMenuItem1_Click);
             // 
             // abastecimentosToolStripMenuItem
             // 
@@ -219,6 +222,17 @@
             this.manutencaoToolStripMenuItem.Text = "MANUTENÇÕES";
             this.manutencaoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.manutencaoToolStripMenuItem.Click += new System.EventHandler(this.manutencoesToolStripMenuItem_Click);
+            // 
+            // multasToolStripMenuItem1
+            // 
+            this.multasToolStripMenuItem1.Enabled = false;
+            this.multasToolStripMenuItem1.Image = global::Trinity.Properties.Resources.multa_32px;
+            this.multasToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.multasToolStripMenuItem1.Name = "multasToolStripMenuItem1";
+            this.multasToolStripMenuItem1.Size = new System.Drawing.Size(63, 51);
+            this.multasToolStripMenuItem1.Text = "MULTAS";
+            this.multasToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.multasToolStripMenuItem1.Click += new System.EventHandler(this.multasToolStripMenuItem1_Click);
             // 
             // trocaUsuarioToolStripMenuItem
             // 
@@ -292,5 +306,6 @@
         private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abastecimentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viagensToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem multasToolStripMenuItem1;
     }
 }

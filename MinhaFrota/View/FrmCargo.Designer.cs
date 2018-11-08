@@ -54,6 +54,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.chkMultas = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
@@ -144,7 +145,7 @@
             this.dgvCargos.ReadOnly = true;
             this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCargos.Size = new System.Drawing.Size(508, 154);
-            this.dgvCargos.TabIndex = 18;
+            this.dgvCargos.TabIndex = 2;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvcargos_SelectionChanged);
             // 
             // idCargo
@@ -168,6 +169,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.chkMultas);
             this.panel2.Controls.Add(this.chkViagens);
             this.panel2.Controls.Add(this.chkManutencoes);
             this.panel2.Controls.Add(this.chkAbastecimentos);
@@ -186,17 +188,17 @@
             this.chkViagens.Location = new System.Drawing.Point(229, 10);
             this.chkViagens.Name = "chkViagens";
             this.chkViagens.Size = new System.Drawing.Size(162, 22);
-            this.chkViagens.TabIndex = 6;
+            this.chkViagens.TabIndex = 4;
             this.chkViagens.Text = "Módulo de Viagens";
             this.chkViagens.UseVisualStyleBackColor = true;
             // 
             // chkManutencoes
             // 
             this.chkManutencoes.AutoSize = true;
-            this.chkManutencoes.Location = new System.Drawing.Point(229, 66);
+            this.chkManutencoes.Location = new System.Drawing.Point(229, 94);
             this.chkManutencoes.Name = "chkManutencoes";
             this.chkManutencoes.Size = new System.Drawing.Size(197, 22);
-            this.chkManutencoes.TabIndex = 5;
+            this.chkManutencoes.TabIndex = 6;
             this.chkManutencoes.Text = "Módulo de Manutenções";
             this.chkManutencoes.UseVisualStyleBackColor = true;
             // 
@@ -206,7 +208,7 @@
             this.chkAbastecimentos.Location = new System.Drawing.Point(229, 38);
             this.chkAbastecimentos.Name = "chkAbastecimentos";
             this.chkAbastecimentos.Size = new System.Drawing.Size(216, 22);
-            this.chkAbastecimentos.TabIndex = 4;
+            this.chkAbastecimentos.TabIndex = 5;
             this.chkAbastecimentos.Text = "Módulo de Abastecimentos";
             this.chkAbastecimentos.UseVisualStyleBackColor = true;
             // 
@@ -266,7 +268,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(432, 457);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -290,7 +292,7 @@
             this.btnEditar.Location = new System.Drawing.Point(215, 457);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -302,7 +304,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(111, 457);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -314,11 +316,21 @@
             this.btnNovo.Location = new System.Drawing.Point(5, 457);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 1;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // chkMultas
+            // 
+            this.chkMultas.AutoSize = true;
+            this.chkMultas.Location = new System.Drawing.Point(229, 66);
+            this.chkMultas.Name = "chkMultas";
+            this.chkMultas.Size = new System.Drawing.Size(149, 22);
+            this.chkMultas.TabIndex = 7;
+            this.chkMultas.Text = "Módulo de Multas";
+            this.chkMultas.UseVisualStyleBackColor = true;
             // 
             // FrmCargo
             // 
@@ -375,5 +387,6 @@
         private System.Windows.Forms.CheckBox chkViagens;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        private System.Windows.Forms.CheckBox chkMultas;
     }
 }

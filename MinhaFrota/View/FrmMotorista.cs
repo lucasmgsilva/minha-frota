@@ -75,6 +75,9 @@ namespace Trinity.View
             txtTelefoneCelular.Enabled = false;
             cmbUf.Enabled = false;
             cmbCidade.Enabled = false;
+            txtNumeroRegistro.Enabled = false;
+            txtDataValidade.Enabled = false;
+            cmbCategoria.Enabled = false;
         }
 
         private void HabilitaCampos()
@@ -96,6 +99,10 @@ namespace Trinity.View
             txtTelefoneCelular.Enabled = !false;
             cmbUf.Enabled = !false;
             cmbCidade.Enabled = !false;
+            txtNumeroRegistro.Enabled = !false;
+            txtDataValidade.Enabled = !false;
+            cmbCategoria.Enabled = !false;
+            txtNome.Focus();
         }
 
         private void HabilitaBotoes()
@@ -133,9 +140,10 @@ namespace Trinity.View
             txtCep.Text = String.Empty;
             txtTelefoneFixo.Text = String.Empty;
             txtTelefoneCelular.Text = String.Empty;
-            //cmbUf.SelectedItem = null;
-            //cmbCidade.SelectedItem = null;
             cmbUf.SelectedIndex = 0;
+            txtNumeroRegistro.Text = String.Empty;
+            txtDataCadastro.Text = DateTime.Now.ToString();
+            cmbCategoria.SelectedItem = null;
         }
 
         public void SelecionaCidade()
@@ -182,7 +190,7 @@ namespace Trinity.View
                 cmbUf.SelectedItem != null && cmbCidade.SelectedItem != null && !String.IsNullOrWhiteSpace(txtNumeroRegistro.Text.Trim()) &&
                 !String.IsNullOrWhiteSpace(txtDataValidade.Text.Trim()) && cmbCategoria.SelectedItem != null)
             {
-                if (Validacao.ValidaCPF(txtCpf.Text.Trim()))
+                if (Validacao.ValidaCPF(txtCpf.Text.Trim()) && Validacao.ValidaCNH(txtNumeroRegistro.Text.Trim()))
                 {
                     if (this.motoristaCarregado == null)
                         this.motoristaCarregado = new Motorista();
@@ -217,7 +225,7 @@ namespace Trinity.View
                         dao.AdicionaMotorista(this.motoristaCarregado);
                     else dao.AlteraMotorista(this.motoristaCarregado);
                     this.Close();
-                } else MessageBox.Show("Não foi possível realizar a operação.\nO CPF digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else MessageBox.Show("Não foi possível realizar a operação.\nO CPF ou NÚMERO DE REGISTRO digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -272,6 +280,13 @@ namespace Trinity.View
             if (!Validacao.ValidaCPF(txtCpf.Text))
                 txtCpf.ForeColor = Color.Red;
             else txtCpf.ForeColor = Color.Green;
+        }
+
+        private void txtNumeroRegistro_TextChanged(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaCNH(txtNumeroRegistro.Text))
+                txtNumeroRegistro.ForeColor = Color.Red;
+            else txtNumeroRegistro.ForeColor = Color.Green;
         }
     }
 }

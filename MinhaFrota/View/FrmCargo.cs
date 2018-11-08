@@ -34,6 +34,7 @@ namespace Trinity.View
             chkVeiculos.Enabled = false;
             chkViagens.Enabled = false;
             chkAbastecimentos.Enabled = false;
+            chkMultas.Enabled = false;
             chkManutencoes.Enabled = false;
         }
 
@@ -46,7 +47,9 @@ namespace Trinity.View
             chkVeiculos.Enabled = !false;
             chkViagens.Enabled = !false;
             chkAbastecimentos.Enabled = !false;
+            chkMultas.Enabled = !false;
             chkManutencoes.Enabled = !false;
+            txtCargo.Focus();
         }
 
         private void HabilitaBotoes()
@@ -77,6 +80,7 @@ namespace Trinity.View
             chkVeiculos.Checked = false;
             chkViagens.Checked = false;
             chkAbastecimentos.Checked = false;
+            chkMultas.Checked = false;
             chkManutencoes.Checked = false;
         }
 
@@ -97,6 +101,8 @@ namespace Trinity.View
                     permissoes += "VI";
                 if (chkAbastecimentos.Checked)
                     permissoes += "AB";
+                if (chkMultas.Checked)
+                    permissoes += "MU";
                 if (chkManutencoes.Checked)
                     permissoes += "MA";
 
@@ -188,6 +194,8 @@ namespace Trinity.View
                     chkViagens.Checked = true;
                 else if (permissoes.Substring(i, 2) == "AB")
                     chkAbastecimentos.Checked = true;
+                else if (permissoes.Substring(i, 2) == "MU")
+                    chkMultas.Checked = true;
                 else if (permissoes.Substring(i, 2) == "MA")
                     chkManutencoes.Checked = true;
             }

@@ -47,6 +47,8 @@ namespace Trinity
                     viagensToolStripMenuItem1.Enabled = true;
                 else if (permissoes.Substring(i, 2) == "AB")
                     abastecimentosToolStripMenuItem.Enabled = true;
+                else if (permissoes.Substring(i, 2) == "MU")
+                    multasToolStripMenuItem1.Enabled = true;
                 else if (permissoes.Substring(i, 2) == "MA")
                     manutencaoToolStripMenuItem.Enabled = true;
             }
@@ -117,6 +119,17 @@ namespace Trinity
         {
             FrmAbastecimento telaAbastecimento = new FrmAbastecimento();
             telaAbastecimento.ShowDialog();
+        }
+
+        private void viagensToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmViagem telaViagem = new FrmViagem(null);
+            telaViagem.ShowDialog();
+        }
+
+        private void multasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

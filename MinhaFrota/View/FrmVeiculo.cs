@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trinity.Model;
 using Trinity.Model.Bean;
 using Trinity.Model.DAO;
 
@@ -228,26 +229,32 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (true /*validacoes*/)
+            if (cmbMarca.SelectedItem != null && cmbModelo.SelectedItem != null && cmbCombustivel.SelectedItem != null && 
+                cmbCor.SelectedItem != null && !String.IsNullOrWhiteSpace(txtAnoFabricacao.Text.Trim()) && !String.IsNullOrWhiteSpace(txtAnoModelo.Text.Trim()) && 
+                !String.IsNullOrWhiteSpace(txtKmInicial.Value.ToString().Trim()) && cmbCategoria.SelectedItem != null && !String.IsNullOrWhiteSpace(txtPlaca.Text.Trim()) && 
+                !String.IsNullOrWhiteSpace(txtRenavam.Text.Trim()))
             {
+                if (Validacao.ValidaPlacaVeiculo(txtPlaca.Text.Trim()) && Validacao.ValidaRenavam(txtRenavam.Text.Trim()))
+                {
                     if (this.veiculoCarregado == null)
                         this.veiculoCarregado = new Veiculo();
 
                     this.veiculoCarregado.Modelo = (Modelo) cmbModelo.SelectedItem;
                     this.veiculoCarregado.Combustivel = (Combustivel) cmbCombustivel.SelectedItem;
-                    this.veiculoCarregado.Placa = txtPlaca.Text;
-                    this.veiculoCarregado.CategoriaExigida = cmbCategoria.Text;
                     this.veiculoCarregado.Cor = (Cor) cmbCor.SelectedItem;
                     this.veiculoCarregado.AnoFabricacao = txtAnoFabricacao.Value;
                     this.veiculoCarregado.AnoModelo = txtAnoModelo.Value;
                     this.veiculoCarregado.KmAtual = Convert.ToInt32(txtKmInicial.Value);
-                    this.veiculoCarregado.Renavam = txtRenavam.Text;
+                    this.veiculoCarregado.Placa = txtPlaca.Text.Trim().ToUpper();
+                    this.veiculoCarregado.CategoriaExigida = cmbCategoria.Text.Trim();
+                    this.veiculoCarregado.Renavam = txtRenavam.Text.Trim();
 
                     VeiculoDAO dao = new VeiculoDAO();
                         if (!this.editando)
                             dao.AdicionaVeiculo(this.veiculoCarregado);
                         else dao.AlteraVeiculo(this.veiculoCarregado);
                     this.Close();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nA PLACA ou RENAVAM digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
@@ -286,6 +293,20 @@ namespace Trinity.View
             FrmCombustivel frmCombustivel = new FrmCombustivel();
             frmCombustivel.ShowDialog();
             CarregaCombustiveis();
+        }
+
+        private void txtRenavam_TextChanged(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaRenavam(txtRenavam.Text))
+                txtRenavam.ForeColor = Color.Red;
+            else txtRenavam.ForeColor = Color.Green;
+        }
+
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaPlacaVeiculo(txtPlaca.Text))
+                txtPlaca.ForeColor = Color.Red;
+            else txtPlaca.ForeColor = Color.Green;
         }
     }
 }

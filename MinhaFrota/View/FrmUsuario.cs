@@ -196,7 +196,6 @@ namespace Trinity.View
             txtSenha.Text = String.Empty;
             txtConfirmacaoSenha.Text = String.Empty;
             cmbCargo.SelectedItem = null;
-            cmbRazaoSocial.SelectedItem = null;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

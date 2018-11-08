@@ -71,13 +71,13 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (cmbMarca.SelectedItem != null && !String.IsNullOrEmpty(txtModelo.Text))
+            if (cmbMarca.SelectedItem != null && !String.IsNullOrWhiteSpace(txtModelo.Text.Trim()))
             {
                 if (this.modeloCarregado == null)
                     this.modeloCarregado = new Modelo();
 
                 this.modeloCarregado.Marca = (Marca)cmbMarca.SelectedItem;
-                this.modeloCarregado.modelo = txtModelo.Text;
+                this.modeloCarregado.modelo = txtModelo.Text.Trim();
                 
 
                 ModeloDAO dao = new ModeloDAO();
@@ -155,9 +155,12 @@ namespace Trinity.View
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            this.editando = false;
-            LimpaCampos();
-            DesabilitaBotoes();
+            if(cmbMarca.SelectedItem != null)
+            {
+                this.editando = false;
+                LimpaCampos();
+                DesabilitaBotoes();
+            } else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

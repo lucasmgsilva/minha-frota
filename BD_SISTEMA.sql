@@ -381,6 +381,26 @@ AS
 		CNH.categoria like '%' + @PalavraChave + '%'
 GO
 
+CREATE PROCEDURE SP_BUSCA_VEICULO (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		VEICULO.*, COR.cor, MODELO.modelo, MARCA.*, COMBUSTIVEL.combustivel 
+	FROM 
+		VEICULO
+	INNER JOIN MODELO ON MODELO.idModelo = VEICULO.idModelo
+	INNER JOIN COR ON COR.idCor = VEICULO.idCor
+	INNER JOIN MARCA ON MODELO.idMarca = MARCA.idMarca
+	INNER JOIN COMBUSTIVEL ON VEICULO.idCombustivel = COMBUSTIVEL.idCombustivel
+	WHERE
+		VEICULO.idVeiculo like '%' + @PalavraChave + '%' OR
+		VEICULO.renavam like '%' + @PalavraChave + '%' OR
+		VEICULO.placa like '%' + @PalavraChave + '%' OR
+		MARCA.marca like '%' + @PalavraChave + '%' OR
+		MODELO.modelo like '%' + @PalavraChave + '%' OR 
+		combustivel.combustivel like '%' + @PalavraChave + '%' OR
+		COR.cor like '%' + @PalavraChave + '%'
+GO
+
 CREATE VIEW VW_SELECIONA_EMPRESA 
 AS 
 SELECT PESSOA.*, CIDADE.cidade, ESTADO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura FROM PESSOA
@@ -1032,7 +1052,7 @@ GO
 SET IDENTITY_INSERT CARGO ON
 GO
 
-INSERT INTO CARGO (idCargo, cargo, permissoes) VALUES (2, 'GESTOR DE FROTA', 'EMUSMOVEVIABMA')
+INSERT INTO CARGO (idCargo, cargo, permissoes) VALUES (2, 'GESTOR DE FROTA', 'EMUSMOVEVIABMUMA')
 GO
 
 SET IDENTITY_INSERT CARGO OFF

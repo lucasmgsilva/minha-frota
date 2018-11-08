@@ -425,6 +425,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone.ico" />
+    <None Include="Resources\multa_32px.png" />
+    <None Include="Resources\viagem_32px.png" />
     <None Include="Resources\abastecimento_32px.png" />
     <None Include="Resources\cadastrosBase_32px.png" />
     <None Include="Resources\manutencao_32px.png" />

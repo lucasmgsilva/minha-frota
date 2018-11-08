@@ -121,40 +121,46 @@
   <data name="trocarUsuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trocarUsuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="usuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sair_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sair_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="abastecimento_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abastecimento_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="veiculo_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\veiculo_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sair_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sair_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sobre_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sobre_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="empresa_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empresa_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="manutencao_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\manutencao_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_ifsp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_ifsp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="motorista_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\motorista_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="usuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="motorista_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\motorista_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="manutencao_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manutencao_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="viagem_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\viagem_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cadastrosBase_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cadastrosBase_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sobre_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sobre_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo_ifsp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_ifsp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="abastecimento_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abastecimento_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="multa_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\multa_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

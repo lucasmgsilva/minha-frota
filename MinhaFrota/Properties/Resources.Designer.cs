@@ -143,6 +143,16 @@ namespace Trinity.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap multa_32px {
+            get {
+                object obj = ResourceManager.GetObject("multa_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sair_32px {
             get {
                 object obj = ResourceManager.GetObject("sair_32px", resourceCulture);
@@ -186,6 +196,16 @@ namespace Trinity.Properties {
         internal static System.Drawing.Bitmap veiculo_32px {
             get {
                 object obj = ResourceManager.GetObject("veiculo_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap viagem_32px {
+            get {
+                object obj = ResourceManager.GetObject("viagem_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

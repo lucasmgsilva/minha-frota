@@ -127,7 +127,7 @@ namespace Trinity.Model.DAO
                     veiculo.Combustivel = new Combustivel()
                     {
                         IdCombustivel = Convert.ToInt32(dtr["idCombustivel"]),
-                        combustivel = dtr["idCombustivel"].ToString()
+                        combustivel = dtr["combustivel"].ToString()
                     };
 
                     veiculo.Placa = dtr["placa"].ToString();
@@ -159,6 +159,67 @@ namespace Trinity.Model.DAO
             }
         }
 
+        public List<Veiculo> BuscaListaVeiculos(string palavraChave)
+        {
+            string query = "EXECUTE SP_BUSCA_VEICULO @PalavraChave";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@PalavraChave", palavraChave.Replace(" ", "%"));
+                SqlDataReader dtr = cmd.ExecuteReader();
 
+                List<Veiculo> listaVeiculos = new List<Veiculo>();
+
+                while (dtr.Read())
+                {
+                    Veiculo veiculo = new Veiculo();
+                    veiculo.IdVeiculo = Convert.ToInt32(dtr["idVeiculo"]);
+
+                    veiculo.Modelo = new Modelo()
+                    {
+                        IdModelo = Convert.ToInt32(dtr["idModelo"]),
+                        modelo = dtr["modelo"].ToString(),
+                        Marca = new Marca()
+                        {
+                            IdMarca = Convert.ToInt32(dtr["idMarca"]),
+                            marca = dtr["marca"].ToString()
+                        }
+                    };
+
+                    veiculo.Combustivel = new Combustivel()
+                    {
+                        IdCombustivel = Convert.ToInt32(dtr["idCombustivel"]),
+                        combustivel = dtr["combustivel"].ToString()
+                    };
+
+                    veiculo.Placa = dtr["placa"].ToString();
+
+                    veiculo.Cor = new Cor()
+                    {
+                        IdCor = Convert.ToInt32(dtr["idCor"]),
+                        cor = dtr["cor"].ToString()
+                    };
+
+                    veiculo.AnoFabricacao = Convert.ToDateTime(dtr["anoFabricacao"]);
+                    veiculo.AnoModelo = Convert.ToDateTime(dtr["anoModelo"]);
+                    veiculo.KmAtual = Convert.ToInt32(dtr["km"]);
+                    veiculo.Renavam = dtr["renavam"].ToString();
+                    veiculo.CategoriaExigida = dtr["categoriaExigida"].ToString();
+
+                    listaVeiculos.Add(veiculo);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaVeiculos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
     }
 }

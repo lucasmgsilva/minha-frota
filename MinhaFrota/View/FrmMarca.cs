@@ -33,6 +33,7 @@ namespace Trinity.View
         private void HabilitaCampos()
         {
             txtMarca.Enabled = !false;
+            txtMarca.Focus();
         }
 
         private void HabilitaBotoes()
@@ -61,12 +62,12 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtMarca.Text))
+            if (!String.IsNullOrWhiteSpace(txtMarca.Text.Trim()))
             {
                 if (this.marcaCarregada == null)
                     this.marcaCarregada = new Marca();
 
-                this.marcaCarregada.marca = txtMarca.Text;
+                this.marcaCarregada.marca = txtMarca.Text.Trim();
 
                 MarcaDAO dao = new MarcaDAO();
                 if (!this.editando)

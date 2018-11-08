@@ -92,7 +92,7 @@
             this.txtModelo.MaxLength = 40;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(208, 26);
-            this.txtModelo.TabIndex = 0;
+            this.txtModelo.TabIndex = 1;
             // 
             // label11
             // 
@@ -140,7 +140,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Red;
-            this.label35.Location = new System.Drawing.Point(69, 28);
+            this.label35.Location = new System.Drawing.Point(68, 28);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(15, 19);
             this.label35.TabIndex = 71;
@@ -163,7 +163,7 @@
             this.cmbMarca.MaxLength = 25;
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(193, 26);
-            this.cmbMarca.TabIndex = 69;
+            this.cmbMarca.TabIndex = 0;
             this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // dgvModelos
@@ -183,7 +183,7 @@
             this.dgvModelos.ReadOnly = true;
             this.dgvModelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvModelos.Size = new System.Drawing.Size(425, 154);
-            this.dgvModelos.TabIndex = 18;
+            this.dgvModelos.TabIndex = 2;
             this.dgvModelos.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
             // 
             // idModelo
@@ -222,7 +222,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(125, 347);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@
             this.btnEditar.Location = new System.Drawing.Point(282, 310);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;

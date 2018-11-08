@@ -60,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 47);
-            this.panel1.TabIndex = 29;
+            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
@@ -83,7 +83,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 75);
-            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
             // 
@@ -93,7 +93,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(771, 38);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(98, 29);
-            this.btnBuscar.TabIndex = 39;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.label11.Location = new System.Drawing.Point(141, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(15, 19);
-            this.label11.TabIndex = 18;
+            this.label11.TabIndex = 2;
             this.label11.Text = "*";
             // 
             // label2
@@ -117,7 +117,7 @@
             this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 19);
-            this.label2.TabIndex = 17;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Palavras-Chave:";
             // 
             // txtPalavraChave

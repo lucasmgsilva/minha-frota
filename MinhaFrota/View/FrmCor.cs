@@ -61,12 +61,12 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtCor.Text))
+            if (!String.IsNullOrWhiteSpace(txtCor.Text.Trim()))
             {
                 if (this.corCarregada == null)
                     this.corCarregada = new Cor();
 
-                this.corCarregada.cor = txtCor.Text;
+                this.corCarregada.cor = txtCor.Text.Trim();
 
                 CorDAO dao = new CorDAO();
                 if (!this.editando)

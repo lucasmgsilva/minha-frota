@@ -42,6 +42,7 @@
             this.txtRenavam = new System.Windows.Forms.MaskedTextBox();
             this.txtPlaca = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cmbCombustivel = new System.Windows.Forms.ComboBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,7 +86,7 @@
             this.btnEditar.Location = new System.Drawing.Point(214, 195);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@
             this.btnNovo.Location = new System.Drawing.Point(4, 195);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -109,7 +110,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(110, 195);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -162,7 +163,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(66, 135);
+            this.label7.Location = new System.Drawing.Point(64, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 19);
             this.label7.TabIndex = 50;
@@ -194,7 +195,8 @@
             this.txtRenavam.Mask = "00000000000";
             this.txtRenavam.Name = "txtRenavam";
             this.txtRenavam.Size = new System.Drawing.Size(130, 26);
-            this.txtRenavam.TabIndex = 7;
+            this.txtRenavam.TabIndex = 9;
+            this.txtRenavam.TextChanged += new System.EventHandler(this.txtRenavam_TextChanged);
             // 
             // txtPlaca
             // 
@@ -202,10 +204,12 @@
             this.txtPlaca.Mask = "AAA-AAAA";
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(116, 26);
-            this.txtPlaca.TabIndex = 3;
+            this.txtPlaca.TabIndex = 7;
+            this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cmbCombustivel);
             this.groupBox2.Controls.Add(this.cmbCategoria);
             this.groupBox2.Controls.Add(this.label4);
@@ -243,22 +247,36 @@
             this.groupBox2.Location = new System.Drawing.Point(4, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(666, 189);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações do Veículo";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(295, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 19);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "*";
+            // 
             // cmbCombustivel
             // 
+            this.cmbCombustivel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCombustivel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCombustivel.FormattingEnabled = true;
             this.cmbCombustivel.Location = new System.Drawing.Point(445, 47);
             this.cmbCombustivel.MaxLength = 25;
             this.cmbCombustivel.Name = "cmbCombustivel";
             this.cmbCombustivel.Size = new System.Drawing.Size(193, 26);
-            this.cmbCombustivel.TabIndex = 86;
+            this.cmbCombustivel.TabIndex = 2;
             // 
             // cmbCategoria
             // 
-            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Items.AddRange(new object[] {
             "A",
@@ -274,7 +292,7 @@
             this.cmbCategoria.MaxLength = 120;
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(136, 26);
-            this.cmbCategoria.TabIndex = 59;
+            this.cmbCategoria.TabIndex = 8;
             // 
             // label4
             // 
@@ -298,7 +316,7 @@
             0});
             this.txtKmInicial.Name = "txtKmInicial";
             this.txtKmInicial.Size = new System.Drawing.Size(124, 26);
-            this.txtKmInicial.TabIndex = 86;
+            this.txtKmInicial.TabIndex = 6;
             // 
             // label8
             // 
@@ -349,7 +367,7 @@
             this.txtAnoModelo.Location = new System.Drawing.Point(380, 100);
             this.txtAnoModelo.Name = "txtAnoModelo";
             this.txtAnoModelo.Size = new System.Drawing.Size(146, 26);
-            this.txtAnoModelo.TabIndex = 85;
+            this.txtAnoModelo.TabIndex = 5;
             // 
             // txtAnoFabricacao
             // 
@@ -358,16 +376,18 @@
             this.txtAnoFabricacao.Location = new System.Drawing.Point(228, 100);
             this.txtAnoFabricacao.Name = "txtAnoFabricacao";
             this.txtAnoFabricacao.Size = new System.Drawing.Size(146, 26);
-            this.txtAnoFabricacao.TabIndex = 84;
+            this.txtAnoFabricacao.TabIndex = 4;
             // 
             // cmbModelo
             // 
+            this.cmbModelo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbModelo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbModelo.FormattingEnabled = true;
             this.cmbModelo.Location = new System.Drawing.Point(228, 47);
             this.cmbModelo.MaxLength = 25;
             this.cmbModelo.Name = "cmbModelo";
             this.cmbModelo.Size = new System.Drawing.Size(193, 26);
-            this.cmbModelo.TabIndex = 83;
+            this.cmbModelo.TabIndex = 1;
             // 
             // label2
             // 
@@ -458,12 +478,14 @@
             // 
             // cmbCor
             // 
+            this.cmbCor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCor.FormattingEnabled = true;
             this.cmbCor.Location = new System.Drawing.Point(11, 100);
             this.cmbCor.MaxLength = 25;
             this.cmbCor.Name = "cmbCor";
             this.cmbCor.Size = new System.Drawing.Size(193, 26);
-            this.cmbCor.TabIndex = 69;
+            this.cmbCor.TabIndex = 3;
             // 
             // label20
             // 
@@ -482,7 +504,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Red;
-            this.label35.Location = new System.Drawing.Point(69, 28);
+            this.label35.Location = new System.Drawing.Point(68, 28);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(15, 19);
             this.label35.TabIndex = 67;
@@ -500,12 +522,14 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(11, 47);
             this.cmbMarca.MaxLength = 25;
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(193, 26);
-            this.cmbMarca.TabIndex = 65;
+            this.cmbMarca.TabIndex = 0;
             this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // flowLayoutPanel1
@@ -522,18 +546,17 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 47);
-            this.panel1.TabIndex = 9;
+            this.panel1.Size = new System.Drawing.Size(676, 47);
+            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(297, 12);
+            this.label1.Location = new System.Drawing.Point(243, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 23);
             this.label1.TabIndex = 0;
@@ -558,7 +581,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(572, 195);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -570,7 +593,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(468, 195);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -644,5 +667,6 @@
         private System.Windows.Forms.ComboBox cmbCombustivel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
