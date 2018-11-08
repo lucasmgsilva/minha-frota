@@ -89,7 +89,6 @@ namespace Trinity.View
             txtCpf.Enabled = !false;
             txtRG.Enabled = !false;
             txtDataNascimento.Enabled = !false;
-            txtNome.Focus();
             txtLogradouro.Enabled = !false;
             txtNumero.Enabled = !false;
             txtComplemento.Enabled = !false;

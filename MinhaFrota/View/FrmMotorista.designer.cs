@@ -119,7 +119,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 47);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
@@ -162,7 +162,7 @@
             this.groupBox1.Location = new System.Drawing.Point(4, 311);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(772, 81);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carteira Nacional de Habilitação (CNH)";
             // 
@@ -296,7 +296,7 @@
             this.groupBox2.Location = new System.Drawing.Point(4, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(772, 185);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações do Motorista";
             // 
@@ -535,7 +535,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(675, 398);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -547,7 +547,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(571, 398);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -559,7 +559,7 @@
             this.btnEditar.Location = new System.Drawing.Point(214, 398);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -571,7 +571,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(110, 398);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 1;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -583,7 +583,7 @@
             this.btnNovo.Location = new System.Drawing.Point(4, 398);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -615,7 +615,7 @@
             this.groupBox3.Location = new System.Drawing.Point(3, 185);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(772, 126);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Endereço";
             // 

@@ -94,7 +94,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(654, 47);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(437, 200);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(115, 200);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TabIndex = 2;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.btnNovo.Location = new System.Drawing.Point(9, 200);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@
             this.groupBox2.Location = new System.Drawing.Point(4, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(639, 194);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações da Multa";
             // 
@@ -202,11 +202,12 @@
             this.txtDataPagamento.Location = new System.Drawing.Point(170, 106);
             this.txtDataPagamento.Name = "txtDataPagamento";
             this.txtDataPagamento.Size = new System.Drawing.Size(155, 26);
-            this.txtDataPagamento.TabIndex = 107;
+            this.txtDataPagamento.TabIndex = 4;
             // 
             // cmbCidade
             // 
-            this.cmbCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCidade.FormattingEnabled = true;
             this.cmbCidade.Location = new System.Drawing.Point(391, 106);
             this.cmbCidade.MaxLength = 120;
@@ -235,7 +236,7 @@
             0});
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(98, 26);
-            this.txtValor.TabIndex = 101;
+            this.txtValor.TabIndex = 8;
             // 
             // label35
             // 
@@ -282,12 +283,14 @@
             // 
             // cmbInfracao
             // 
+            this.cmbInfracao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbInfracao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbInfracao.FormattingEnabled = true;
             this.cmbInfracao.Location = new System.Drawing.Point(9, 162);
             this.cmbInfracao.MaxLength = 25;
             this.cmbInfracao.Name = "cmbInfracao";
             this.cmbInfracao.Size = new System.Drawing.Size(297, 26);
-            this.cmbInfracao.TabIndex = 95;
+            this.cmbInfracao.TabIndex = 7;
             // 
             // txtDataVencimento
             // 
@@ -295,7 +298,7 @@
             this.txtDataVencimento.Location = new System.Drawing.Point(9, 106);
             this.txtDataVencimento.Name = "txtDataVencimento";
             this.txtDataVencimento.Size = new System.Drawing.Size(155, 26);
-            this.txtDataVencimento.TabIndex = 104;
+            this.txtDataVencimento.TabIndex = 3;
             // 
             // label42
             // 
@@ -374,7 +377,8 @@
             // 
             // cmbUf
             // 
-            this.cmbUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUf.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUf.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUf.FormattingEnabled = true;
             this.cmbUf.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmbUf.Location = new System.Drawing.Point(331, 106);
@@ -429,12 +433,14 @@
             // 
             // cmbMotorista
             // 
+            this.cmbMotorista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMotorista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbMotorista.FormattingEnabled = true;
             this.cmbMotorista.Location = new System.Drawing.Point(312, 50);
             this.cmbMotorista.MaxLength = 25;
             this.cmbMotorista.Name = "cmbMotorista";
             this.cmbMotorista.Size = new System.Drawing.Size(294, 26);
-            this.cmbMotorista.TabIndex = 91;
+            this.cmbMotorista.TabIndex = 2;
             // 
             // label13
             // 
@@ -471,12 +477,14 @@
             // 
             // cmbVeiculo
             // 
+            this.cmbVeiculo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbVeiculo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVeiculo.FormattingEnabled = true;
             this.cmbVeiculo.Location = new System.Drawing.Point(180, 50);
             this.cmbVeiculo.MaxLength = 25;
             this.cmbVeiculo.Name = "cmbVeiculo";
             this.cmbVeiculo.Size = new System.Drawing.Size(108, 26);
-            this.cmbVeiculo.TabIndex = 87;
+            this.cmbVeiculo.TabIndex = 1;
             // 
             // label28
             // 
@@ -496,7 +504,7 @@
             this.txtDataInfracao.Location = new System.Drawing.Point(9, 50);
             this.txtDataInfracao.Name = "txtDataInfracao";
             this.txtDataInfracao.Size = new System.Drawing.Size(165, 26);
-            this.txtDataInfracao.TabIndex = 82;
+            this.txtDataInfracao.TabIndex = 0;
             // 
             // label30
             // 
@@ -514,7 +522,7 @@
             this.btnEditar.Location = new System.Drawing.Point(219, 200);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -526,7 +534,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(541, 200);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;

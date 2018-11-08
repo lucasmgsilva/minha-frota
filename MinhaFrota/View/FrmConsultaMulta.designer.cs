@@ -37,17 +37,18 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvMultas = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPalavrasChave = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.idMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInfracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMultas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -60,7 +61,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(777, 527);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -72,7 +73,7 @@
             this.btnNovo.Location = new System.Drawing.Point(9, 527);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@
             this.btnEditar.Location = new System.Drawing.Point(113, 527);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 1;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -125,52 +126,12 @@
             this.dgvMultas.TabIndex = 0;
             this.dgvMultas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
-            // idMulta
-            // 
-            this.idMulta.DataPropertyName = "IdMulta";
-            dataGridViewCellStyle2.Format = "000000";
-            this.idMulta.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idMulta.HeaderText = "ID";
-            this.idMulta.Name = "idMulta";
-            this.idMulta.ReadOnly = true;
-            // 
-            // dataInfracao
-            // 
-            this.dataInfracao.DataPropertyName = "DataInfracao";
-            this.dataInfracao.HeaderText = "DATA";
-            this.dataInfracao.Name = "dataInfracao";
-            this.dataInfracao.ReadOnly = true;
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "Veiculo.Placa";
-            this.placa.HeaderText = "VEÍCULO";
-            this.placa.Name = "placa";
-            this.placa.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "Motorista.Nome";
-            this.nome.HeaderText = "MOTORISTA";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "Valor";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.valor.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valor.HeaderText = "VALOR";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(300, 9);
+            this.label1.Location = new System.Drawing.Point(357, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 23);
             this.label1.TabIndex = 0;
@@ -184,7 +145,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 47);
-            this.panel1.TabIndex = 51;
+            this.panel1.TabIndex = 0;
             // 
             // label11
             // 
@@ -207,25 +168,81 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Palavras-Chave:";
             // 
-            // textBox1
+            // txtPalavrasChave
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(856, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtPalavrasChave.Location = new System.Drawing.Point(10, 41);
+            this.txtPalavrasChave.Name = "txtPalavrasChave";
+            this.txtPalavrasChave.Size = new System.Drawing.Size(758, 26);
+            this.txtPalavrasChave.TabIndex = 0;
+            this.txtPalavrasChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavrasChave_KeyPress);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPalavrasChave);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F);
             this.groupBox1.Location = new System.Drawing.Point(6, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 75);
-            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
+            // 
+            // idMulta
+            // 
+            this.idMulta.DataPropertyName = "IdMulta";
+            dataGridViewCellStyle2.Format = "000000";
+            this.idMulta.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idMulta.HeaderText = "ID";
+            this.idMulta.Name = "idMulta";
+            this.idMulta.ReadOnly = true;
+            // 
+            // dataInfracao
+            // 
+            this.dataInfracao.DataPropertyName = "DataInfracao";
+            this.dataInfracao.HeaderText = "DATA";
+            this.dataInfracao.Name = "dataInfracao";
+            this.dataInfracao.ReadOnly = true;
+            this.dataInfracao.Width = 135;
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "Veiculo.Placa";
+            this.placa.HeaderText = "VEÍCULO";
+            this.placa.Name = "placa";
+            this.placa.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "Motorista.Nome";
+            this.nome.HeaderText = "MOTORISTA";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 385;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "Valor";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.valor.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valor.HeaderText = "VALOR";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnBuscar.Location = new System.Drawing.Point(774, 40);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(98, 29);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmConsultaMulta
             // 
@@ -266,12 +283,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPalavrasChave;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataInfracao;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

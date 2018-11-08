@@ -401,6 +401,25 @@ AS
 		COR.cor like '%' + @PalavraChave + '%'
 GO
 
+CREATE PROCEDURE SP_BUSCA_MULTA (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		MULTA.*, ESTADO.idEstado, INFRACAO.infracao, VEICULO.placa, MOTORISTA.nome
+	FROM 
+		MULTA
+	INNER JOIN INFRACAO ON INFRACAO.idInfracao = MULTA.idInfracao
+	INNER JOIN VEICULO ON VEICULO.idVeiculo = MULTA.idVeiculo
+	INNER JOIN MOTORISTA ON MOTORISTA.idMotorista = MULTA.idMotorista
+	INNER JOIN CIDADE ON MULTA.idCidade = CIDADE.idCidade 
+	INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
+	WHERE
+		MULTA.idMulta like '%' + @PalavraChave + '%' OR
+		MULTA.dataInfracao like '%' + @PalavraChave + '%' OR
+		VEICULO.placa like '%' + @PalavraChave + '%' OR
+		MOTORISTA.nome like '%' + @PalavraChave + '%' OR
+		MULTA.valor like '%' + @PalavraChave + '%'
+GO
+
 CREATE VIEW VW_SELECIONA_EMPRESA 
 AS 
 SELECT PESSOA.*, CIDADE.cidade, ESTADO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura FROM PESSOA

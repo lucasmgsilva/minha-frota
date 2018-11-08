@@ -129,7 +129,8 @@ namespace Trinity
 
         private void multasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaMulta telaMulta = new FrmConsultaMulta();
+            telaMulta.ShowDialog();
         }
     }
 }

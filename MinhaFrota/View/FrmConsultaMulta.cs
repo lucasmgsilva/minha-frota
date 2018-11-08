@@ -114,5 +114,20 @@ namespace Trinity.View
                 e.Value = BindProperty(dgvMultas.Rows[e.RowIndex].DataBoundItem, dgvMultas.Columns[e.ColumnIndex].DataPropertyName);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvMultas.AutoGenerateColumns = false;
+            listaMultas = new MultaDAO().BuscaListaMultas(txtPalavrasChave.Text);
+            dgvMultas.DataSource = new BindingList<Multa>(listaMultas);
+        }
+
+        private void txtPalavrasChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+            }
+        }
     }
 }

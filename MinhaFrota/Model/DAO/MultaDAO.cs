@@ -149,5 +149,69 @@ namespace Trinity.Model.DAO
                 throw ex;
             }
         }
+
+        public List<Multa> BuscaListaMultas(string palavraChave)
+        {
+            string query = "EXECUTE SP_BUSCA_MULTA @PalavraChave";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@PalavraChave", palavraChave.Replace(" ", "%"));
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                List<Multa> listaMultas = new List<Multa>();
+
+                while (dtr.Read())
+                {
+                    Multa multa = new Multa();
+                    multa.IdMulta = Convert.ToInt32(dtr["idMulta"]);
+                    multa.Veiculo = new Veiculo()
+                    {
+                        IdVeiculo = Convert.ToInt32(dtr["idVeiculo"]),
+                        Placa = dtr["placa"].ToString()
+                    };
+
+                    multa.Motorista = new Motorista()
+                    {
+                        IdMotorista = Convert.ToInt32(dtr["idMotorista"]),
+                        Nome = dtr["nome"].ToString()
+                    };
+
+                    multa.DataInfracao = Convert.ToDateTime(dtr["dataInfracao"]);
+
+                    multa.Infracao = new Infracao()
+                    {
+                        IdInfracao = Convert.ToInt32(dtr["idInfracao"]),
+                        infracao = dtr["infracao"].ToString()
+                    };
+
+                    multa.Valor = Convert.ToDouble(dtr["valor"]);
+                    multa.DataVencimento = Convert.ToDateTime(dtr["dataVencimento"]);
+                    multa.DataPagamento = Convert.ToDateTime(dtr["dataPagamento"]);
+
+                    multa.Cidade = new Cidade()
+                    {
+                        IdCidade = Convert.ToInt32(dtr["idCidade"]),
+                        Estado = new Estado()
+                        {
+                            IdEstado = Convert.ToInt32(dtr["idEstado"])
+                        }
+                    };
+
+                    listaMultas.Add(multa);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaMultas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
     }
 }
