@@ -64,13 +64,13 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtInfracao.Text))
+            if (!String.IsNullOrWhiteSpace(txtInfracao.Text.Trim()) && cmbClassificacao.SelectedItem != null)
             {
                 if (this.infracaoCarregada == null)
                     this.infracaoCarregada = new Infracao();
 
-                this.infracaoCarregada.infracao = txtInfracao.Text;
-                this.infracaoCarregada.Classificacao = cmbClassificacao.Text;
+                this.infracaoCarregada.infracao = txtInfracao.Text.Trim();
+                this.infracaoCarregada.Classificacao = cmbClassificacao.Text.Trim();
 
                 InfracaoDAO dao = new InfracaoDAO();
                 if (!this.editando)

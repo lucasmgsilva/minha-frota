@@ -140,6 +140,7 @@ namespace Trinity.View
             txtTelefoneFixo.Text = String.Empty;
             txtTelefoneCelular.Text = String.Empty;
             cmbUf.SelectedIndex = 0;
+            cmbCidade.SelectedIndex = 0;
             txtNumeroRegistro.Text = String.Empty;
             txtDataCadastro.Text = DateTime.Now.ToString();
             cmbCategoria.SelectedItem = null;

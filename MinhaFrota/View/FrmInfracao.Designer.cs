@@ -41,14 +41,14 @@
             this.cmbClassificacao = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
             this.dgvInfracoes = new System.Windows.Forms.DataGridView();
-            this.idInfracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.infracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Classificacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.idInfracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Classificacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfracoes)).BeginInit();
@@ -69,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Location = new System.Drawing.Point(208, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 23);
             this.label1.TabIndex = 0;
@@ -135,7 +135,8 @@
             // 
             // cmbClassificacao
             // 
-            this.cmbClassificacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClassificacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbClassificacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbClassificacao.FormattingEnabled = true;
             this.cmbClassificacao.Items.AddRange(new object[] {
             "LEVE",
@@ -145,7 +146,7 @@
             this.cmbClassificacao.Location = new System.Drawing.Point(400, 47);
             this.cmbClassificacao.Name = "cmbClassificacao";
             this.cmbClassificacao.Size = new System.Drawing.Size(192, 26);
-            this.cmbClassificacao.TabIndex = 85;
+            this.cmbClassificacao.TabIndex = 1;
             // 
             // label39
             // 
@@ -175,33 +176,8 @@
             this.dgvInfracoes.ReadOnly = true;
             this.dgvInfracoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInfracoes.Size = new System.Drawing.Size(581, 154);
-            this.dgvInfracoes.TabIndex = 18;
+            this.dgvInfracoes.TabIndex = 2;
             this.dgvInfracoes.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
-            // 
-            // idInfracao
-            // 
-            this.idInfracao.DataPropertyName = "IdInfracao";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = null;
-            this.idInfracao.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idInfracao.HeaderText = "ID";
-            this.idInfracao.Name = "idInfracao";
-            this.idInfracao.ReadOnly = true;
-            // 
-            // infracao
-            // 
-            this.infracao.DataPropertyName = "infracao";
-            this.infracao.HeaderText = "INFRAÇÃO";
-            this.infracao.Name = "infracao";
-            this.infracao.ReadOnly = true;
-            this.infracao.Width = 241;
-            // 
-            // Classificacao
-            // 
-            this.Classificacao.DataPropertyName = "Classificacao";
-            this.Classificacao.HeaderText = "CLASSIFICAÇÃO";
-            this.Classificacao.Name = "Classificacao";
-            this.Classificacao.ReadOnly = true;
             // 
             // btnCancelar
             // 
@@ -221,7 +197,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(200, 336);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -233,7 +209,7 @@
             this.btnEditar.Location = new System.Drawing.Point(358, 299);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -262,6 +238,32 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // idInfracao
+            // 
+            this.idInfracao.DataPropertyName = "IdInfracao";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.idInfracao.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idInfracao.HeaderText = "ID";
+            this.idInfracao.Name = "idInfracao";
+            this.idInfracao.ReadOnly = true;
+            // 
+            // infracao
+            // 
+            this.infracao.DataPropertyName = "infracao";
+            this.infracao.HeaderText = "INFRAÇÃO";
+            this.infracao.Name = "infracao";
+            this.infracao.ReadOnly = true;
+            this.infracao.Width = 290;
+            // 
+            // Classificacao
+            // 
+            this.Classificacao.DataPropertyName = "Classificacao";
+            this.Classificacao.HeaderText = "CLASSIFICAÇÃO";
+            this.Classificacao.Name = "Classificacao";
+            this.Classificacao.ReadOnly = true;
+            this.Classificacao.Width = 140;
             // 
             // FrmInfracao
             // 

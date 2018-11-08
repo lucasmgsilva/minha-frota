@@ -151,9 +151,9 @@ namespace Trinity.View
             cmbVeiculo.SelectedItem = null;
             cmbMotorista.SelectedItem = null;
             txtDataVencimento.Value = DateTime.Now;
-            txtDataPagamento.Text = null;
-            cmbUf.SelectedItem = null;
-            cmbCidade.SelectedItem = null;
+            txtDataPagamento.Value = DateTime.Now;
+            cmbUf.SelectedIndex = 0;
+            cmbCidade.SelectedIndex = 0;
             cmbInfracao.SelectedItem = null;
             txtValor.Value = 0;
         }
@@ -188,23 +188,31 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (this.multaCarregada == null)
-                this.multaCarregada = new Multa();
+            if(!String.IsNullOrWhiteSpace(txtDataInfracao.Text.Trim()) && cmbVeiculo.SelectedItem != null && cmbMotorista.SelectedItem != null &&
+                !String.IsNullOrWhiteSpace(txtDataVencimento.Text.Trim()) && !String.IsNullOrWhiteSpace(txtDataPagamento.Text.Trim()) && cmbUf.SelectedItem != null && 
+                cmbCidade.SelectedItem != null && cmbInfracao.SelectedItem != null && !String.IsNullOrWhiteSpace(txtValor.Value.ToString().Trim()))
+            {
+                if(txtValor.Value > 0)
+                {
+                    if (this.multaCarregada == null)
+                        this.multaCarregada = new Multa();
 
-            this.multaCarregada.DataInfracao = txtDataInfracao.Value;
-            this.multaCarregada.Veiculo = (Veiculo) cmbVeiculo.SelectedItem;
-            this.multaCarregada.Motorista = (Motorista) cmbMotorista.SelectedItem;
-            this.multaCarregada.DataVencimento = txtDataVencimento.Value;
-            this.multaCarregada.DataPagamento = txtDataPagamento.Value;
-            this.multaCarregada.Cidade = (Cidade) cmbCidade.SelectedItem;
-            this.multaCarregada.Infracao = (Infracao) cmbInfracao.SelectedItem;
-            this.multaCarregada.Valor = Convert.ToDouble(txtValor.Value);
+                    this.multaCarregada.DataInfracao = txtDataInfracao.Value;
+                    this.multaCarregada.Veiculo = (Veiculo) cmbVeiculo.SelectedItem;
+                    this.multaCarregada.Motorista = (Motorista) cmbMotorista.SelectedItem;
+                    this.multaCarregada.DataVencimento = txtDataVencimento.Value;
+                    this.multaCarregada.DataPagamento = txtDataPagamento.Value;
+                    this.multaCarregada.Cidade = (Cidade) cmbCidade.SelectedItem;
+                    this.multaCarregada.Infracao = (Infracao) cmbInfracao.SelectedItem;
+                    this.multaCarregada.Valor = Convert.ToDouble(txtValor.Value);
             
-            MultaDAO dao = new MultaDAO();
-            if (!this.editando)
-                dao.AdicionaMulta(this.multaCarregada);
-            else dao.AlteraMulta(this.multaCarregada);
-            this.Close();
+                    MultaDAO dao = new MultaDAO();
+                    if (!this.editando)
+                        dao.AdicionaMulta(this.multaCarregada);
+                    else dao.AlteraMulta(this.multaCarregada);
+                    this.Close();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nO VALOR da MULTA deve ser maior que zero reais (R$0,00)!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cmbUf_SelectedIndexChanged(object sender, EventArgs e)
@@ -227,14 +235,19 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Você realmente quer excluir esta MULTA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MultaDAO dao = new MultaDAO();
+                dao.DeletaMulta(this.multaCarregada.IdMulta);
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (this.editando)
             {
-                if (MessageBox.Show("Você realmente quer desfazer as alterações deste CLIENTE?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Você realmente quer desfazer as alterações desta MULTA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     HabilitaBotoes();
                     this.editando = false;

@@ -101,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(246, 12);
+            this.label1.Location = new System.Drawing.Point(244, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 23);
             this.label1.TabIndex = 0;

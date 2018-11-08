@@ -1,7 +1,6 @@
 -Pendentes:
 FrmAbastecimento
 FrmConsultaManutencao
-FrmInfracao
 FrmManutencao
 FrmPrincipal
 FrmProduto
@@ -10,10 +9,11 @@ FrmUnidadeMedida
 FrmViagem
 
 -Em Manipulação:
-FrmConsultaMulta
-FrmMulta
 
 -Finalizados:
+FrmMulta
+FrmInfracao
+FrmConsultaMulta
 FrmCombustivel
 FrmCor
 FrmModelo
