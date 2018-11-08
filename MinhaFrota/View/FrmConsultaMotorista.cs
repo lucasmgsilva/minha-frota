@@ -71,9 +71,9 @@ namespace Trinity.View
                         CarregaListaMotoristas();
                     }
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum USUÁRIO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MOTORISTA selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum USUÁRIO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum MOTORISTA cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private string BindProperty(object property, string propertyName)

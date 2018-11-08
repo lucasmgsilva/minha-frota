@@ -190,7 +190,7 @@ namespace Trinity.Model.DAO
 
         public List<Motorista> BuscaListaMotoristas(string palavraChave)
         {
-            string query = "EXECUTE SP_BUSCA_USUARIO @PalavraChave";
+            string query = "EXECUTE SP_BUSCA_MOTORISTA @PalavraChave";
             try
             {
                 this.connection.Open();

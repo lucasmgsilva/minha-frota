@@ -175,41 +175,50 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (this.motoristaCarregado == null)
-                this.motoristaCarregado = new Motorista();
-                
-            this.motoristaCarregado.Nome = txtNome.Text;
-            this.motoristaCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text);
-            this.motoristaCarregado.Apelido = txtApelido.Text;
-            if (cmbSexo.Text.Equals("MASCULINO"))
-                this.motoristaCarregado.Sexo = Convert.ToChar("M");
-            else this.motoristaCarregado.Sexo = Convert.ToChar("F");
-            this.motoristaCarregado.Cpf = txtCpf.Text;
-            this.motoristaCarregado.Rg = txtRG.Text;
-            this.motoristaCarregado.DataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
-            this.motoristaCarregado.Logradouro = txtLogradouro.Text;
-            this.motoristaCarregado.Numero = txtNumero.Text;
-            this.motoristaCarregado.Complemento = txtComplemento.Text;
-            this.motoristaCarregado.Bairro = txtBairro.Text;
-            this.motoristaCarregado.Cep = txtCep.Text;
-            this.motoristaCarregado.TelefoneFixo = txtTelefoneFixo.Text;
-            this.motoristaCarregado.TelefoneCelular = txtTelefoneCelular.Text;
-            this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
+            if(!String.IsNullOrWhiteSpace(txtNome.Text.Trim()) && !String.IsNullOrWhiteSpace(txtDataCadastro.Text.Trim()) &&
+                !String.IsNullOrWhiteSpace(txtCpf.Text.Trim()) && cmbSexo.SelectedItem != null && !String.IsNullOrWhiteSpace(txtDataNascimento.Text.Trim()) &&
+                !String.IsNullOrWhiteSpace(txtLogradouro.Text.Trim()) && !String.IsNullOrWhiteSpace(txtNumero.Text.Trim()) &&
+                !String.IsNullOrWhiteSpace(txtBairro.Text.Trim()) && !String.IsNullOrWhiteSpace(txtCep.Text.Trim()) && 
+                cmbUf.SelectedItem != null && cmbCidade.SelectedItem != null && !String.IsNullOrWhiteSpace(txtNumeroRegistro.Text.Trim()) &&
+                !String.IsNullOrWhiteSpace(txtDataValidade.Text.Trim()) && cmbCategoria.SelectedItem != null)
+            {
+                if (Validacao.ValidaCPF(txtCpf.Text.Trim()))
+                {
+                    if (this.motoristaCarregado == null)
+                        this.motoristaCarregado = new Motorista();
 
-            if (this.motoristaCarregado.Cnh == null)
-                this.motoristaCarregado.Cnh = new CNH();
+                    this.motoristaCarregado.Nome = txtNome.Text.Trim();
+                    this.motoristaCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text.Trim());
+                    this.motoristaCarregado.Apelido = txtApelido.Text.Trim();
+                    if (cmbSexo.Text.Trim().Equals("MASCULINO"))
+                        this.motoristaCarregado.Sexo = Convert.ToChar("M");
+                    else this.motoristaCarregado.Sexo = Convert.ToChar("F");
+                    this.motoristaCarregado.Cpf = txtCpf.Text.Trim();
+                    this.motoristaCarregado.Rg = txtRG.Text.Trim();
+                    this.motoristaCarregado.TelefoneFixo = txtTelefoneFixo.Text.Trim();
+                    this.motoristaCarregado.TelefoneCelular = txtTelefoneCelular.Text.Trim();
+                    this.motoristaCarregado.DataNascimento = Convert.ToDateTime(txtDataNascimento.Text.Trim());
+                    this.motoristaCarregado.Logradouro = txtLogradouro.Text.Trim();
+                    this.motoristaCarregado.Numero = txtNumero.Text.Trim();
+                    this.motoristaCarregado.Complemento = txtComplemento.Text.Trim();
+                    this.motoristaCarregado.Bairro = txtBairro.Text.Trim();
+                    this.motoristaCarregado.Cep = txtCep.Text.Trim();
+                    this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
 
-            this.motoristaCarregado.Cnh.NumeroRegistro = txtNumeroRegistro.Text;
-            this.motoristaCarregado.Cnh.DataValidade = Convert.ToDateTime(txtDataValidade.Text);
-            this.motoristaCarregado.Cnh.Categoria = cmbCategoria.Text;
-            
-            MessageBox.Show(this.motoristaCarregado.Cnh.ToString());
+                    if (this.motoristaCarregado.Cnh == null)
+                        this.motoristaCarregado.Cnh = new CNH();
 
-            MotoristaDAO dao = new MotoristaDAO();
-            if (!this.editando)
-                dao.AdicionaMotorista(this.motoristaCarregado);
-            else dao.AlteraMotorista(this.motoristaCarregado);
-            this.Close();
+                    this.motoristaCarregado.Cnh.NumeroRegistro = txtNumeroRegistro.Text.Trim();
+                    this.motoristaCarregado.Cnh.DataValidade = Convert.ToDateTime(txtDataValidade.Text.Trim());
+                    this.motoristaCarregado.Cnh.Categoria = cmbCategoria.Text.Trim();
+           
+                    MotoristaDAO dao = new MotoristaDAO();
+                    if (!this.editando)
+                        dao.AdicionaMotorista(this.motoristaCarregado);
+                    else dao.AlteraMotorista(this.motoristaCarregado);
+                    this.Close();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nO CPF digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cmbUf_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,14 +240,19 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Você realmente quer excluir este MOTORISTA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MotoristaDAO dao = new MotoristaDAO();
+                dao.DeletaMotorista(this.motoristaCarregado.IdMotorista);
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (this.editando)
             {
-                if (MessageBox.Show("Você realmente quer desfazer as alterações deste CLIENTE?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Você realmente quer desfazer as alterações deste MOTORISTA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     HabilitaBotoes();
                     this.editando = false;
@@ -251,6 +265,13 @@ namespace Trinity.View
         private void tbcClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             LimpaCampos();
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaCPF(txtCpf.Text))
+                txtCpf.ForeColor = Color.Red;
+            else txtCpf.ForeColor = Color.Green;
         }
     }
 }

@@ -2,7 +2,6 @@
 FrmAbastecimento
 FrmCombustivel
 FrmConsultaManutencao
-FrmConsultaMotorista
 FrmConsultaMulta
 FrmConsultaVeiculo
 FrmCor
@@ -10,7 +9,6 @@ FrmInfracao
 FrmManutencao
 FrmMarca
 FrmModelo
-FrmMotorista
 FrmMulta
 FrmPrincipal
 FrmProduto
@@ -20,6 +18,8 @@ FrmVeiculo
 FrmViagem
 
 -Finalizados:
+FrmMotorista
+FrmConsultaMotorista
 FrmSobre
 FrmAcesso
 FrmApresentacao
