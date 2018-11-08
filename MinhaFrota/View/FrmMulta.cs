@@ -124,6 +124,7 @@ namespace Trinity.View
             cmbCidade.Enabled = !false;
             cmbInfracao.Enabled = !false;
             txtValor.Enabled = !false;
+            txtDataInfracao.Focus();
         }
 
         private void HabilitaBotoes()

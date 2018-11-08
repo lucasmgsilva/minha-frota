@@ -42,6 +42,7 @@ namespace Trinity.View
         {
             cmbMarca.Enabled = false;
             txtModelo.Enabled = !false;
+            txtModelo.Focus();
         }
 
         private void HabilitaBotoes()

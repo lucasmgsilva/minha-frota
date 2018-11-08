@@ -62,6 +62,7 @@ namespace Trinity.View
             txtLitros.Enabled = !false;
             txtValorLitro.Enabled = !false;
             txtValorTotal.Enabled = !false;
+            txtData.Focus();
         }
 
         private void HabilitaBotoes()
@@ -95,24 +96,30 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (cmbVeiculo.SelectedItem != null && cmbMotorista.SelectedItem != null)
+            if (!String.IsNullOrWhiteSpace(txtData.Text.Trim()) && cmbMotorista.SelectedItem != null && cmbVeiculo.SelectedItem != null && 
+                !String.IsNullOrWhiteSpace(txtKmAtual.Value.ToString().Trim()) &&
+                !String.IsNullOrWhiteSpace(txtLitros.Value.ToString().Trim()) &&
+                !String.IsNullOrWhiteSpace(txtValorLitro.Value.ToString().Trim()) &&
+                !String.IsNullOrWhiteSpace(txtValorTotal.Value.ToString().Trim()))
             {
+                if(txtKmAtual.Value > 0 && txtLitros.Value > 0 && txtValorLitro.Value > 0 && txtValorTotal.Value > 0)
+                {
+                    if (this.abastecimentoCarregado == null)
+                        this.abastecimentoCarregado = new Abastecimento();
 
-                if (this.abastecimentoCarregado == null)
-                    this.abastecimentoCarregado = new Abastecimento();
+                    this.abastecimentoCarregado.Motorista = (Motorista)cmbMotorista.SelectedItem;
+                    this.abastecimentoCarregado.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
+                    this.abastecimentoCarregado.DataAbastecimento = Convert.ToDateTime(txtData.Text);
+                    this.abastecimentoCarregado.Litros = float.Parse(txtLitros.Value.ToString());
+                    this.abastecimentoCarregado.ValorLitro = float.Parse(txtValorLitro.Value.ToString());
+                    this.abastecimentoCarregado.KmAtual = int.Parse(txtKmAtual.Value.ToString());
 
-                this.abastecimentoCarregado.Motorista = (Motorista)cmbMotorista.SelectedItem;
-                this.abastecimentoCarregado.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
-                this.abastecimentoCarregado.DataAbastecimento = Convert.ToDateTime(txtData.Text);
-                this.abastecimentoCarregado.Litros = float.Parse(txtLitros.Value.ToString());
-                this.abastecimentoCarregado.ValorLitro = float.Parse(txtValorLitro.Value.ToString());
-                this.abastecimentoCarregado.KmAtual = int.Parse(txtKmAtual.Value.ToString());
-
-                AbastecimentoDAO dao = new AbastecimentoDAO();
-                if (!this.editando)
-                    dao.AdicionaAbastecimento(this.abastecimentoCarregado);
-                else dao.AlteraAbastecimento(this.abastecimentoCarregado);
-                CarregaListaAbastecimentos();
+                    AbastecimentoDAO dao = new AbastecimentoDAO();
+                    if (!this.editando)
+                        dao.AdicionaAbastecimento(this.abastecimentoCarregado);
+                    else dao.AlteraAbastecimento(this.abastecimentoCarregado);
+                    CarregaListaAbastecimentos();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nO Km. Atual, Litros, Valor por Litro e Valor Total devem ser maior que zero!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

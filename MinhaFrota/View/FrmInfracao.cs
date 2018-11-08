@@ -35,6 +35,7 @@ namespace Trinity.View
         {
             txtInfracao.Enabled = !false;
             cmbClassificacao.Enabled = !false;
+            txtInfracao.Focus();
         }
 
         private void HabilitaBotoes()

@@ -96,7 +96,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(210, 9);
+            this.label1.Location = new System.Drawing.Point(226, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 23);
             this.label1.TabIndex = 0;
@@ -171,12 +171,14 @@
             // 
             // cmbMotorista
             // 
+            this.cmbMotorista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMotorista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbMotorista.FormattingEnabled = true;
             this.cmbMotorista.Location = new System.Drawing.Point(210, 50);
             this.cmbMotorista.MaxLength = 25;
             this.cmbMotorista.Name = "cmbMotorista";
             this.cmbMotorista.Size = new System.Drawing.Size(436, 26);
-            this.cmbMotorista.TabIndex = 113;
+            this.cmbMotorista.TabIndex = 1;
             // 
             // txtValorLitro
             // 
@@ -189,7 +191,7 @@
             0});
             this.txtValorLitro.Name = "txtValorLitro";
             this.txtValorLitro.Size = new System.Drawing.Size(98, 26);
-            this.txtValorLitro.TabIndex = 110;
+            this.txtValorLitro.TabIndex = 5;
             this.txtValorLitro.ValueChanged += new System.EventHandler(this.txtValorLitro_ValueChanged);
             // 
             // label9
@@ -224,7 +226,7 @@
             0});
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(98, 26);
-            this.txtValorTotal.TabIndex = 107;
+            this.txtValorTotal.TabIndex = 6;
             this.txtValorTotal.ValueChanged += new System.EventHandler(this.txtValorTotal_ValueChanged);
             // 
             // label5
@@ -258,7 +260,7 @@
             0});
             this.txtKmAtual.Name = "txtKmAtual";
             this.txtKmAtual.Size = new System.Drawing.Size(124, 26);
-            this.txtKmAtual.TabIndex = 106;
+            this.txtKmAtual.TabIndex = 3;
             // 
             // label23
             // 
@@ -292,7 +294,7 @@
             0});
             this.txtLitros.Name = "txtLitros";
             this.txtLitros.Size = new System.Drawing.Size(98, 26);
-            this.txtLitros.TabIndex = 101;
+            this.txtLitros.TabIndex = 4;
             this.txtLitros.ValueChanged += new System.EventHandler(this.txtLitros_ValueChanged);
             // 
             // label7
@@ -334,7 +336,7 @@
             this.txtData.Location = new System.Drawing.Point(11, 50);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(193, 26);
-            this.txtData.TabIndex = 77;
+            this.txtData.TabIndex = 0;
             // 
             // label37
             // 
@@ -381,12 +383,14 @@
             // 
             // cmbVeiculo
             // 
+            this.cmbVeiculo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbVeiculo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVeiculo.FormattingEnabled = true;
             this.cmbVeiculo.Location = new System.Drawing.Point(11, 102);
             this.cmbVeiculo.MaxLength = 25;
             this.cmbVeiculo.Name = "cmbVeiculo";
             this.cmbVeiculo.Size = new System.Drawing.Size(193, 26);
-            this.cmbVeiculo.TabIndex = 69;
+            this.cmbVeiculo.TabIndex = 2;
             this.cmbVeiculo.SelectedValueChanged += new System.EventHandler(this.cmbVeiculo_SelectedValueChanged);
             // 
             // dgvAbastecimentos
@@ -411,7 +415,7 @@
             this.dgvAbastecimentos.ReadOnly = true;
             this.dgvAbastecimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAbastecimentos.Size = new System.Drawing.Size(653, 320);
-            this.dgvAbastecimentos.TabIndex = 18;
+            this.dgvAbastecimentos.TabIndex = 7;
             this.dgvAbastecimentos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgvAbastecimentos.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
             // 
@@ -498,7 +502,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(464, 520);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -510,7 +514,7 @@
             this.btnEditar.Location = new System.Drawing.Point(223, 520);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;

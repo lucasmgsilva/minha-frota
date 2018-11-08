@@ -49,7 +49,7 @@ namespace Trinity.View
             SelecionaCor();
             txtAnoFabricacao.Text = this.veiculoCarregado.AnoFabricacao.ToString();
             txtAnoModelo.Text = this.veiculoCarregado.AnoModelo.ToString();
-            txtKmInicial.Value = this.veiculoCarregado.KmAtual;
+            txtKmInicial.Value = this.veiculoCarregado.KmInicial;
             txtRenavam.Text = this.veiculoCarregado.Renavam;
         }
 
@@ -244,7 +244,7 @@ namespace Trinity.View
                     this.veiculoCarregado.Cor = (Cor) cmbCor.SelectedItem;
                     this.veiculoCarregado.AnoFabricacao = txtAnoFabricacao.Value;
                     this.veiculoCarregado.AnoModelo = txtAnoModelo.Value;
-                    this.veiculoCarregado.KmAtual = Convert.ToInt32(txtKmInicial.Value);
+                    this.veiculoCarregado.KmInicial = Convert.ToInt32(txtKmInicial.Value);
                     this.veiculoCarregado.Placa = txtPlaca.Text.Trim().ToUpper();
                     this.veiculoCarregado.CategoriaExigida = cmbCategoria.Text.Trim();
                     this.veiculoCarregado.Renavam = txtRenavam.Text.Trim();

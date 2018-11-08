@@ -32,7 +32,7 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@idCor", veiculo.Cor.IdCor);
                 cmd.Parameters.AddWithValue("@anoFabricacao", veiculo.AnoFabricacao);
                 cmd.Parameters.AddWithValue("@anoModelo", veiculo.AnoModelo);
-                cmd.Parameters.AddWithValue("@km", veiculo.KmAtual);
+                cmd.Parameters.AddWithValue("@km", veiculo.KmInicial);
                 cmd.Parameters.AddWithValue("@renavam", veiculo.Renavam);
                 cmd.Parameters.AddWithValue("@idCombustivel", veiculo.Combustivel.IdCombustivel);
                 cmd.Parameters.AddWithValue("@categoriaExigida", veiculo.CategoriaExigida);
@@ -61,7 +61,7 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@idCor", veiculo.Cor.IdCor);
                 cmd.Parameters.AddWithValue("@anoFabricacao", veiculo.AnoFabricacao);
                 cmd.Parameters.AddWithValue("@anoModelo", veiculo.AnoModelo);
-                cmd.Parameters.AddWithValue("@km", veiculo.KmAtual);
+                cmd.Parameters.AddWithValue("@km", veiculo.KmInicial);
                 cmd.Parameters.AddWithValue("@renavam", veiculo.Renavam);
                 cmd.Parameters.AddWithValue("@idCombustivel", veiculo.Combustivel.IdCombustivel);
                 cmd.Parameters.AddWithValue("@categoriaExigida", veiculo.CategoriaExigida);
@@ -140,7 +140,7 @@ namespace Trinity.Model.DAO
 
                     veiculo.AnoFabricacao = Convert.ToDateTime(dtr["anoFabricacao"]);
                     veiculo.AnoModelo = Convert.ToDateTime(dtr["anoModelo"]);
-                    veiculo.KmAtual = Convert.ToInt32(dtr["km"]);
+                    veiculo.KmInicial = Convert.ToInt32(dtr["km"]);
                     veiculo.Renavam = dtr["renavam"].ToString();
                     veiculo.CategoriaExigida = dtr["categoriaExigida"].ToString();
 
@@ -203,7 +203,7 @@ namespace Trinity.Model.DAO
 
                     veiculo.AnoFabricacao = Convert.ToDateTime(dtr["anoFabricacao"]);
                     veiculo.AnoModelo = Convert.ToDateTime(dtr["anoModelo"]);
-                    veiculo.KmAtual = Convert.ToInt32(dtr["km"]);
+                    veiculo.KmInicial = Convert.ToInt32(dtr["km"]);
                     veiculo.Renavam = dtr["renavam"].ToString();
                     veiculo.CategoriaExigida = dtr["categoriaExigida"].ToString();
 

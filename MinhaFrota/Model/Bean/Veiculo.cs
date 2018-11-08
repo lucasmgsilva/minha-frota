@@ -15,7 +15,7 @@ namespace Trinity.Model.Bean
         public Cor Cor { get; set; }
         public DateTime AnoFabricacao { get; set; }
         public DateTime AnoModelo { get; set; }
-        public int KmAtual { get; set; }
+        public int KmInicial { get; set; }
         public String Renavam { get; set; }
         public String CategoriaExigida { get; set; }
     }

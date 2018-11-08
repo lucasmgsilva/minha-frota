@@ -1,5 +1,4 @@
 -Pendentes:
-FrmAbastecimento
 FrmConsultaManutencao
 FrmManutencao
 FrmPrincipal
@@ -9,6 +8,7 @@ FrmUnidadeMedida
 FrmViagem
 
 -Em Manipulação:
+FrmAbastecimento (Pegar o Km Atual automaticamente)
 
 -Finalizados:
 FrmMulta

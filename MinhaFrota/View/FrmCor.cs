@@ -33,6 +33,7 @@ namespace Trinity.View
         private void HabilitaCampos()
         {
             txtCor.Enabled = !false;
+            txtCor.Focus();
         }
 
         private void HabilitaBotoes()

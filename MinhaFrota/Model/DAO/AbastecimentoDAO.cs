@@ -106,7 +106,6 @@ namespace Trinity.Model.DAO
 
                 while (dtr.Read())
                 {
-
                     Abastecimento abastecimento = new Abastecimento()
                     {
                         IdAbastecimento = Convert.ToInt32(dtr["idAbastecimento"].ToString()),

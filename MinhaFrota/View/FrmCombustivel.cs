@@ -33,6 +33,7 @@ namespace Trinity.View
         private void HabilitaCampos()
         {
             txtCombustivel.Enabled = !false;
+            txtCombustivel.Focus();
         }
 
         private void HabilitaBotoes()
