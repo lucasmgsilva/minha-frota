@@ -114,5 +114,20 @@ namespace Trinity.View
                 e.Value = BindProperty(dgvMotoristas.Rows[e.RowIndex].DataBoundItem, dgvMotoristas.Columns[e.ColumnIndex].DataPropertyName);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvMotoristas.AutoGenerateColumns = false;
+            listaMotoristas = new MotoristaDAO().BuscaListaMotoristas(txtPalavrasChave.Text);
+            dgvMotoristas.DataSource = new BindingList<Motorista>(listaMotoristas);
+        }
+
+        private void txtPalavrasChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+            }
+        }
     }
 }

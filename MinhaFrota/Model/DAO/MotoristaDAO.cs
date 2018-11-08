@@ -187,5 +187,76 @@ namespace Trinity.Model.DAO
                 throw ex;
             }
         }
+
+        public List<Motorista> BuscaListaMotoristas(string palavraChave)
+        {
+            string query = "EXECUTE SP_BUSCA_USUARIO @PalavraChave";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@PalavraChave", palavraChave.Replace(" ", "%"));
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                List<Motorista> listaMotoristas = new List<Motorista>();
+
+                while (dtr.Read())
+                {
+                    Motorista motorista = new Motorista();
+
+                    motorista.IdPessoa = Convert.ToInt32(dtr["idPessoa"]);
+                    motorista.Logradouro = dtr["logradouro"].ToString();
+                    motorista.Numero = dtr["numero"].ToString();
+                    motorista.Complemento = dtr["complemento"].ToString();
+                    motorista.Bairro = dtr["bairro"].ToString();
+                    motorista.Cep = dtr["cep"].ToString();
+                    motorista.TelefoneFixo = dtr["telefoneFixo"].ToString();
+                    motorista.TelefoneCelular = dtr["telefoneCelular"].ToString();
+
+                    motorista.IdMotorista = Convert.ToInt32(dtr["idMotorista"]);
+                    motorista.DataCadastro = Convert.ToDateTime(dtr["dataCadastro"]);
+                    motorista.Nome = dtr["nome"].ToString();
+                    motorista.Sexo = Convert.ToChar(dtr["sexo"]);
+                    motorista.Cpf = dtr["cpf"].ToString();
+                    motorista.Rg = dtr["rg"].ToString();
+                    motorista.DataNascimento = Convert.ToDateTime(dtr["dataNascimento"]);
+                    motorista.Apelido = dtr["apelido"].ToString();
+
+                    CNH cnh = new CNH()
+                    {
+                        IdCNH = Convert.ToInt32(dtr["idCNH"]),
+                        NumeroRegistro = dtr["numeroRegistro"].ToString(),
+                        DataValidade = Convert.ToDateTime(dtr["dataValidade"].ToString()),
+                        Categoria = dtr["categoria"].ToString()
+                    };
+
+                    motorista.Cnh = cnh;
+
+                    Estado estado = new Estado();
+                    estado.IdEstado = Convert.ToInt32(dtr["idEstado"].ToString());
+                    estado.estado = dtr["estado"].ToString();
+                    estado.Uf = dtr["uf"].ToString();
+
+                    Cidade cidade = new Cidade();
+                    cidade.IdCidade = Convert.ToInt32(dtr["idCidade"].ToString());
+                    cidade.cidade = dtr["cidade"].ToString();
+                    cidade.Estado = estado;
+
+                    motorista.Cidade = cidade;
+
+                    listaMotoristas.Add(motorista);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaMotoristas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
     }
 }

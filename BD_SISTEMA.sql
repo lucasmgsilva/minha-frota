@@ -363,6 +363,24 @@ AS
 		EMPRESA.razaoSocial like '%' + @PalavraChave + '%'
 GO
 
+CREATE PROCEDURE SP_BUSCA_MOTORISTA (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		PESSOA.*, CIDADE.cidade, ESTADO.*, MOTORISTA.idMotorista, MOTORISTA.dataCadastro, MOTORISTA.nome, MOTORISTA.sexo, MOTORISTA.cpf, MOTORISTA.rg, MOTORISTA.dataNascimento, MOTORISTA.apelido, CNH.*
+	FROM 
+		PESSOA
+	INNER JOIN CIDADE ON PESSOA.idCidade = CIDADE.idCidade 
+	INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
+	INNER JOIN MOTORISTA ON MOTORISTA.idPessoa = PESSOA.idPessoa
+	INNER JOIN CNH ON MOTORISTA.idCNH = CNH.idCNH
+	WHERE
+		MOTORISTA.idMotorista like '%' + @PalavraChave + '%' OR
+		MOTORISTA.nome like '%' + @PalavraChave + '%' OR
+		MOTORISTA.cpf like '%' + @PalavraChave + '%' OR
+		CNH.numeroRegistro like '%' + @PalavraChave + '%' OR
+		CNH.categoria like '%' + @PalavraChave + '%'
+GO
+
 CREATE VIEW VW_SELECIONA_EMPRESA 
 AS 
 SELECT PESSOA.*, CIDADE.cidade, ESTADO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura FROM PESSOA

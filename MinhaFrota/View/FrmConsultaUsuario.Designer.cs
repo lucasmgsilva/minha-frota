@@ -90,7 +90,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnBuscar.Location = new System.Drawing.Point(768, 39);
+            this.btnBuscar.Location = new System.Drawing.Point(771, 38);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(98, 29);
             this.btnBuscar.TabIndex = 39;
@@ -125,7 +125,7 @@
             this.txtPalavraChave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPalavraChave.Location = new System.Drawing.Point(10, 41);
             this.txtPalavraChave.Name = "txtPalavraChave";
-            this.txtPalavraChave.Size = new System.Drawing.Size(752, 26);
+            this.txtPalavraChave.Size = new System.Drawing.Size(755, 26);
             this.txtPalavraChave.TabIndex = 0;
             this.txtPalavraChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavraChave_KeyPress);
             // 

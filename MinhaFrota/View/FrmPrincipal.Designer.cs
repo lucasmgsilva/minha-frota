@@ -40,13 +40,12 @@
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.motoristasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viagensToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abastecimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutencaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrosBaseStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viagensToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -135,7 +134,6 @@
             this.viagensToolStripMenuItem1,
             this.abastecimentosToolStripMenuItem,
             this.manutencaoToolStripMenuItem,
-            this.cadastrosBaseStripMenuItem,
             this.trocaUsuarioToolStripMenuItem,
             this.sobreOSistemaToolStripMenuItem,
             this.sAIRToolStripMenuItem});
@@ -190,6 +188,16 @@
             this.veiculosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.vEÍCULOSToolStripMenuItem_Click);
             // 
+            // viagensToolStripMenuItem1
+            // 
+            this.viagensToolStripMenuItem1.Enabled = false;
+            this.viagensToolStripMenuItem1.Image = global::Trinity.Properties.Resources.abastecimento_32px;
+            this.viagensToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.viagensToolStripMenuItem1.Name = "viagensToolStripMenuItem1";
+            this.viagensToolStripMenuItem1.Size = new System.Drawing.Size(66, 51);
+            this.viagensToolStripMenuItem1.Text = "VIAGENS";
+            this.viagensToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // abastecimentosToolStripMenuItem
             // 
             this.abastecimentosToolStripMenuItem.Enabled = false;
@@ -211,16 +219,6 @@
             this.manutencaoToolStripMenuItem.Text = "MANUTENÇÕES";
             this.manutencaoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.manutencaoToolStripMenuItem.Click += new System.EventHandler(this.manutencoesToolStripMenuItem_Click);
-            // 
-            // cadastrosBaseStripMenuItem
-            // 
-            this.cadastrosBaseStripMenuItem.Enabled = false;
-            this.cadastrosBaseStripMenuItem.Image = global::Trinity.Properties.Resources.cadastrosBase_32px;
-            this.cadastrosBaseStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cadastrosBaseStripMenuItem.Name = "cadastrosBaseStripMenuItem";
-            this.cadastrosBaseStripMenuItem.Size = new System.Drawing.Size(116, 51);
-            this.cadastrosBaseStripMenuItem.Text = "CADASTROS BASE";
-            this.cadastrosBaseStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // trocaUsuarioToolStripMenuItem
             // 
@@ -251,16 +249,6 @@
             this.sAIRToolStripMenuItem.Text = "SAIR DO SISTEMA";
             this.sAIRToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
-            // 
-            // viagensToolStripMenuItem1
-            // 
-            this.viagensToolStripMenuItem1.Enabled = false;
-            this.viagensToolStripMenuItem1.Image = global::Trinity.Properties.Resources.abastecimento_32px;
-            this.viagensToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.viagensToolStripMenuItem1.Name = "viagensToolStripMenuItem1";
-            this.viagensToolStripMenuItem1.Size = new System.Drawing.Size(66, 51);
-            this.viagensToolStripMenuItem1.Text = "VIAGENS";
-            this.viagensToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // FrmPrincipal
             // 
@@ -302,7 +290,6 @@
         private System.Windows.Forms.ToolStripMenuItem sAIRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manutencaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrosBaseStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abastecimentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viagensToolStripMenuItem1;
     }
