@@ -131,5 +131,60 @@ namespace Trinity.Model.DAO
                 throw ex;
             }
         }
+
+        public List<Manutencao> BuscaListaManutencao(string palavraChave)
+        {
+            string query = "EXECUTE SP_BUSCA_MANUTENCAO @PalavraChave";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@PalavraChave", palavraChave.Replace(" ", "%"));
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                List<Manutencao> listaManutencoes = new List<Manutencao>();
+
+                while (dtr.Read())
+                {
+                    Manutencao manutencao = new Manutencao();
+                    manutencao.IdManutencao = Convert.ToInt32(dtr["idManutencao"]);
+                    manutencao.DataManutencao = Convert.ToDateTime(dtr["dataManutencao"]);
+                    manutencao.Tipo = dtr["tipo"].ToString();
+
+                    try
+                    {
+                        manutencao.ValorTotal = Convert.ToDouble(dtr["valorTotal"]);
+                    }
+                    catch (InvalidCastException)
+                    {
+                        manutencao.ValorTotal = 0;
+                    }
+
+                    manutencao.Veiculo = new Veiculo()
+                    {
+                        IdVeiculo = Convert.ToInt32(dtr["idVeiculo"]),
+                        Placa = dtr["placa"].ToString()
+                    };
+
+                    manutencao.Motorista = new Motorista()
+                    {
+                        IdMotorista = Convert.ToInt32(dtr["idMotorista"]),
+                        Nome = dtr["nome"].ToString()
+                    };
+
+                    listaManutencoes.Add(manutencao);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaManutencoes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
     }
 }

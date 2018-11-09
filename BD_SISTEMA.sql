@@ -420,6 +420,24 @@ AS
 		MULTA.valor like '%' + @PalavraChave + '%'
 GO
 
+CREATE PROCEDURE SP_BUSCA_MANUTENCAO (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		MANUTENCAO.idManutencao, MANUTENCAO.dataManutencao, MANUTENCAO.tipo, VEICULO.idVeiculo, VEICULO.placa, MOTORISTA.idMotorista, MOTORISTA.nome, 
+		(SELECT ((SELECT SUM(valor) FROM SERVICO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao) + (
+SELECT SUM(quantidade * valorUnitario) FROM PRODUTO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao))) as 'valorTotal'
+	FROM 
+		MANUTENCAO 
+	INNER JOIN VEICULO ON MANUTENCAO.idVeiculo = VEICULO.idVeiculo
+	INNER JOIN MOTORISTA ON MANUTENCAO.idMotorista = MOTORISTA.idMotorista	
+	WHERE
+		MANUTENCAO.idManutencao like '%' + @PalavraChave + '%' OR
+		MANUTENCAO.dataManutencao like '%' + @PalavraChave + '%' OR
+		MANUTENCAO.tipo like '%' + @PalavraChave + '%' OR
+		VEICULO.placa like '%' + @PalavraChave + '%' OR
+		MOTORISTA.nome like '%' + @PalavraChave + '%'
+GO
+
 CREATE VIEW VW_SELECIONA_EMPRESA 
 AS 
 SELECT PESSOA.*, CIDADE.cidade, ESTADO.*, EMPRESA.idEmpresa, EMPRESA.razaoSocial, EMPRESA.nomeFantasia, EMPRESA.cnpj, EMPRESA.ie, EMPRESA.im, EMPRESA.dataAbertura FROM PESSOA

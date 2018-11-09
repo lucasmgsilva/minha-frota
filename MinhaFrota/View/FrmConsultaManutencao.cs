@@ -114,5 +114,20 @@ namespace Trinity.View
                 e.Value = BindProperty(dgvManutencoes.Rows[e.RowIndex].DataBoundItem, dgvManutencoes.Columns[e.ColumnIndex].DataPropertyName);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvManutencoes.AutoGenerateColumns = false;
+            listaManutencoes = new ManutencaoDAO().BuscaListaManutencao(txtPalavrasChave.Text);
+            dgvManutencoes.DataSource = new BindingList<Manutencao>(listaManutencoes);
+        }
+
+        private void txtPalavrasChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+            }
+        }
     }
 }
