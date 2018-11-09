@@ -2,12 +2,12 @@
 FrmConsultaManutencao
 FrmManutencao
 FrmPrincipal
-FrmServico
 FrmViagem
 
 -Em Manipulação:
 
 -Finalizados:
+FrmServico
 FrmProduto
 FrmUnidadeMedida
 FrmAbastecimento

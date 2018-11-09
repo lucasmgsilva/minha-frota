@@ -33,6 +33,7 @@ namespace Trinity.View
         private void HabilitaCampos()
         {
             txtServico.Enabled = !false;
+            txtServico.Focus();
         }
 
         private void HabilitaBotoes()
@@ -61,12 +62,12 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtServico.Text))
+            if (!String.IsNullOrWhiteSpace(txtServico.Text.Trim()))
             {
                 if (this.servicoCarregado == null)
                     this.servicoCarregado = new Servico();
 
-                this.servicoCarregado.servico = txtServico.Text;
+                this.servicoCarregado.servico = txtServico.Text.Trim();
 
                 ServicoDAO dao = new ServicoDAO();
                 if (!this.editando)

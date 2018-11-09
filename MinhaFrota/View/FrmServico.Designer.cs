@@ -38,13 +38,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvServicos = new System.Windows.Forms.DataGridView();
-            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).BeginInit();
@@ -135,24 +135,6 @@
             this.dgvServicos.TabIndex = 18;
             this.dgvServicos.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
             // 
-            // idServico
-            // 
-            this.idServico.DataPropertyName = "IdServico";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = null;
-            this.idServico.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idServico.HeaderText = "ID";
-            this.idServico.Name = "idServico";
-            this.idServico.ReadOnly = true;
-            // 
-            // servico
-            // 
-            this.servico.DataPropertyName = "Servico";
-            this.servico.HeaderText = "SERVIÇO";
-            this.servico.Name = "servico";
-            this.servico.ReadOnly = true;
-            this.servico.Width = 241;
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
@@ -212,6 +194,24 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // idServico
+            // 
+            this.idServico.DataPropertyName = "IdServico";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.idServico.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idServico.HeaderText = "ID";
+            this.idServico.Name = "idServico";
+            this.idServico.ReadOnly = true;
+            // 
+            // servico
+            // 
+            this.servico.DataPropertyName = "Servico";
+            this.servico.HeaderText = "SERVIÇO";
+            this.servico.Name = "servico";
+            this.servico.ReadOnly = true;
+            this.servico.Width = 280;
             // 
             // FrmServico
             // 
