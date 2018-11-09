@@ -33,6 +33,7 @@ namespace Trinity.View
         private void HabilitaCampos()
         {
             txtUnidadeMedida.Enabled = !false;
+            txtUnidadeMedida.Focus();
         }
 
         private void HabilitaBotoes()
@@ -61,18 +62,21 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtUnidadeMedida.Text))
+            if (!String.IsNullOrWhiteSpace(txtUnidadeMedida.Text.Trim()))
             {
-                if (this.unidadeMedidaCarregada == null)
-                    this.unidadeMedidaCarregada = new UnidadeMedida();
+                if(txtUnidadeMedida.Text.Trim().Length == 2)
+                {
+                    if (this.unidadeMedidaCarregada == null)
+                        this.unidadeMedidaCarregada = new UnidadeMedida();
 
-                this.unidadeMedidaCarregada.unidadeMedida = txtUnidadeMedida.Text;
+                    this.unidadeMedidaCarregada.unidadeMedida = txtUnidadeMedida.Text.Trim();
 
-                UnidadeMedidaDAO dao = new UnidadeMedidaDAO();
-                if (!this.editando)
-                    dao.AdicionaUnidadeMedida(this.unidadeMedidaCarregada);
-                else dao.AlteraUnidadeMedida(this.unidadeMedidaCarregada);
-                CarregaListaUnidadesMedida();
+                    UnidadeMedidaDAO dao = new UnidadeMedidaDAO();
+                    if (!this.editando)
+                        dao.AdicionaUnidadeMedida(this.unidadeMedidaCarregada);
+                    else dao.AlteraUnidadeMedida(this.unidadeMedidaCarregada);
+                    CarregaListaUnidadesMedida();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nA UNIDADE DE MEDIDA deve ter dois (2) caracteres!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

@@ -42,6 +42,7 @@ namespace Trinity.View
         {
             cmbUnidadeMedida.Enabled = !false;
             txtProduto.Enabled = !false;
+            txtProduto.Focus();
         }
 
         private void HabilitaBotoes()
@@ -71,15 +72,14 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (cmbUnidadeMedida.SelectedItem != null && !String.IsNullOrEmpty(txtProduto.Text))
+            if (!String.IsNullOrWhiteSpace(txtProduto.Text.Trim()) && cmbUnidadeMedida.SelectedItem != null)
             {
                 if (this.produtoCarregado == null)
                     this.produtoCarregado = new Produto();
 
+                this.produtoCarregado.produto = txtProduto.Text.Trim();
                 this.produtoCarregado.UnidadeMedida = (UnidadeMedida) cmbUnidadeMedida.SelectedItem;
-                this.produtoCarregado.produto = txtProduto.Text;
                 
-
                 ProdutoDAO dao = new ProdutoDAO();
                 if (!this.editando)
                     dao.AdicionaProduto(this.produtoCarregado);

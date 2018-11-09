@@ -61,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(453, 47);
+            this.panel1.Size = new System.Drawing.Size(411, 47);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -69,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Location = new System.Drawing.Point(110, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 23);
             this.label1.TabIndex = 0;
@@ -91,7 +91,7 @@
             this.txtProduto.Location = new System.Drawing.Point(11, 47);
             this.txtProduto.MaxLength = 40;
             this.txtProduto.Name = "txtProduto";
-            this.txtProduto.Size = new System.Drawing.Size(208, 26);
+            this.txtProduto.Size = new System.Drawing.Size(290, 26);
             this.txtProduto.TabIndex = 0;
             // 
             // label11
@@ -118,7 +118,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 251);
+            this.groupBox1.Size = new System.Drawing.Size(407, 251);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Produto";
@@ -128,7 +128,7 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Chartreuse;
             this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(297, 51);
+            this.label20.Location = new System.Drawing.Point(379, 51);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(18, 19);
             this.label20.TabIndex = 72;
@@ -140,7 +140,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Red;
-            this.label35.Location = new System.Drawing.Point(300, 28);
+            this.label35.Location = new System.Drawing.Point(382, 27);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(15, 19);
             this.label35.TabIndex = 71;
@@ -150,7 +150,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(221, 28);
+            this.label36.Location = new System.Drawing.Point(303, 27);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(79, 19);
             this.label36.TabIndex = 70;
@@ -158,12 +158,14 @@
             // 
             // cmbUnidadeMedida
             // 
+            this.cmbUnidadeMedida.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUnidadeMedida.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUnidadeMedida.FormattingEnabled = true;
-            this.cmbUnidadeMedida.Location = new System.Drawing.Point(225, 47);
+            this.cmbUnidadeMedida.Location = new System.Drawing.Point(307, 47);
             this.cmbUnidadeMedida.MaxLength = 25;
             this.cmbUnidadeMedida.Name = "cmbUnidadeMedida";
             this.cmbUnidadeMedida.Size = new System.Drawing.Size(72, 26);
-            this.cmbUnidadeMedida.TabIndex = 69;
+            this.cmbUnidadeMedida.TabIndex = 1;
             // 
             // dgvModelos
             // 
@@ -181,8 +183,8 @@
             this.dgvModelos.Name = "dgvModelos";
             this.dgvModelos.ReadOnly = true;
             this.dgvModelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvModelos.Size = new System.Drawing.Size(425, 154);
-            this.dgvModelos.TabIndex = 18;
+            this.dgvModelos.Size = new System.Drawing.Size(386, 154);
+            this.dgvModelos.TabIndex = 2;
             this.dgvModelos.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
             // 
             // idProduto
@@ -206,10 +208,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(229, 347);
+            this.btnCancelar.Location = new System.Drawing.Point(202, 345);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -218,7 +220,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(125, 347);
+            this.btnExcluir.Location = new System.Drawing.Point(98, 345);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 3;
@@ -230,10 +232,10 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(282, 310);
+            this.btnEditar.Location = new System.Drawing.Point(260, 310);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -242,10 +244,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(178, 310);
+            this.btnSalvar.Location = new System.Drawing.Point(156, 310);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -254,10 +256,10 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(72, 310);
+            this.btnNovo.Location = new System.Drawing.Point(52, 310);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 1;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -267,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 382);
+            this.ClientSize = new System.Drawing.Size(411, 382);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);

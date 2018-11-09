@@ -88,7 +88,7 @@ namespace Trinity.View
             HabilitaBotoes();
             txtData.Value = DateTime.Now;
             cmbMotorista.SelectedItem = null;
-            txtKmAtual.Value = 0;
+            txtKmAtual.Value = txtKmAtual.Minimum;
             txtLitros.Value = 0;
             txtValorLitro.Value = 0;
             txtValorTotal.Value = 0;
@@ -144,6 +144,7 @@ namespace Trinity.View
                 dgvAbastecimentos.AutoGenerateColumns = false;
                 listaAbastecimento = new AbastecimentoDAO().GetListaAbastecimento(((Veiculo) cmbVeiculo.SelectedItem).IdVeiculo);
                 dgvAbastecimentos.DataSource = new BindingList<Abastecimento>(listaAbastecimento);
+                DefineKmAtual();
             }
         }
 
@@ -179,6 +180,11 @@ namespace Trinity.View
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            if(dgvAbastecimentos.RowCount != 0)
+            {
+                dgvAbastecimentos.Rows[0].Selected = true;
+                DefineKmAtual();
+            }
             this.editando = false;
             LimpaCampos();
             DesabilitaBotoes();
@@ -290,12 +296,28 @@ namespace Trinity.View
             }
         }
 
+        private void DefineKmAtual()
+        {
+            int valor = 0;
+            if (dgvAbastecimentos.RowCount != 0 && dgvAbastecimentos.CurrentRow != null && dgvAbastecimentos.CurrentRow.Selected)
+            {
+                int idAbastecimento = Convert.ToInt32(dgvAbastecimentos.CurrentRow.Cells["idAbastecimento"].Value.ToString());
+                valor = this.listaAbastecimento.Find(u => u.IdAbastecimento == idAbastecimento).KmAtual;
+            } else if (listaAbastecimento.Count != 0)
+                valor = listaAbastecimento[0].KmAtual;
+            else valor = ((Veiculo)cmbVeiculo.SelectedItem).KmInicial;
+            txtKmAtual.Minimum = valor;
+            txtKmAtual.Value = valor;
+        }
+
         private void CarregaAbastecimento()
         {
             txtData.Value = this.abastecimentoCarregado.DataAbastecimento;
             SelecionaMotorista();
             cmbMotorista.SelectedItem = this.abastecimentoCarregado.Motorista;
-            txtKmAtual.Value = this.abastecimentoCarregado.KmAtual;
+
+            DefineKmAtual();
+
             txtLitros.Value = Decimal.Parse(this.abastecimentoCarregado.Litros.ToString());
             txtValorLitro.Value = Decimal.Parse(this.abastecimentoCarregado.ValorLitro.ToString());
         }
