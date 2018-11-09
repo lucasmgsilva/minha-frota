@@ -25,6 +25,7 @@ namespace Trinity.View
         private void FrmConsultaMulta_Load(object sender, EventArgs e)
         {
             CarregaListaMultas();
+            txtPalavrasChave.Focus();
         }
 
         public void CarregaListaMultas()

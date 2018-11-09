@@ -25,6 +25,7 @@ namespace Trinity.View
         private void FrmConsultaCliente_Load(object sender, EventArgs e)
         {
             CarregaListaMotoristas();
+            txtPalavrasChave.Focus();
         }
 
         public void CarregaListaMotoristas()

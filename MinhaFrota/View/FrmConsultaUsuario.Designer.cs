@@ -83,7 +83,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 75);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
             // 
@@ -135,7 +135,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(777, 520);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             this.btnEditar.Location = new System.Drawing.Point(113, 520);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 1;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             this.btnNovo.Location = new System.Drawing.Point(9, 520);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;

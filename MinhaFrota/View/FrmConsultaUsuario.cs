@@ -25,6 +25,7 @@ namespace Trinity.View
         private void TelaConsultaUsuario_Load(object sender, EventArgs e)
         {
             CarregaListaUsuarios();
+            txtPalavraChave.Focus();
         }
 
         public void CarregaListaUsuarios()
