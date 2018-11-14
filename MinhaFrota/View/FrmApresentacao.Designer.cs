@@ -109,7 +109,6 @@
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pctLogo.TabIndex = 5;
             this.pctLogo.TabStop = false;
-            this.pctLogo.Click += new System.EventHandler(this.pctMatrix_Click);
             // 
             // label1
             // 

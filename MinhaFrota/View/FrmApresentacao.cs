@@ -29,10 +29,5 @@ namespace Trinity
                 acesso.Show();
             }
         }
-
-        private void pctMatrix_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
