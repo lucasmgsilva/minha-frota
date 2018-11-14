@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViagem));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnTracarRota = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbCidadeDestino = new System.Windows.Forms.ComboBox();
@@ -50,6 +51,10 @@
             this.txtLogradouroDestino = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtKmChegada = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,11 +74,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDataSaida = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cmbCidade = new System.Windows.Forms.ComboBox();
@@ -94,7 +95,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.btnTracarRota = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,6 +131,19 @@
             this.panel2.Size = new System.Drawing.Size(385, 665);
             this.panel2.TabIndex = 11;
             // 
+            // btnTracarRota
+            // 
+            this.btnTracarRota.BackColor = System.Drawing.Color.LightGreen;
+            this.btnTracarRota.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnTracarRota.Location = new System.Drawing.Point(15, 561);
+            this.btnTracarRota.Name = "btnTracarRota";
+            this.btnTracarRota.Size = new System.Drawing.Size(353, 29);
+            this.btnTracarRota.TabIndex = 3;
+            this.btnTracarRota.Text = "Traçar Rota";
+            this.btnTracarRota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTracarRota.UseVisualStyleBackColor = false;
+            this.btnTracarRota.Click += new System.EventHandler(this.btnTracarRota_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label6);
@@ -155,7 +168,7 @@
             this.groupBox1.Location = new System.Drawing.Point(4, 377);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(376, 178);
-            this.groupBox1.TabIndex = 59;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço de Destino";
             // 
@@ -179,7 +192,7 @@
             this.cmbCidadeDestino.MaxLength = 120;
             this.cmbCidadeDestino.Name = "cmbCidadeDestino";
             this.cmbCidadeDestino.Size = new System.Drawing.Size(190, 26);
-            this.cmbCidadeDestino.TabIndex = 6;
+            this.cmbCidadeDestino.TabIndex = 2;
             // 
             // label9
             // 
@@ -233,7 +246,7 @@
             this.cmbUfDestino.MaxLength = 2;
             this.cmbUfDestino.Name = "cmbUfDestino";
             this.cmbUfDestino.Size = new System.Drawing.Size(54, 26);
-            this.cmbUfDestino.TabIndex = 5;
+            this.cmbUfDestino.TabIndex = 1;
             this.cmbUfDestino.SelectedIndexChanged += new System.EventHandler(this.cmbUfDestino_SelectedIndexChanged);
             // 
             // label19
@@ -253,7 +266,7 @@
             this.txtCEPDestino.Mask = "00000-999";
             this.txtCEPDestino.Name = "txtCEPDestino";
             this.txtCEPDestino.Size = new System.Drawing.Size(97, 26);
-            this.txtCEPDestino.TabIndex = 4;
+            this.txtCEPDestino.TabIndex = 0;
             // 
             // txtBairroDestino
             // 
@@ -262,7 +275,7 @@
             this.txtBairroDestino.MaxLength = 30;
             this.txtBairroDestino.Name = "txtBairroDestino";
             this.txtBairroDestino.Size = new System.Drawing.Size(192, 26);
-            this.txtBairroDestino.TabIndex = 3;
+            this.txtBairroDestino.TabIndex = 5;
             // 
             // label28
             // 
@@ -303,7 +316,7 @@
             this.txtNumeroDestino.MaxLength = 8;
             this.txtNumeroDestino.Name = "txtNumeroDestino";
             this.txtNumeroDestino.Size = new System.Drawing.Size(155, 26);
-            this.txtNumeroDestino.TabIndex = 1;
+            this.txtNumeroDestino.TabIndex = 4;
             // 
             // label38
             // 
@@ -322,7 +335,7 @@
             this.txtLogradouroDestino.MaxLength = 70;
             this.txtLogradouroDestino.Name = "txtLogradouroDestino";
             this.txtLogradouroDestino.Size = new System.Drawing.Size(353, 26);
-            this.txtLogradouroDestino.TabIndex = 0;
+            this.txtLogradouroDestino.TabIndex = 3;
             // 
             // label39
             // 
@@ -343,6 +356,54 @@
             this.label17.Size = new System.Drawing.Size(37, 19);
             this.label17.TabIndex = 49;
             this.label17.Text = "UF:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnExcluir.Location = new System.Drawing.Point(4, 631);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(98, 29);
+            this.btnExcluir.TabIndex = 7;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnCancelar.Location = new System.Drawing.Point(108, 631);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(98, 29);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Location = new System.Drawing.Point(4, 596);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(98, 29);
+            this.btnNovo.TabIndex = 4;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnSalvar.Location = new System.Drawing.Point(108, 596);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(98, 29);
+            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBox2
             // 
@@ -368,7 +429,7 @@
             this.groupBox2.Location = new System.Drawing.Point(4, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(376, 183);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações da Viagem";
             // 
@@ -382,7 +443,7 @@
             0});
             this.txtKmChegada.Name = "txtKmChegada";
             this.txtKmChegada.Size = new System.Drawing.Size(104, 26);
-            this.txtKmChegada.TabIndex = 103;
+            this.txtKmChegada.TabIndex = 2;
             // 
             // label14
             // 
@@ -404,7 +465,7 @@
             0});
             this.txtKmSaida.Name = "txtKmSaida";
             this.txtKmSaida.Size = new System.Drawing.Size(104, 26);
-            this.txtKmSaida.TabIndex = 100;
+            this.txtKmSaida.TabIndex = 1;
             // 
             // label8
             // 
@@ -434,7 +495,7 @@
             this.txtDataChegada.Location = new System.Drawing.Point(182, 149);
             this.txtDataChegada.Name = "txtDataChegada";
             this.txtDataChegada.Size = new System.Drawing.Size(165, 26);
-            this.txtDataChegada.TabIndex = 92;
+            this.txtDataChegada.TabIndex = 5;
             // 
             // label7
             // 
@@ -485,7 +546,7 @@
             this.cmbMotorista.MaxLength = 25;
             this.cmbMotorista.Name = "cmbMotorista";
             this.cmbMotorista.Size = new System.Drawing.Size(294, 26);
-            this.cmbMotorista.TabIndex = 88;
+            this.cmbMotorista.TabIndex = 3;
             // 
             // label13
             // 
@@ -526,7 +587,7 @@
             this.cmbVeiculo.MaxLength = 25;
             this.cmbVeiculo.Name = "cmbVeiculo";
             this.cmbVeiculo.Size = new System.Drawing.Size(108, 26);
-            this.cmbVeiculo.TabIndex = 84;
+            this.cmbVeiculo.TabIndex = 0;
             // 
             // label4
             // 
@@ -546,7 +607,7 @@
             this.txtDataSaida.Location = new System.Drawing.Point(11, 149);
             this.txtDataSaida.Name = "txtDataSaida";
             this.txtDataSaida.Size = new System.Drawing.Size(165, 26);
-            this.txtDataSaida.TabIndex = 81;
+            this.txtDataSaida.TabIndex = 4;
             // 
             // label5
             // 
@@ -558,65 +619,17 @@
             this.label5.TabIndex = 82;
             this.label5.Text = "Data/Hora Saída:";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(108, 631);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(4, 631);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 5;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
             this.btnEditar.Location = new System.Drawing.Point(212, 596);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(108, 596);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(4, 596);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 2;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // groupBox3
             // 
@@ -641,7 +654,7 @@
             this.groupBox3.Location = new System.Drawing.Point(4, 189);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(376, 182);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Endereço de Origem";
             // 
@@ -665,7 +678,7 @@
             this.cmbCidade.MaxLength = 120;
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(190, 26);
-            this.cmbCidade.TabIndex = 6;
+            this.cmbCidade.TabIndex = 2;
             // 
             // label33
             // 
@@ -708,7 +721,7 @@
             this.cmbUf.MaxLength = 2;
             this.cmbUf.Name = "cmbUf";
             this.cmbUf.Size = new System.Drawing.Size(54, 26);
-            this.cmbUf.TabIndex = 5;
+            this.cmbUf.TabIndex = 1;
             this.cmbUf.SelectedIndexChanged += new System.EventHandler(this.cmbUf_SelectedIndexChanged);
             // 
             // label21
@@ -728,7 +741,7 @@
             this.txtCep.Mask = "00000-999";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(97, 26);
-            this.txtCep.TabIndex = 4;
+            this.txtCep.TabIndex = 0;
             // 
             // txtBairro
             // 
@@ -737,7 +750,7 @@
             this.txtBairro.MaxLength = 30;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(194, 26);
-            this.txtBairro.TabIndex = 3;
+            this.txtBairro.TabIndex = 5;
             // 
             // label22
             // 
@@ -778,7 +791,7 @@
             this.txtNumero.MaxLength = 8;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(155, 26);
-            this.txtNumero.TabIndex = 1;
+            this.txtNumero.TabIndex = 4;
             // 
             // label26
             // 
@@ -797,7 +810,7 @@
             this.txtLogradouro.MaxLength = 70;
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(355, 26);
-            this.txtLogradouro.TabIndex = 0;
+            this.txtLogradouro.TabIndex = 3;
             // 
             // label29
             // 
@@ -835,19 +848,6 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(898, 665);
             this.webBrowser1.TabIndex = 1;
-            // 
-            // btnTracarRota
-            // 
-            this.btnTracarRota.BackColor = System.Drawing.Color.LightGreen;
-            this.btnTracarRota.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnTracarRota.Location = new System.Drawing.Point(15, 561);
-            this.btnTracarRota.Name = "btnTracarRota";
-            this.btnTracarRota.Size = new System.Drawing.Size(353, 29);
-            this.btnTracarRota.TabIndex = 60;
-            this.btnTracarRota.Text = "Traçar Rota";
-            this.btnTracarRota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTracarRota.UseVisualStyleBackColor = false;
-            this.btnTracarRota.Click += new System.EventHandler(this.btnTracarRota_Click);
             // 
             // FrmViagem
             // 
