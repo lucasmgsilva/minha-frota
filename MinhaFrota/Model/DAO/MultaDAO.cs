@@ -150,6 +150,51 @@ namespace Trinity.Model.DAO
             }
         }
 
+        public List<Multa> GetListaMultasIraVencer()
+        {
+            string query = "EXECUTE SP_SELECIONA_MULTA_IRA_VENCER";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                List<Multa> listaMultas = new List<Multa>();
+
+                while (dtr.Read())
+                {
+                    Multa multa = new Multa();
+                    multa.IdMulta = Convert.ToInt32(dtr["idMulta"]);
+                    multa.Veiculo = new Veiculo()
+                    {
+                        IdVeiculo = Convert.ToInt32(dtr["idVeiculo"]),
+                        Placa = dtr["placa"].ToString()
+                    };
+
+                    multa.Motorista = new Motorista()
+                    {
+                        IdMotorista = Convert.ToInt32(dtr["idMotorista"]),
+                        Nome = dtr["nome"].ToString()
+                    };
+
+                    multa.Valor = Convert.ToDouble(dtr["valor"]);
+                    multa.DataVencimento = Convert.ToDateTime(dtr["dataVencimento"]);
+
+                    listaMultas.Add(multa);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaMultas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
+
         public List<Multa> BuscaListaMultas(string palavraChave)
         {
             string query = "EXECUTE SP_BUSCA_MULTA @PalavraChave";

@@ -188,6 +188,57 @@ namespace Trinity.Model.DAO
             }
         }
 
+        public List<Motorista> GetListaMotoristasCnhIraVencer()
+        {
+            string query = "EXECUTE SP_SELECIONA_CNH_IRA_VENCER";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                List<Motorista> listaMotoristas = new List<Motorista>();
+
+                while (dtr.Read())
+                {
+                    Motorista motorista = new Motorista();
+
+                    motorista.IdPessoa = Convert.ToInt32(dtr["idPessoa"]);
+
+                    motorista.IdMotorista = Convert.ToInt32(dtr["idMotorista"]);
+                    motorista.DataCadastro = Convert.ToDateTime(dtr["dataCadastro"]);
+                    motorista.Nome = dtr["nome"].ToString();
+                    motorista.Sexo = Convert.ToChar(dtr["sexo"]);
+                    motorista.Cpf = dtr["cpf"].ToString();
+                    motorista.Rg = dtr["rg"].ToString();
+                    motorista.DataNascimento = Convert.ToDateTime(dtr["dataNascimento"]);
+                    motorista.Apelido = dtr["apelido"].ToString();
+
+                    CNH cnh = new CNH()
+                    {
+                        IdCNH = Convert.ToInt32(dtr["idCNH"]),
+                        NumeroRegistro = dtr["numeroRegistro"].ToString(),
+                        DataValidade = Convert.ToDateTime(dtr["dataValidade"]),
+                        Categoria = dtr["categoria"].ToString()
+                    };
+
+                    motorista.Cnh = cnh;
+
+                    listaMotoristas.Add(motorista);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaMotoristas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
+
         public List<Motorista> BuscaListaMotoristas(string palavraChave)
         {
             string query = "EXECUTE SP_BUSCA_MOTORISTA @PalavraChave";

@@ -150,6 +150,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmAvisos.designer.cs">
+      <DependentUpon>FrmAvisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmConsultaMulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     <Compile Include="View\FrmVeiculo.Designer.cs">
       <DependentUpon>FrmVeiculo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\FrmAvisos.resx">
+      <DependentUpon>FrmAvisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmConsultaMulta.resx">
       <DependentUpon>FrmConsultaMulta.cs</DependentUpon>
     </EmbeddedResource>

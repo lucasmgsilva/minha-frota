@@ -192,39 +192,41 @@ namespace Trinity.View
             {
                 if (Validacao.ValidaCPF(txtCpf.Text.Trim()) && Validacao.ValidaCNH(txtNumeroRegistro.Text.Trim()))
                 {
-                    if (this.motoristaCarregado == null)
-                        this.motoristaCarregado = new Motorista();
+                    if (Validacao.CalculaIdade(Convert.ToDateTime(txtDataNascimento.Text.Trim())) >= 18){
+                            if (this.motoristaCarregado == null)
+                            this.motoristaCarregado = new Motorista();
 
-                    this.motoristaCarregado.Nome = txtNome.Text.Trim();
-                    this.motoristaCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text.Trim());
-                    this.motoristaCarregado.Apelido = txtApelido.Text.Trim();
-                    if (cmbSexo.Text.Trim().Equals("MASCULINO"))
-                        this.motoristaCarregado.Sexo = Convert.ToChar("M");
-                    else this.motoristaCarregado.Sexo = Convert.ToChar("F");
-                    this.motoristaCarregado.Cpf = txtCpf.Text.Trim();
-                    this.motoristaCarregado.Rg = txtRG.Text.Trim();
-                    this.motoristaCarregado.TelefoneFixo = txtTelefoneFixo.Text.Trim();
-                    this.motoristaCarregado.TelefoneCelular = txtTelefoneCelular.Text.Trim();
-                    this.motoristaCarregado.DataNascimento = Convert.ToDateTime(txtDataNascimento.Text.Trim());
-                    this.motoristaCarregado.Logradouro = txtLogradouro.Text.Trim();
-                    this.motoristaCarregado.Numero = txtNumero.Text.Trim();
-                    this.motoristaCarregado.Complemento = txtComplemento.Text.Trim();
-                    this.motoristaCarregado.Bairro = txtBairro.Text.Trim();
-                    this.motoristaCarregado.Cep = txtCep.Text.Trim();
-                    this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
+                        this.motoristaCarregado.Nome = txtNome.Text.Trim();
+                        this.motoristaCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text.Trim());
+                        this.motoristaCarregado.Apelido = txtApelido.Text.Trim();
+                        if (cmbSexo.Text.Trim().Equals("MASCULINO"))
+                            this.motoristaCarregado.Sexo = Convert.ToChar("M");
+                        else this.motoristaCarregado.Sexo = Convert.ToChar("F");
+                        this.motoristaCarregado.Cpf = txtCpf.Text.Trim();
+                        this.motoristaCarregado.Rg = txtRG.Text.Trim();
+                        this.motoristaCarregado.TelefoneFixo = txtTelefoneFixo.Text.Trim();
+                        this.motoristaCarregado.TelefoneCelular = txtTelefoneCelular.Text.Trim();
+                        this.motoristaCarregado.DataNascimento = Convert.ToDateTime(txtDataNascimento.Text.Trim());
+                        this.motoristaCarregado.Logradouro = txtLogradouro.Text.Trim();
+                        this.motoristaCarregado.Numero = txtNumero.Text.Trim();
+                        this.motoristaCarregado.Complemento = txtComplemento.Text.Trim();
+                        this.motoristaCarregado.Bairro = txtBairro.Text.Trim();
+                        this.motoristaCarregado.Cep = txtCep.Text.Trim();
+                        this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
 
-                    if (this.motoristaCarregado.Cnh == null)
-                        this.motoristaCarregado.Cnh = new CNH();
+                        if (this.motoristaCarregado.Cnh == null)
+                            this.motoristaCarregado.Cnh = new CNH();
 
-                    this.motoristaCarregado.Cnh.NumeroRegistro = txtNumeroRegistro.Text.Trim();
-                    this.motoristaCarregado.Cnh.DataValidade = Convert.ToDateTime(txtDataValidade.Text.Trim());
-                    this.motoristaCarregado.Cnh.Categoria = cmbCategoria.Text.Trim();
+                        this.motoristaCarregado.Cnh.NumeroRegistro = txtNumeroRegistro.Text.Trim();
+                        this.motoristaCarregado.Cnh.DataValidade = Convert.ToDateTime(txtDataValidade.Text.Trim());
+                        this.motoristaCarregado.Cnh.Categoria = cmbCategoria.Text.Trim();
            
-                    MotoristaDAO dao = new MotoristaDAO();
-                    if (!this.editando)
-                        dao.AdicionaMotorista(this.motoristaCarregado);
-                    else dao.AlteraMotorista(this.motoristaCarregado);
-                    this.Close();
+                        MotoristaDAO dao = new MotoristaDAO();
+                        if (!this.editando)
+                            dao.AdicionaMotorista(this.motoristaCarregado);
+                        else dao.AlteraMotorista(this.motoristaCarregado);
+                        this.Close();
+                    } else MessageBox.Show("Não foi possível realizar a operação.\nUm MOTORISTA não deve ter idade inferior a 18 anos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else MessageBox.Show("Não foi possível realizar a operação.\nO CPF ou NÚMERO DE REGISTRO digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

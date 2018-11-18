@@ -42,8 +42,8 @@
             this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viagensToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abastecimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manutencaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.manutencaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -212,17 +212,6 @@
             this.abastecimentosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.abastecimentosToolStripMenuItem.Click += new System.EventHandler(this.abastecimentosToolStripMenuItem_Click);
             // 
-            // manutencaoToolStripMenuItem
-            // 
-            this.manutencaoToolStripMenuItem.Enabled = false;
-            this.manutencaoToolStripMenuItem.Image = global::Trinity.Properties.Resources.manutencao_32px;
-            this.manutencaoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.manutencaoToolStripMenuItem.Name = "manutencaoToolStripMenuItem";
-            this.manutencaoToolStripMenuItem.Size = new System.Drawing.Size(106, 51);
-            this.manutencaoToolStripMenuItem.Text = "MANUTENÇÕES";
-            this.manutencaoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.manutencaoToolStripMenuItem.Click += new System.EventHandler(this.manutencoesToolStripMenuItem_Click);
-            // 
             // multasToolStripMenuItem1
             // 
             this.multasToolStripMenuItem1.Enabled = false;
@@ -233,6 +222,17 @@
             this.multasToolStripMenuItem1.Text = "MULTAS";
             this.multasToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.multasToolStripMenuItem1.Click += new System.EventHandler(this.multasToolStripMenuItem1_Click);
+            // 
+            // manutencaoToolStripMenuItem
+            // 
+            this.manutencaoToolStripMenuItem.Enabled = false;
+            this.manutencaoToolStripMenuItem.Image = global::Trinity.Properties.Resources.manutencao_32px;
+            this.manutencaoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.manutencaoToolStripMenuItem.Name = "manutencaoToolStripMenuItem";
+            this.manutencaoToolStripMenuItem.Size = new System.Drawing.Size(106, 51);
+            this.manutencaoToolStripMenuItem.Text = "MANUTENÇÕES";
+            this.manutencaoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.manutencaoToolStripMenuItem.Click += new System.EventHandler(this.manutencoesToolStripMenuItem_Click);
             // 
             // trocaUsuarioToolStripMenuItem
             // 
