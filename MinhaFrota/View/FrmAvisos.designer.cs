@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAvisos));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvMotoristas = new System.Windows.Forms.DataGridView();
@@ -50,7 +49,7 @@
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMotoristas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,7 +81,7 @@
             this.Nome,
             this.Cpf,
             this.CNH,
-            this.categoria});
+            this.vencimento});
             this.dgvMotoristas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMotoristas.Location = new System.Drawing.Point(3, 22);
             this.dgvMotoristas.MultiSelect = false;
@@ -130,8 +129,8 @@
             this.dgvMultas.AllowUserToAddRows = false;
             this.dgvMultas.AllowUserToDeleteRows = false;
             this.dgvMultas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvMultas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvMultas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMulta,
@@ -152,8 +151,8 @@
             // idMulta
             // 
             this.idMulta.DataPropertyName = "IdMulta";
-            dataGridViewCellStyle5.Format = "000000";
-            this.idMulta.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Format = "000000";
+            this.idMulta.DefaultCellStyle = dataGridViewCellStyle4;
             this.idMulta.HeaderText = "ID";
             this.idMulta.Name = "idMulta";
             this.idMulta.ReadOnly = true;
@@ -176,9 +175,9 @@
             // valor
             // 
             this.valor.DataPropertyName = "Valor";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.valor.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.valor.DefaultCellStyle = dataGridViewCellStyle5;
             this.valor.HeaderText = "VALOR";
             this.valor.Name = "valor";
             this.valor.ReadOnly = true;
@@ -223,15 +222,13 @@
             this.CNH.Name = "CNH";
             this.CNH.ReadOnly = true;
             // 
-            // categoria
+            // vencimento
             // 
-            this.categoria.DataPropertyName = "Cnh.DataValidade";
-            dataGridViewCellStyle3.NullValue = null;
-            this.categoria.DefaultCellStyle = dataGridViewCellStyle3;
-            this.categoria.HeaderText = "VENCIMENTO";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            this.categoria.Width = 115;
+            this.vencimento.DataPropertyName = "Cnh.DataValidade";
+            this.vencimento.HeaderText = "VENCIMENTO";
+            this.vencimento.Name = "vencimento";
+            this.vencimento.ReadOnly = true;
+            this.vencimento.Width = 115;
             // 
             // FrmAvisos
             // 
@@ -274,6 +271,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vencimento;
     }
 }

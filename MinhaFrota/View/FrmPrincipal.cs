@@ -54,14 +54,9 @@ namespace Trinity
             }
         }
 
-        private void soreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmSobre sobre = new FrmSobre();
-            sobre.ShowDialog();
-        }
-
         private void sobreOSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            new FrmAvisos().ShowDialog();
             FrmSobre telaSobre = new FrmSobre();
             telaSobre.ShowDialog();
         }

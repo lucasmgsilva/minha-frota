@@ -190,8 +190,8 @@ namespace Trinity.View
             if(!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
                 cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
             {
-                if(dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
-                {
+                /*if(dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
+                {*/
                     if (this.manutencaoCarregada == null)
                         this.manutencaoCarregada = new Manutencao();
 
@@ -205,7 +205,7 @@ namespace Trinity.View
                         dao.AdicionaManutencao(this.manutencaoCarregada);
                     else dao.AlteraManutencao(this.manutencaoCarregada);
                     this.Close();
-                } else MessageBox.Show("Mensagem de erro 2");
+                //} else MessageBox.Show("Mensagem de erro 2");
             } else MessageBox.Show("Mensagem de erro 1");
         }
 
@@ -277,8 +277,8 @@ namespace Trinity.View
                         ProdutoManutencaoDAO dao = new ProdutoManutencaoDAO();
 
                         if (produtoManutencao == null) /*É um produto novo que não está na tabela*/
-                        {
-                            produtoManutencao = new ProdutoManutencao()
+                {
+                    produtoManutencao = new ProdutoManutencao()
                             {
                                 Manutencao = this.manutencaoCarregada,
                                 Produto = (Produto)cmbProduto.SelectedItem,

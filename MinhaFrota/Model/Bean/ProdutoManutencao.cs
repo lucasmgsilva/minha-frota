@@ -12,5 +12,6 @@ namespace Trinity.Model.Bean
         public Produto Produto { get; set; }
         public Double Quantidade { get; set; }
         public Double ValorUnitario { get; set; }
+        public Double ValorTotal { get; set; }
     }
 }

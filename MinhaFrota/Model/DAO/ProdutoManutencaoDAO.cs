@@ -111,9 +111,9 @@ namespace Trinity.Model.DAO
                             }
                         },
                         Quantidade = Convert.ToDouble(dtr["quantidade"]),
-                        ValorUnitario = Convert.ToDouble(dtr["valorUnitario"])
+                        ValorUnitario = Convert.ToDouble(dtr["valorUnitario"]),
                     };
-
+                    produtoManutencao.ValorTotal = produtoManutencao.Quantidade * produtoManutencao.ValorUnitario;
                     listaProdutosManutencao.Add(produtoManutencao);
                 }
 

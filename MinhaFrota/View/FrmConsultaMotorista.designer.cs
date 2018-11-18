@@ -36,11 +36,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvMotoristas = new System.Windows.Forms.DataGridView();
-            this.IdMotorista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -48,6 +43,11 @@
             this.txtPalavrasChave = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.IdMotorista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMotoristas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -125,46 +125,6 @@
             this.dgvMotoristas.TabIndex = 0;
             this.dgvMotoristas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
-            // IdMotorista
-            // 
-            this.IdMotorista.DataPropertyName = "IdMotorista";
-            dataGridViewCellStyle2.Format = "000000";
-            this.IdMotorista.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IdMotorista.HeaderText = "ID";
-            this.IdMotorista.Name = "IdMotorista";
-            this.IdMotorista.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "NOME";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 445;
-            // 
-            // Cpf
-            // 
-            this.Cpf.DataPropertyName = "Cpf";
-            this.Cpf.HeaderText = "CPF";
-            this.Cpf.Name = "Cpf";
-            this.Cpf.ReadOnly = true;
-            this.Cpf.Width = 130;
-            // 
-            // CNH
-            // 
-            this.CNH.DataPropertyName = "Cnh.NumeroRegistro";
-            this.CNH.HeaderText = "CNH";
-            this.CNH.Name = "CNH";
-            this.CNH.ReadOnly = true;
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "Cnh.Categoria";
-            this.categoria.HeaderText = "CAT";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            this.categoria.Width = 45;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -241,6 +201,47 @@
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // IdMotorista
+            // 
+            this.IdMotorista.DataPropertyName = "IdMotorista";
+            dataGridViewCellStyle2.Format = "000000";
+            this.IdMotorista.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IdMotorista.HeaderText = "ID";
+            this.IdMotorista.Name = "IdMotorista";
+            this.IdMotorista.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "NOME";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 435;
+            // 
+            // Cpf
+            // 
+            this.Cpf.DataPropertyName = "Cpf";
+            this.Cpf.HeaderText = "CPF";
+            this.Cpf.Name = "Cpf";
+            this.Cpf.ReadOnly = true;
+            this.Cpf.Width = 130;
+            // 
+            // CNH
+            // 
+            this.CNH.DataPropertyName = "Cnh.NumeroRegistro";
+            this.CNH.HeaderText = "CNH";
+            this.CNH.Name = "CNH";
+            this.CNH.ReadOnly = true;
+            this.CNH.Width = 110;
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "Cnh.Categoria";
+            this.categoria.HeaderText = "CAT";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            this.categoria.Width = 45;
             // 
             // FrmConsultaMotorista
             // 
