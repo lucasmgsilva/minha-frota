@@ -2,12 +2,12 @@
 FrmManutencao
 FrmConsultaManutencao
 FrmViagem
-FrmAvisos
 
 -Em Manipulação:
 
 
 -Finalizados:
+FrmAvisos
 FrmPrincipal
 FrmServico
 FrmProduto

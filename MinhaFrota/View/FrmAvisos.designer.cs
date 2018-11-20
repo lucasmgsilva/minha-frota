@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAvisos));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvMotoristas = new System.Windows.Forms.DataGridView();
@@ -40,16 +40,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvMultas = new System.Windows.Forms.DataGridView();
-            this.idMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdMotorista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMotoristas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,9 +64,9 @@
             this.groupBox2.Location = new System.Drawing.Point(6, 53);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(872, 205);
-            this.groupBox2.TabIndex = 56;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lista de CNH\'s - Vencimento em 30 dias";
+            this.groupBox2.Text = "Lista de CNH\'s (Requer Atenção)";
             // 
             // dgvMotoristas
             // 
@@ -89,15 +89,16 @@
             this.dgvMotoristas.ReadOnly = true;
             this.dgvMotoristas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMotoristas.Size = new System.Drawing.Size(866, 180);
-            this.dgvMotoristas.TabIndex = 1;
+            this.dgvMotoristas.TabIndex = 0;
             this.dgvMotoristas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
+            this.dgvMotoristas.SelectionChanged += new System.EventHandler(this.dgvMotoristas_SelectionChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(357, 9);
+            this.label1.Location = new System.Drawing.Point(371, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 23);
             this.label1.TabIndex = 0;
@@ -120,9 +121,9 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 264);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 205);
-            this.groupBox1.TabIndex = 57;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lista de Multas - Vencimento em 30 dias";
+            this.groupBox1.Text = "Lista de Multas (Requer Atenção)";
             // 
             // dgvMultas
             // 
@@ -145,8 +146,50 @@
             this.dgvMultas.ReadOnly = true;
             this.dgvMultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMultas.Size = new System.Drawing.Size(866, 180);
-            this.dgvMultas.TabIndex = 1;
+            this.dgvMultas.TabIndex = 0;
             this.dgvMultas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormattingMultas);
+            this.dgvMultas.SelectionChanged += new System.EventHandler(this.dgvMultas_SelectionChanged);
+            // 
+            // IdMotorista
+            // 
+            this.IdMotorista.DataPropertyName = "IdMotorista";
+            dataGridViewCellStyle2.Format = "000000";
+            this.IdMotorista.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IdMotorista.HeaderText = "ID";
+            this.IdMotorista.Name = "IdMotorista";
+            this.IdMotorista.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "NOME";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 371;
+            // 
+            // Cpf
+            // 
+            this.Cpf.DataPropertyName = "Cpf";
+            this.Cpf.HeaderText = "CPF";
+            this.Cpf.Name = "Cpf";
+            this.Cpf.ReadOnly = true;
+            this.Cpf.Width = 130;
+            // 
+            // CNH
+            // 
+            this.CNH.DataPropertyName = "Cnh.NumeroRegistro";
+            this.CNH.HeaderText = "CNH";
+            this.CNH.Name = "CNH";
+            this.CNH.ReadOnly = true;
+            this.CNH.Width = 109;
+            // 
+            // vencimento
+            // 
+            this.vencimento.DataPropertyName = "Cnh.DataValidade";
+            this.vencimento.HeaderText = "VENCIMENTO";
+            this.vencimento.Name = "vencimento";
+            this.vencimento.ReadOnly = true;
+            this.vencimento.Width = 112;
             // 
             // idMulta
             // 
@@ -170,7 +213,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "MOTORISTA";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 405;
+            this.dataGridViewTextBoxColumn1.Width = 407;
             // 
             // valor
             // 
@@ -189,46 +232,6 @@
             this.dataVencimento.Name = "dataVencimento";
             this.dataVencimento.ReadOnly = true;
             this.dataVencimento.Width = 115;
-            // 
-            // IdMotorista
-            // 
-            this.IdMotorista.DataPropertyName = "IdMotorista";
-            dataGridViewCellStyle2.Format = "000000";
-            this.IdMotorista.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IdMotorista.HeaderText = "ID";
-            this.IdMotorista.Name = "IdMotorista";
-            this.IdMotorista.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "NOME";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 375;
-            // 
-            // Cpf
-            // 
-            this.Cpf.DataPropertyName = "Cpf";
-            this.Cpf.HeaderText = "CPF";
-            this.Cpf.Name = "Cpf";
-            this.Cpf.ReadOnly = true;
-            this.Cpf.Width = 130;
-            // 
-            // CNH
-            // 
-            this.CNH.DataPropertyName = "Cnh.NumeroRegistro";
-            this.CNH.HeaderText = "CNH";
-            this.CNH.Name = "CNH";
-            this.CNH.ReadOnly = true;
-            // 
-            // vencimento
-            // 
-            this.vencimento.DataPropertyName = "Cnh.DataValidade";
-            this.vencimento.HeaderText = "VENCIMENTO";
-            this.vencimento.Name = "vencimento";
-            this.vencimento.ReadOnly = true;
-            this.vencimento.Width = 115;
             // 
             // FrmAvisos
             // 
@@ -262,15 +265,15 @@
         private System.Windows.Forms.DataGridView dgvMotoristas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvMultas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMulta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataVencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMotorista;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNH;
         private System.Windows.Forms.DataGridViewTextBoxColumn vencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMulta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataVencimento;
     }
 }

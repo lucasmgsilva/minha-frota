@@ -43,49 +43,6 @@ namespace Trinity.View
             dgvMultas.DataSource = new BindingList<Multa>(listaMultas);
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            /*FrmMulta frmMulta = new FrmMulta(null);
-            frmMulta.ShowDialog();
-            CarregaListaMultas();
-            */
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            /*if (dgvMultas.RowCount != 0)
-            {
-                if (dgvMultas.CurrentRow.Selected)
-                {
-                    int idMulta = Convert.ToInt32(dgvMultas.CurrentRow.Cells["idMulta"].Value);
-                    FrmMulta frmMulta = new FrmMulta(this.listaMultas.Find(f => f.IdMulta == idMulta));
-                    frmMulta.ShowDialog();
-                    CarregaListaMultas();
-                }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MULTA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MULTA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        */}
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            /*if (dgvMultas.RowCount != 0)
-            {
-                if (dgvMultas.CurrentRow.Selected)
-                {
-                    if (MessageBox.Show("Você realmente quer excluir esta MULTA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        int idMulta = Convert.ToInt32(dgvMultas.CurrentRow.Cells["idMulta"].Value);
-                        MultaDAO dao = new MultaDAO();
-                        dao.DeletaMulta(idMulta);
-                        CarregaListaMultas();
-                    }
-                }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MULTA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MULTA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        */}
-
         private string BindProperty(object property, string propertyName)
         {
             string retValue = "";
@@ -131,6 +88,16 @@ namespace Trinity.View
             {
                 e.Value = BindProperty(dgvMultas.Rows[e.RowIndex].DataBoundItem, dgvMultas.Columns[e.ColumnIndex].DataPropertyName);
             }
+        }
+
+        private void dgvMotoristas_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvMotoristas.ClearSelection();
+        }
+
+        private void dgvMultas_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvMultas.ClearSelection();
         }
     }
 }
