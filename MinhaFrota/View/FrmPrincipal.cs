@@ -57,8 +57,6 @@ namespace Trinity
         private void sobreOSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmAvisos().ShowDialog();
-            FrmSobre telaSobre = new FrmSobre();
-            telaSobre.ShowDialog();
         }
 
         private void trocaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)

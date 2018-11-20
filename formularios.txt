@@ -1,14 +1,14 @@
 -Pendentes:
 FrmManutencao
-FrmConsultaManutencao
 FrmViagem
+FrmPrincipal (Abrir FrmAvisos)
 
 -Em Manipulação:
 
 
 -Finalizados:
+FrmConsultaManutencao
 FrmAvisos
-FrmPrincipal
 FrmServico
 FrmProduto
 FrmUnidadeMedida

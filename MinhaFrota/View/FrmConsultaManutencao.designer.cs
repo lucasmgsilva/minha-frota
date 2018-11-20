@@ -37,12 +37,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvManutencoes = new System.Windows.Forms.DataGridView();
-            this.idManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,6 +44,12 @@
             this.txtPalavrasChave = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.idManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManutencoes)).BeginInit();
             this.panel1.SuspendLayout();
@@ -128,53 +128,6 @@
             this.dgvManutencoes.TabIndex = 0;
             this.dgvManutencoes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
-            // idManutencao
-            // 
-            this.idManutencao.DataPropertyName = "IdManutencao";
-            dataGridViewCellStyle2.Format = "000000";
-            this.idManutencao.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idManutencao.HeaderText = "ID";
-            this.idManutencao.Name = "idManutencao";
-            this.idManutencao.ReadOnly = true;
-            // 
-            // dataManutencao
-            // 
-            this.dataManutencao.DataPropertyName = "DataManutencao";
-            this.dataManutencao.HeaderText = "DATA";
-            this.dataManutencao.Name = "dataManutencao";
-            this.dataManutencao.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.DataPropertyName = "Tipo";
-            this.Tipo.HeaderText = "TIPO";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "Veiculo.Placa";
-            this.placa.HeaderText = "VEÍCULO";
-            this.placa.Name = "placa";
-            this.placa.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "Motorista.Nome";
-            this.nome.HeaderText = "MOTORISTA";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.DataPropertyName = "ValorTotal";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -251,11 +204,61 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // idManutencao
+            // 
+            this.idManutencao.DataPropertyName = "IdManutencao";
+            dataGridViewCellStyle2.Format = "000000";
+            this.idManutencao.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idManutencao.HeaderText = "ID";
+            this.idManutencao.Name = "idManutencao";
+            this.idManutencao.ReadOnly = true;
+            // 
+            // dataManutencao
+            // 
+            this.dataManutencao.DataPropertyName = "DataManutencao";
+            this.dataManutencao.HeaderText = "DATA";
+            this.dataManutencao.Name = "dataManutencao";
+            this.dataManutencao.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "TIPO";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 108;
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "Veiculo.Placa";
+            this.placa.HeaderText = "VEÍCULO";
+            this.placa.Name = "placa";
+            this.placa.ReadOnly = true;
+            this.placa.Width = 85;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "Motorista.Nome";
+            this.nome.HeaderText = "MOTORISTA";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 330;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.DataPropertyName = "ValorTotal";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            // 
             // FrmConsultaManutencao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 566);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnEditar);
@@ -292,12 +295,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPalavrasChave;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idManutencao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataManutencao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorTotal;
-        private System.Windows.Forms.Button btnBuscar;
     }
 }
