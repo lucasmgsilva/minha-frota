@@ -37,6 +37,12 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvManutencoes = new System.Windows.Forms.DataGridView();
+            this.idManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,12 +50,6 @@
             this.txtPalavrasChave = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.idManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManutencoes)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,7 +62,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(777, 530);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             this.btnNovo.Location = new System.Drawing.Point(9, 530);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             this.btnEditar.Location = new System.Drawing.Point(113, 530);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 3;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -127,6 +127,56 @@
             this.dgvManutencoes.Size = new System.Drawing.Size(866, 361);
             this.dgvManutencoes.TabIndex = 0;
             this.dgvManutencoes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
+            // 
+            // idManutencao
+            // 
+            this.idManutencao.DataPropertyName = "IdManutencao";
+            dataGridViewCellStyle2.Format = "000000";
+            this.idManutencao.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idManutencao.HeaderText = "ID";
+            this.idManutencao.Name = "idManutencao";
+            this.idManutencao.ReadOnly = true;
+            // 
+            // dataManutencao
+            // 
+            this.dataManutencao.DataPropertyName = "DataManutencao";
+            this.dataManutencao.HeaderText = "DATA";
+            this.dataManutencao.Name = "dataManutencao";
+            this.dataManutencao.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "TIPO";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 108;
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "Veiculo.Placa";
+            this.placa.HeaderText = "VEÍCULO";
+            this.placa.Name = "placa";
+            this.placa.ReadOnly = true;
+            this.placa.Width = 85;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "Motorista.Nome";
+            this.nome.HeaderText = "MOTORISTA";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 330;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.DataPropertyName = "ValorTotal";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
             // 
             // label1
             // 
@@ -188,7 +238,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(872, 75);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Pesquisa";
             // 
@@ -203,56 +253,6 @@
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // idManutencao
-            // 
-            this.idManutencao.DataPropertyName = "IdManutencao";
-            dataGridViewCellStyle2.Format = "000000";
-            this.idManutencao.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idManutencao.HeaderText = "ID";
-            this.idManutencao.Name = "idManutencao";
-            this.idManutencao.ReadOnly = true;
-            // 
-            // dataManutencao
-            // 
-            this.dataManutencao.DataPropertyName = "DataManutencao";
-            this.dataManutencao.HeaderText = "DATA";
-            this.dataManutencao.Name = "dataManutencao";
-            this.dataManutencao.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.DataPropertyName = "Tipo";
-            this.Tipo.HeaderText = "TIPO";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 108;
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "Veiculo.Placa";
-            this.placa.HeaderText = "VEÍCULO";
-            this.placa.Name = "placa";
-            this.placa.ReadOnly = true;
-            this.placa.Width = 85;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "Motorista.Nome";
-            this.nome.HeaderText = "MOTORISTA";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 330;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.DataPropertyName = "ValorTotal";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
             // 
             // FrmConsultaManutencao
             // 
