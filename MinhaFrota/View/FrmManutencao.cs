@@ -18,9 +18,15 @@ namespace Trinity.View
     {
         bool editando;
         Manutencao manutencaoCarregada;
+        List<ProdutoManutencao> listaProdutosManutencao = new List<ProdutoManutencao>();
+        List<ProdutoManutencao> listaProdutosManutencaoNovo = new List<ProdutoManutencao>();
+        List<ProdutoManutencao> listaProdutosManutencaoAlterado = new List<ProdutoManutencao>();
+        List<ProdutoManutencao> listaProdutosManutencaoDeletado = new List<ProdutoManutencao>();
 
-        List<ProdutoManutencao> listaProdutosManutencao;
-        List<ServicoManutencao> listaServicosManutencao;
+        List<ServicoManutencao> listaServicosManutencao = new List<ServicoManutencao>();
+        List<ServicoManutencao> listaServicosManutencaoNovo = new List<ServicoManutencao>();
+        List<ServicoManutencao> listaServicosManutencaoAlterado = new List<ServicoManutencao>();
+        List<ServicoManutencao> listaServicosManutencaoDeletado = new List<ServicoManutencao>();
 
         public FrmManutencao(Manutencao manutencaoCarregada)
         {
@@ -36,7 +42,7 @@ namespace Trinity.View
             {
                 this.editando = true;
                 CarregaManutencao();
-            }
+            } else txtDataManutencao.Text = Convert.ToString(DateTime.Now);
         }
 
         private void CarregaVeiculos()
@@ -90,17 +96,30 @@ namespace Trinity.View
         private void CarregaProdutosManutencao()
         {
             dgvProdutos.AutoGenerateColumns = false;
-            listaProdutosManutencao = new ProdutoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
             dgvProdutos.DataSource = new BindingList<ProdutoManutencao>(listaProdutosManutencao);
-            LimpaCamposProdutoManutencao();
         }
 
         private void CarregaServicosManutencao()
         {
             dgvServicos.AutoGenerateColumns = false;
-            listaServicosManutencao = new ServicoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
             dgvServicos.DataSource = new BindingList<ServicoManutencao>(listaServicosManutencao);
             LimpaCamposServicoManutencao();
+        }
+
+        public void DefineListaProdutoManutencao()
+        {
+            dgvProdutos.AutoGenerateColumns = false;
+            manutencaoCarregada.ListaProdutoManutencao = new ProdutoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
+            listaProdutosManutencao = manutencaoCarregada.ListaProdutoManutencao;
+            dgvProdutos.DataSource = new BindingList<ProdutoManutencao>(this.listaProdutosManutencao);
+        }
+
+        public void DefineListaServicoManutencao()
+        {
+            dgvServicos.AutoGenerateColumns = false;
+            manutencaoCarregada.ListaServicoManutencao = new ServicoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
+            listaServicosManutencao = manutencaoCarregada.ListaServicoManutencao;
+            dgvServicos.DataSource = new BindingList<ServicoManutencao>(this.listaServicosManutencao);
         }
 
         private void CarregaManutencao()
@@ -109,8 +128,10 @@ namespace Trinity.View
             SelecionaVeiculo();
             SelecionaMotorista();
             cmbTipo.Text = this.manutencaoCarregada.Tipo;
-            CarregaProdutosManutencao();
-            CarregaServicosManutencao();
+            DefineListaProdutoManutencao();
+            DefineListaServicoManutencao();
+            //CarregaProdutosManutencao();
+            //CarregaServicosManutencao();
         }
 
         private void DesabilitaCampos()
@@ -160,19 +181,17 @@ namespace Trinity.View
             btnExcluir.Enabled = !true;
         }
 
-        private void LimpaCamposProdutoManutencao()
-        {
-            dgvProdutos.ClearSelection();
-            cmbProduto.SelectedItem = null;
-            txtQuantidade.Value = 0;
-            txtValor.Value = 0;
-        }
-
         private void LimpaCamposServicoManutencao()
         {
-            dgvServicos.ClearSelection();
             cmbServico.SelectedItem = null;
             txtValorServico.Value = 0;
+        }
+
+        private void LimpaCamposProdutoManutencao()
+        {
+            cmbProduto.SelectedItem = null;
+            txtValor.Value = 0;
+            txtQuantidade.Value = 0;
         }
 
         private void LimpaCampos()
@@ -186,33 +205,11 @@ namespace Trinity.View
             LimpaCamposServicoManutencao();
         }
 
-        private int AddManutencao()
-        {
-            if (!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
-                cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
-            {
-                if (this.manutencaoCarregada == null)
-                    this.manutencaoCarregada = new Manutencao();
-
-                this.manutencaoCarregada.DataManutencao = Convert.ToDateTime(txtDataManutencao.Text);
-                this.manutencaoCarregada.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
-                this.manutencaoCarregada.Motorista = (Motorista)cmbMotorista.SelectedItem;
-                this.manutencaoCarregada.Tipo = cmbTipo.Text;
-
-                ManutencaoDAO dao = new ManutencaoDAO();
-                if (!this.editando)
-                    return dao.AdicionaManutencao(this.manutencaoCarregada);
-            } else MessageBox.Show("Mensagem de erro 1 sou gay e curto anal");
-            return -1;
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
                 cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
             {
-                /*if(dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
-                {*/
                     if (this.manutencaoCarregada == null)
                         this.manutencaoCarregada = new Manutencao();
 
@@ -220,14 +217,15 @@ namespace Trinity.View
                     this.manutencaoCarregada.Veiculo = (Veiculo) cmbVeiculo.SelectedItem;
                     this.manutencaoCarregada.Motorista = (Motorista) cmbMotorista.SelectedItem;
                     this.manutencaoCarregada.Tipo = cmbTipo.Text;
+                    this.manutencaoCarregada.ListaProdutoManutencao = listaProdutosManutencao;
+                    this.manutencaoCarregada.ListaServicoManutencao = listaServicosManutencao;
 
                     ManutencaoDAO dao = new ManutencaoDAO();
                     if (!this.editando)
                         dao.AdicionaManutencao(this.manutencaoCarregada);
-                    else dao.AlteraManutencao(this.manutencaoCarregada);
+                else dao.AlteraManutencao(this.manutencaoCarregada, listaProdutosManutencaoNovo, listaProdutosManutencaoAlterado, listaProdutosManutencaoDeletado, listaServicosManutencaoNovo, listaServicosManutencaoAlterado, listaServicosManutencaoDeletado);
                     this.Close();
-                //} else MessageBox.Show("Mensagem de erro 2");
-            } else MessageBox.Show("Mensagem de erro 1");
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos seu FDP!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -288,66 +286,62 @@ namespace Trinity.View
 
         private void btnSalvarProduto_Click(object sender, EventArgs e)
         {
-            if (this.manutencaoCarregada != null)
+            if(cmbProduto.SelectedItem != null)
             {
-                if(cmbProduto.SelectedItem != null)
+                if (txtQuantidade.Value != 0 && txtValor.Value != 0)
                 {
-                    if (txtQuantidade.Value != 0 && txtValor.Value != 0)
+                    ProdutoManutencao produtoManutencao = new ProdutoManutencao()
                     {
-                        ProdutoManutencao produtoManutencao = listaProdutosManutencao.Find(prodManutencao => prodManutencao.Produto.idProduto == ((Produto) cmbProduto.SelectedItem).idProduto);
-                        ProdutoManutencaoDAO dao = new ProdutoManutencaoDAO();
+                        Manutencao = this.manutencaoCarregada,
+                        Produto = (Produto)cmbProduto.SelectedItem,
+                        Quantidade = Convert.ToDouble(txtQuantidade.Value),
+                        ValorUnitario = Convert.ToDouble(txtValor.Value)
+                    };
 
-                        if (produtoManutencao == null) /*É um produto novo que não está na tabela*/
-                {
-                    produtoManutencao = new ProdutoManutencao()
-                            {
-                                Manutencao = this.manutencaoCarregada,
-                                Produto = (Produto)cmbProduto.SelectedItem,
-                                Quantidade = Convert.ToDouble(txtQuantidade.Value),
-                                ValorUnitario = Convert.ToDouble(txtValor.Value)
-                            };
-                            dao.AdicionaProdutoManutencao(produtoManutencao);
-                        } else
+                    ProdutoManutencao produtoManutencaoExistente = null; //Novo
+
+                    foreach (ProdutoManutencao item in listaProdutosManutencao)
+                    {
+                        if (item.Produto.idProduto == produtoManutencao.Produto.idProduto)
                         {
-                            produtoManutencao.Manutencao = this.manutencaoCarregada;
-                            produtoManutencao.Produto = (Produto)cmbProduto.SelectedItem;
-                            produtoManutencao.Quantidade = Convert.ToDouble(txtQuantidade.Value);
-                            produtoManutencao.ValorUnitario = Convert.ToDouble(txtValor.Value);
-
-                            dao.AlteraProdutoManutencao(produtoManutencao);
+                            produtoManutencaoExistente = item;
+                            break;
                         }
-                        CarregaProdutosManutencao();
+                    }
+
+                    if (produtoManutencaoExistente == null) //Novo
+                    {
+                        produtoManutencaoExistente = produtoManutencao;
+                        this.listaProdutosManutencao.Add(produtoManutencao);
+                        this.listaProdutosManutencaoNovo.Add(produtoManutencao);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoNovo");
+                    }
+                    else //Atualiza - Já existe
+                    {
+                        produtoManutencaoExistente.Quantidade += produtoManutencao.Quantidade;
+                        produtoManutencaoExistente.ValorUnitario = produtoManutencao.ValorUnitario;
+                        produtoManutencaoExistente.ValorTotal = produtoManutencaoExistente.Quantidade * produtoManutencao.ValorUnitario;
+                        listaProdutosManutencaoAlterado.Add(produtoManutencaoExistente);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                    }
+
+                    //Verifica se item vendido adicionado havia sido removido
+                    foreach (var item in listaProdutosManutencaoDeletado)
+                    {
+                        if (item.Produto.idProduto == produtoManutencao.Produto.idProduto)
+                        {
+                            listaProdutosManutencaoDeletado.Remove(item);
+                            //MessageBox.Show("Removido da ListaItemVendidoDeletado");
+                            listaProdutosManutencaoAlterado.Add(produtoManutencaoExistente);
+                            //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                            listaProdutosManutencaoNovo.Remove(produtoManutencaoExistente);
+                            //MessageBox.Show("Removido da ListaItemVendidoNovo");
+                            break;
+                        }
+                    }
+                    CarregaProdutosManutencao();
                 } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser diferente de 0!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
-            {
-                salvar();
-            }   
-        }
-
-        private void salvar()
-        {
-            if (!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
-                cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
-            {
-                /*if(dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
-                {*/
-                if (this.manutencaoCarregada == null)
-                    this.manutencaoCarregada = new Manutencao();
-
-                this.manutencaoCarregada.DataManutencao = Convert.ToDateTime(txtDataManutencao.Text);
-                this.manutencaoCarregada.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
-                this.manutencaoCarregada.Motorista = (Motorista)cmbMotorista.SelectedItem;
-                this.manutencaoCarregada.Tipo = cmbTipo.Text;
-
-                ManutencaoDAO dao = new ManutencaoDAO();
-                if (!this.editando)
-                    this.manutencaoCarregada.IdManutencao = dao.AdicionaManutencao(this.manutencaoCarregada);
-                else dao.AlteraManutencao(this.manutencaoCarregada);
-                //this.Close();
-                //} else MessageBox.Show("Mensagem de erro 2");
-            }
-            else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos seu FDP!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private string BindProperty(object property, string propertyName)
@@ -383,28 +377,30 @@ namespace Trinity.View
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if (this.manutencaoCarregada != null)
+            if (dgvProdutos.RowCount != 0)
             {
-                if (dgvProdutos.RowCount != 0)
+                if (dgvProdutos.CurrentRow.Selected)
                 {
-                    if (dgvProdutos.CurrentRow.Selected)
+                    int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["idProduto"].Value.ToString());
+
+                    foreach (ProdutoManutencao item in this.listaProdutosManutencao)
                     {
-                        if (MessageBox.Show("Você realmente quer excluir este PRODUTO DE MANUTENÇÃO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (item.Produto.idProduto == idProduto)
                         {
-                            int idManutencao = this.manutencaoCarregada.IdManutencao;
-                            int idProduto = this.listaProdutosManutencao[dgvProdutos.CurrentRow.Index].Produto.idProduto;
-                            ProdutoManutencaoDAO dao = new ProdutoManutencaoDAO();
-                            dao.DeletaProdutoManutencao(idManutencao, idProduto);
-                            this.dgvProdutos.SelectionChanged -= new System.EventHandler(this.dgvProdutos_SelectionChanged);
-                            CarregaProdutosManutencao();
-                            this.dgvProdutos.SelectionChanged += new System.EventHandler(this.dgvProdutos_SelectionChanged);
+                            if (this.editando)
+                            {
+                                this.listaProdutosManutencaoDeletado.Add(item);
+                                //MessageBox.Show("Adicionado na ListaItemVendidoDeletado");
+                            }
+                            this.listaProdutosManutencao.Remove(item);
+                            break;
                         }
                     }
-                    else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma PRODUTO DE MANUTENÇÃO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CarregaProdutosManutencao();
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO DE MANUTENÇÃO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-            else MessageBox.Show("Não foi possível realizar a operação.\nÉ necessário salvar a MANUTENÇÃO antes de remover um PRODUTO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO DE MANUTENÇÃO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO DE MANUTENÇÃO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvProdutos_SelectionChanged(object sender, EventArgs e)

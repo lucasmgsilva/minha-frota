@@ -14,5 +14,7 @@ namespace Trinity.Model.Bean
         public Motorista Motorista { get; set; }
         public String Tipo { get; set; }
         public Double ValorTotal { get; set; }
+        public List<ProdutoManutencao> ListaProdutoManutencao { get; set; }
+        public List<ServicoManutencao> ListaServicoManutencao { get; set; }
     }
 }

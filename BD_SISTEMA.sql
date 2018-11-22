@@ -716,7 +716,7 @@ AS
 	VALUES 
 		(@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo)
 
-	SELECT @@IDENTITY
+	SELECT @@IDENTITY as 'idManutencao'
 GO
 
 CREATE PROCEDURE SP_ALTERA_MANUTENCAO (@idManutencao DATETIME, @DataManutencao DATE, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10))
@@ -731,20 +731,27 @@ GO
 
 CREATE PROCEDURE SP_DELETA_MANUTENCAO (@IdManutencao INT)
 AS	
-	DELETE FROM
-		PRODUTO_MANUTENCAO
-	WHERE
-		idManutencao = @IdManutencao 
+BEGIN TRAN
+	BEGIN TRY
+		DELETE FROM
+			PRODUTO_MANUTENCAO
+		WHERE
+			idManutencao = @IdManutencao 
 
-	DELETE FROM 
-		SERVICO_MANUTENCAO
-	WHERE
-		idManutencao = @IdManutencao
+		DELETE FROM 
+			SERVICO_MANUTENCAO
+		WHERE
+			idManutencao = @IdManutencao
 
-	DELETE FROM 
-		MANUTENCAO
-	WHERE 
-		idManutencao = @IdManutencao
+		DELETE FROM 
+			MANUTENCAO
+		WHERE 
+			idManutencao = @IdManutencao
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN
+	END CATCH
 GO
 
 CREATE PROCEDURE SP_INSERE_PRODUTO_MANUTENCAO (@IdManutencao INT, @IdProduto INT, @Quantidade DECIMAL(9, 2), @ValorUnitario DECIMAL(9, 2))

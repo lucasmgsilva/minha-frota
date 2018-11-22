@@ -19,11 +19,10 @@ namespace Trinity.Model.DAO
             this.connection = new ConnectionFactory().getConnection();
         }
 
-        public int AdicionaManutencao (Manutencao manutencao)
+        public void AdicionaManutencao (Manutencao manutencao)
         {
             string query = "EXECUTE SP_INSERE_MANUTENCAO " +
                            "@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo";
-            int id = -1;
             try
             {
                 this.connection.Open();
@@ -36,19 +35,42 @@ namespace Trinity.Model.DAO
 
                 if (dtr.Read())
                 {
-                    id = Convert.ToInt32(dtr[0].ToString());
+                    int idManutencao = Convert.ToInt32(dtr["idManutencao"].ToString());
+                    dtr.Close();
+                    query = "EXECUTE SP_INSERE_PRODUTO_MANUTENCAO " +
+                           "@IdManutencao, @IdProduto, @Quantidade, @ValorUnitario";
+                    foreach (var produtoManutencao in manutencao.ListaProdutoManutencao)
+                    {
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdManutencao", idManutencao);
+                        cmd.Parameters.AddWithValue("@IdProduto", produtoManutencao.Produto.idProduto);
+                        cmd.Parameters.AddWithValue("@Quantidade", produtoManutencao.Quantidade);
+                        cmd.Parameters.AddWithValue("@ValorUnitario", produtoManutencao.ValorUnitario);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    query = "EXECUTE SP_INSERE_SERVICO_MANUTENCAO " +
+                           "@IdManutencao, @IdServico, @Valor";
+                    foreach (var servicoManutencao in manutencao.ListaServicoManutencao)
+                    {
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdManutencao", idManutencao);
+                        cmd.Parameters.AddWithValue("@IdServico", servicoManutencao.Servico.IdServico);
+                        cmd.Parameters.AddWithValue("@Valor", servicoManutencao.Valor);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                
-                //MessageBox.Show("A MANUTENÇÃO foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
+                MessageBox.Show("A MANUTENÇÃO foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (SqlException ex)
             {
                 MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return id;
         }
 
-        public void AlteraManutencao (Manutencao manutencao)
+        public void AlteraManutencao (Manutencao manutencao, 
+            List<ProdutoManutencao> listaProdutoManutencaoNovo, List<ProdutoManutencao> listaProdutoManutencaoAlterado, List<ProdutoManutencao> listaProdutoManutencaoDeletado,
+            List<ServicoManutencao> listaServicoManutencaoNovo, List<ServicoManutencao> listaServicoManutencaoAlterado, List<ServicoManutencao> listaServicoManutencaoDeletado)
         {
             string query = "EXECUTE SP_ALTERA_MANUTENCAO " +
                            "@IdManutencao, @DataManutencao, @IdVeiculo, @IdMotorista, @Tipo";
@@ -62,8 +84,75 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdMotorista", manutencao.Motorista.IdMotorista);
                 cmd.Parameters.AddWithValue("@Tipo", manutencao.Tipo);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("A MANUTENÇÃO foi alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Produtos
+                query = "EXECUTE SP_INSERE_PRODUTO_MANUTENCAO " +
+                                           "@IdManutencao, @IdProduto, @Quantidade, @ValorUnitario";
+                foreach (ProdutoManutencao item in listaProdutoManutencaoNovo)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdProduto", item.Produto.idProduto);
+                    cmd.Parameters.AddWithValue("@Quantidade", item.Quantidade);
+                    cmd.Parameters.AddWithValue("@ValorUnitario", item.ValorUnitario);
+                    cmd.ExecuteNonQuery();
+                }
+
+                query = "EXECUTE SP_ALTERA_PRODUTO_MANUTENCAO " +
+                           "@IdManutencao, @IdProduto, @Quantidade, @ValorUnitario";
+                foreach (ProdutoManutencao item in listaProdutoManutencaoAlterado)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdProduto", item.Produto.idProduto);
+                    cmd.Parameters.AddWithValue("@Quantidade", item.Quantidade);
+                    cmd.Parameters.AddWithValue("@ValorUnitario", item.ValorUnitario);
+                    cmd.ExecuteNonQuery();
+                }
+
+                query = "EXECUTE SP_DELETA_PRODUTO_MANUTENCAO @IdManutencao, @IdProduto";
+                foreach (ProdutoManutencao item in listaProdutoManutencaoDeletado)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdProduto", item.Produto.idProduto);
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Serviços
+                query = "EXECUTE SP_INSERE_SERVICO_MANUTENCAO " +
+                           "@IdManutencao, @IdServico, @Valor";
+                foreach (ServicoManutencao item in listaServicoManutencaoNovo)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdServico", item.Servico.IdServico);
+                    cmd.Parameters.AddWithValue("@Valor", item.Valor);
+                    cmd.ExecuteNonQuery();
+                }
+
+                query = "EXECUTE SP_ALTERA_SERVICO_MANUTENCAO " +
+                           "@IdManutencao, @IdServico, @Valor";
+                foreach (ServicoManutencao item in listaServicoManutencaoAlterado)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdServico", item.Servico.IdServico);
+                    cmd.Parameters.AddWithValue("@Valor", item.Valor);
+                    cmd.ExecuteNonQuery();
+                }
+
+                query = "EXECUTE SP_DELETA_SERVICO_MANUTENCAO @IdManutencao, @IdServico";
+                foreach (ServicoManutencao item in listaServicoManutencaoDeletado)
+                {
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdManutencao", manutencao.IdManutencao);
+                    cmd.Parameters.AddWithValue("@IdServico", item.Servico.IdServico);
+                    cmd.ExecuteNonQuery();
+                }
+
                 this.connection.Close();
+                MessageBox.Show("A MANUTENÇÃO foi alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
