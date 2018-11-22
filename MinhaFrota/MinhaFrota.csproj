@@ -130,6 +130,8 @@
     <Compile Include="Model\DAO\MultaDAO.cs" />
     <Compile Include="Model\DAO\ManutencaoDAO.cs" />
     <Compile Include="Model\DAO\ProdutoDAO.cs" />
+    <Compile Include="Model\DAO\ProdutoManutencaoDAO.cs" />
+    <Compile Include="Model\DAO\ServicoManutencaoDAO.cs" />
     <Compile Include="Model\DAO\UnidadeMedidaDAO.cs" />
     <Compile Include="Model\DAO\ServicoDAO.cs" />
     <Compile Include="Model\DAO\ModeloDAO.cs" />

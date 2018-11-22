@@ -130,8 +130,6 @@ namespace Trinity.View
             cmbTipo.Text = this.manutencaoCarregada.Tipo;
             DefineListaProdutoManutencao();
             DefineListaServicoManutencao();
-            //CarregaProdutosManutencao();
-            //CarregaServicosManutencao();
         }
 
         private void DesabilitaCampos()
@@ -210,6 +208,8 @@ namespace Trinity.View
             if(!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
                 cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
             {
+                if (dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
+                {
                     if (this.manutencaoCarregada == null)
                         this.manutencaoCarregada = new Manutencao();
 
@@ -223,9 +223,10 @@ namespace Trinity.View
                     ManutencaoDAO dao = new ManutencaoDAO();
                     if (!this.editando)
                         dao.AdicionaManutencao(this.manutencaoCarregada);
-                else dao.AlteraManutencao(this.manutencaoCarregada, listaProdutosManutencaoNovo, listaProdutosManutencaoAlterado, listaProdutosManutencaoDeletado, listaServicosManutencaoNovo, listaServicosManutencaoAlterado, listaServicosManutencaoDeletado);
+                    else dao.AlteraManutencao(this.manutencaoCarregada, listaProdutosManutencaoNovo, listaProdutosManutencaoAlterado, listaProdutosManutencaoDeletado, listaServicosManutencaoNovo, listaServicosManutencaoAlterado, listaServicosManutencaoDeletado);
                     this.Close();
-            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos seu FDP!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO ou SERVIÇO na MANUTENÇÃO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -320,7 +321,7 @@ namespace Trinity.View
                     {
                         produtoManutencaoExistente.Quantidade += produtoManutencao.Quantidade;
                         produtoManutencaoExistente.ValorUnitario = produtoManutencao.ValorUnitario;
-                        produtoManutencaoExistente.ValorTotal = produtoManutencaoExistente.Quantidade * produtoManutencao.ValorUnitario;
+                        produtoManutencaoExistente.ValorTotal = produtoManutencao.Quantidade * produtoManutencao.ValorUnitario;
                         listaProdutosManutencaoAlterado.Add(produtoManutencaoExistente);
                         //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
                     }
@@ -340,7 +341,7 @@ namespace Trinity.View
                         }
                     }
                     CarregaProdutosManutencao();
-                } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser diferente de 0!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser diferente de zero (0)!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -445,63 +446,90 @@ namespace Trinity.View
 
         private void btnSalvarServico_Click(object sender, EventArgs e)
         {
-            if (this.manutencaoCarregada != null)
+            if (cmbServico.SelectedItem != null)
             {
-                if (cmbServico.SelectedItem != null)
+                if (txtValorServico.Value != 0)
                 {
-                    if (txtValorServico.Value != 0)
+                    ServicoManutencao servicoManutencao = new ServicoManutencao()
                     {
-                        ServicoManutencao servicoManutencao = listaServicosManutencao.Find(srvManutencao => srvManutencao.Servico.IdServico == ((Servico)cmbServico.SelectedItem).IdServico);
-                        ServicoManutencaoDAO dao = new ServicoManutencaoDAO();
-                        if (servicoManutencao == null) /*É um serviço novo que não está na tabela*/
+                        Manutencao = this.manutencaoCarregada,
+                        Servico = (Servico)cmbServico.SelectedItem,
+                        Valor = Convert.ToDouble(txtValorServico.Value)
+                    };
+
+                    ServicoManutencao servicoManutencaoExistente = null; //Novo
+
+                    foreach (ServicoManutencao item in listaServicosManutencao)
+                    {
+                        if (item.Servico.IdServico == servicoManutencao.Servico.IdServico)
                         {
-                            servicoManutencao = new ServicoManutencao()
-                            {
-                                Manutencao = this.manutencaoCarregada,
-                                Servico = (Servico) cmbServico.SelectedItem,
-                                Valor = Convert.ToDouble(txtValorServico.Value)
-                            };
-                            dao.AdicionaServicoManutencao(servicoManutencao);
-                        } else
-                        {
-                            servicoManutencao.Manutencao = this.manutencaoCarregada;
-                            servicoManutencao.Servico = (Servico)cmbServico.SelectedItem;
-                            servicoManutencao.Valor = Convert.ToDouble(txtValorServico.Value);
-                            dao.AlteraServicoManutencao(servicoManutencao);
+                            servicoManutencaoExistente = item;
+                            break;
                         }
-                        CarregaServicosManutencao();
                     }
-                    else MessageBox.Show("Não foi possível realizar a operação.\nO VALOR do serviço deve ser diferente de 0!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (servicoManutencaoExistente == null) //Novo
+                    {
+                        servicoManutencaoExistente = servicoManutencao;
+                        this.listaServicosManutencao.Add(servicoManutencao);
+                        this.listaServicosManutencaoNovo.Add(servicoManutencao);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoNovo");
+                    }
+                    else //Atualiza - Já existe
+                    {
+
+                        servicoManutencaoExistente.Valor = servicoManutencao.Valor;
+                        listaServicosManutencaoAlterado.Add(servicoManutencaoExistente);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                    }
+
+                    //Verifica se item vendido adicionado havia sido removido
+                    foreach (var item in listaServicosManutencaoDeletado)
+                    {
+                        if (item.Servico.IdServico == servicoManutencao.Servico.IdServico)
+                        {
+                            listaServicosManutencaoDeletado.Remove(item);
+                            //MessageBox.Show("Removido da ListaItemVendidoDeletado");
+                            listaServicosManutencaoAlterado.Add(servicoManutencaoExistente);
+                            //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                            listaServicosManutencaoNovo.Remove(servicoManutencaoExistente);
+                            //MessageBox.Show("Removido da ListaItemVendidoNovo");
+                            break;
+                        }
+                    }
+                    CarregaServicosManutencao();
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNenhum SERVIÇO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nO VALOR do serviço deve ser diferente de R$0,00!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nÉ necessário salvar a MANUTENÇÃO antes de adicionar um SERVIÇO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Não foi possível realizar a operação.\nNenhum SERVIÇO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnRemoverServico_Click(object sender, EventArgs e)
         {
-            if (this.manutencaoCarregada != null)
+            if (dgvServicos.RowCount != 0)
             {
-                if (dgvServicos.RowCount != 0)
+                if (dgvServicos.CurrentRow.Selected)
                 {
-                    if (dgvServicos.CurrentRow.Selected)
+                    int idServico = Convert.ToInt32(dgvServicos.CurrentRow.Cells["idServico"].Value.ToString());
+
+                    foreach (ServicoManutencao item in this.listaServicosManutencao)
                     {
-                        if (MessageBox.Show("Você realmente quer excluir este SERVIÇO DE MANUTENÇÃO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (item.Servico.IdServico == idServico)
                         {
-                            int idManutencao = this.manutencaoCarregada.IdManutencao;
-                            int idServico = this.listaServicosManutencao[dgvServicos.CurrentRow.Index].Servico.IdServico;
-                            ServicoManutencaoDAO dao = new ServicoManutencaoDAO();
-                            dao.DeletaServicoManutencao(idManutencao, idServico);
-                            this.dgvServicos.SelectionChanged -= new System.EventHandler(this.dgvServicos_SelectionChanged);
-                            CarregaServicosManutencao();
-                            this.dgvServicos.SelectionChanged += new System.EventHandler(this.dgvServicos_SelectionChanged);
+                            if (this.editando)
+                            {
+                                this.listaServicosManutencaoDeletado.Add(item);
+                                //MessageBox.Show("Adicionado na ListaItemVendidoDeletado");
+                            }
+                            this.listaServicosManutencao.Remove(item);
+                            break;
                         }
                     }
-                    else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma SERVIÇO DE MANUTENÇÃO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CarregaServicosManutencao();
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum SERVIÇO DE MANUTENÇÃO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum SERVIÇO DE MANUTENÇÃO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nÉ necessário salvar a MANUTENÇÃO antes de remover um SERVIÇO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum SERVIÇO DE MANUTENÇÃO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void dgvServicos_SelectionChanged(object sender, EventArgs e)
