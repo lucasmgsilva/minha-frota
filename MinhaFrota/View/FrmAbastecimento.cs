@@ -120,7 +120,7 @@ namespace Trinity.View
                     else dao.AlteraAbastecimento(this.abastecimentoCarregado);
                     CarregaListaAbastecimentos();
                 } else MessageBox.Show("Não foi possível realizar a operação.\nO Km. Atual, Litros, Valor por Litro e Valor Total devem ser maior que zero!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos seu FDP!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
