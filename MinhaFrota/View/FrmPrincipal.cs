@@ -61,7 +61,7 @@ namespace Trinity
 
         private void trocaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você realmente quer TROCAR DE USUÁRIO sua bixona?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Você realmente quer TROCAR DE USUÁRIO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
                 FrmAcesso telaAcesso = new FrmAcesso();
