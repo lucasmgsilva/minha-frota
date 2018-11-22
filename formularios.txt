@@ -3,9 +3,9 @@ FrmViagem
 FrmPrincipal (Abrir FrmAvisos)
 
 -Em Manipulação:
-FrmManutencao
 
 -Finalizados:
+FrmManutencao
 FrmConsultaManutencao
 FrmAvisos
 FrmServico

@@ -225,6 +225,7 @@ CREATE TABLE MANUTENCAO (
 	idVeiculo INT NOT NULL,
 	idMotorista INT NOT NULL,
 	tipo VARCHAR(10) NOT NULL,
+	valorTotal MONEY NOT NULL,
 	CHECK (tipo = 'PREVENTIVA' OR
 			tipo = 'PREDITIVA' OR 
 			tipo = 'CORRETIVA'),
@@ -423,9 +424,7 @@ GO
 CREATE PROCEDURE SP_BUSCA_MANUTENCAO (@PalavraChave VARCHAR(255)) 
 AS
 	SELECT 
-		MANUTENCAO.idManutencao, MANUTENCAO.dataManutencao, MANUTENCAO.tipo, VEICULO.idVeiculo, VEICULO.placa, MOTORISTA.idMotorista, MOTORISTA.nome, 
-		(SELECT ((SELECT SUM(valor) FROM SERVICO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao) + (
-SELECT SUM(quantidade * valorUnitario) FROM PRODUTO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao))) as 'valorTotal'
+		MANUTENCAO.idManutencao, MANUTENCAO.dataManutencao, MANUTENCAO.tipo, VEICULO.idVeiculo, VEICULO.placa, MOTORISTA.idMotorista, MOTORISTA.nome, MANUTENCAO.valorTotal
 	FROM 
 		MANUTENCAO 
 	INNER JOIN VEICULO ON MANUTENCAO.idVeiculo = VEICULO.idVeiculo
@@ -488,14 +487,11 @@ CREATE VIEW VW_SELECIONA_MULTAS AS
 	INNER JOIN CIDADE ON MULTA.idCidade = CIDADE.idCidade 
 	INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
 GO
- 
+
 CREATE VIEW VW_SELECIONA_MANUTENCAO 
 AS 
 	SELECT 
-		MANUTENCAO.idManutencao, MANUTENCAO.dataManutencao, MANUTENCAO.tipo, VEICULO.idVeiculo, VEICULO.placa, MOTORISTA.idMotorista, MOTORISTA.nome, 
-		(SELECT ((SELECT SUM(valor) FROM SERVICO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao) + (
-SELECT SUM(quantidade * valorUnitario) FROM PRODUTO_MANUTENCAO WHERE idManutencao = MANUTENCAO.idManutencao))) as valorTotal
-		
+		MANUTENCAO.idManutencao, MANUTENCAO.dataManutencao, MANUTENCAO.tipo, VEICULO.idVeiculo, VEICULO.placa, MOTORISTA.idMotorista, MOTORISTA.nome, MANUTENCAO.valorTotal
 	FROM 
 		MANUTENCAO 
 	INNER JOIN VEICULO ON MANUTENCAO.idVeiculo = VEICULO.idVeiculo
@@ -709,22 +705,22 @@ AS
 		idMulta = @IdMulta
 GO
 
-CREATE PROCEDURE SP_INSERE_MANUTENCAO (@DataManutencao DATETIME, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10))
+CREATE PROCEDURE SP_INSERE_MANUTENCAO (@DataManutencao DATETIME, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10), @ValorTotal MONEY)
 AS
 	INSERT INTO 
-		MANUTENCAO (dataManutencao, idVeiculo, idMotorista, tipo) 
+		MANUTENCAO (dataManutencao, idVeiculo, idMotorista, tipo, valorTotal) 
 	VALUES 
-		(@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo)
+		(@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo, @ValorTotal)
 
 	SELECT @@IDENTITY as 'idManutencao'
 GO
 
-CREATE PROCEDURE SP_ALTERA_MANUTENCAO (@idManutencao DATETIME, @DataManutencao DATE, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10))
+CREATE PROCEDURE SP_ALTERA_MANUTENCAO (@idManutencao DATETIME, @DataManutencao DATE, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10), @ValorTotal MONEY)
 AS
 	UPDATE 
 		MANUTENCAO
 	SET 
-		dataManutencao = @DataManutencao, idVeiculo = @IdVeiculo, idMotorista = @IdMotorista, tipo = @Tipo
+		dataManutencao = @DataManutencao, idVeiculo = @IdVeiculo, idMotorista = @IdMotorista, tipo = @Tipo, valorTotal = @ValorTotal
 	WHERE 
 		idManutencao = @idManutencao
 GO

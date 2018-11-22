@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManutencao));
@@ -44,13 +44,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnSalvarProduto = new System.Windows.Forms.Button();
             this.txtValor = new System.Windows.Forms.NumericUpDown();
@@ -64,10 +60,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTotal2 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.dgvServicos = new System.Windows.Forms.DataGridView();
-            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoverServico = new System.Windows.Forms.Button();
             this.btnSalvarServico = new System.Windows.Forms.Button();
             this.txtValorServico = new System.Windows.Forms.NumericUpDown();
@@ -95,6 +90,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,7 +116,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(567, 370);
+            this.btnCancelar.Location = new System.Drawing.Point(574, 388);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
             this.btnCancelar.TabIndex = 5;
@@ -124,7 +128,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(671, 370);
+            this.btnExcluir.Location = new System.Drawing.Point(678, 388);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 6;
@@ -136,7 +140,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(107, 370);
+            this.btnSalvar.Location = new System.Drawing.Point(108, 388);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
             this.btnSalvar.TabIndex = 3;
@@ -148,7 +152,7 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(3, 370);
+            this.btnNovo.Location = new System.Drawing.Point(4, 388);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
             this.btnNovo.TabIndex = 2;
@@ -160,7 +164,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(211, 370);
+            this.btnEditar.Location = new System.Drawing.Point(212, 388);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
             this.btnEditar.TabIndex = 4;
@@ -191,11 +195,13 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 85);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(772, 283);
+            this.tabControl1.Size = new System.Drawing.Size(772, 301);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblTotal);
+            this.tabPage1.Controls.Add(this.label21);
             this.tabPage1.Controls.Add(this.dgvProdutos);
             this.tabPage1.Controls.Add(this.btnRemover);
             this.tabPage1.Controls.Add(this.btnSalvarProduto);
@@ -213,10 +219,30 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(764, 252);
+            this.tabPage1.Size = new System.Drawing.Size(764, 270);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Peças/Produtos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(132, 249);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(65, 19);
+            this.lblTotal.TabIndex = 102;
+            this.lblTotal.Text = "R$ 0,00";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 249);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(129, 19);
+            this.label21.TabIndex = 101;
+            this.label21.Text = "PREÇO TOTAL:";
             // 
             // dgvProdutos
             // 
@@ -241,56 +267,6 @@
             this.dgvProdutos.Size = new System.Drawing.Size(751, 188);
             this.dgvProdutos.TabIndex = 5;
             this.dgvProdutos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProdutos_CellFormatting);
-            // 
-            // idProduto
-            // 
-            this.idProduto.DataPropertyName = "idProduto";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = null;
-            this.idProduto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idProduto.HeaderText = "ID";
-            this.idProduto.Name = "idProduto";
-            this.idProduto.ReadOnly = true;
-            // 
-            // Produto
-            // 
-            this.Produto.DataPropertyName = "Produto.produto";
-            this.Produto.HeaderText = "PRODUTO";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            // 
-            // UnidadeMedida
-            // 
-            this.UnidadeMedida.DataPropertyName = "Produto.UnidadeMedida.unidadeMedida";
-            this.UnidadeMedida.HeaderText = "UN";
-            this.UnidadeMedida.Name = "UnidadeMedida";
-            this.UnidadeMedida.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            this.Quantidade.HeaderText = "QTD";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "ValorUnitario";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Valor.HeaderText = "VALOR";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.DataPropertyName = "ValorTotal";
-            dataGridViewCellStyle4.Format = "C2";
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
             // 
             // btnRemover
             // 
@@ -431,6 +407,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblTotal2);
+            this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.dgvServicos);
             this.tabPage2.Controls.Add(this.btnRemoverServico);
             this.tabPage2.Controls.Add(this.btnSalvarServico);
@@ -444,10 +422,30 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(764, 252);
+            this.tabPage2.Size = new System.Drawing.Size(764, 270);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Serviços";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblTotal2
+            // 
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.Location = new System.Drawing.Point(132, 249);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(65, 19);
+            this.lblTotal2.TabIndex = 112;
+            this.lblTotal2.Text = "R$ 0,00";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(3, 249);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(129, 19);
+            this.label23.TabIndex = 111;
+            this.label23.Text = "PREÇO TOTAL:";
             // 
             // dgvServicos
             // 
@@ -469,33 +467,6 @@
             this.dgvServicos.Size = new System.Drawing.Size(751, 188);
             this.dgvServicos.TabIndex = 4;
             this.dgvServicos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicos_CellFormatting);
-            // 
-            // idServico
-            // 
-            this.idServico.DataPropertyName = "idServico";
-            dataGridViewCellStyle6.Format = "00000";
-            dataGridViewCellStyle6.NullValue = null;
-            this.idServico.DefaultCellStyle = dataGridViewCellStyle6;
-            this.idServico.HeaderText = "ID";
-            this.idServico.Name = "idServico";
-            this.idServico.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Servico.servico";
-            this.dataGridViewTextBoxColumn4.HeaderText = "SERVIÇO";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Valor";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "VALOR";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // btnRemoverServico
             // 
@@ -804,14 +775,95 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 461);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 480);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // idProduto
+            // 
+            this.idProduto.DataPropertyName = "idProduto";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.idProduto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idProduto.HeaderText = "ID";
+            this.idProduto.Name = "idProduto";
+            this.idProduto.ReadOnly = true;
+            // 
+            // Produto
+            // 
+            this.Produto.DataPropertyName = "produto_nome";
+            this.Produto.HeaderText = "PRODUTO";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            this.Produto.Width = 293;
+            // 
+            // UnidadeMedida
+            // 
+            this.UnidadeMedida.DataPropertyName = "unidadeMedida";
+            this.UnidadeMedida.HeaderText = "UN";
+            this.UnidadeMedida.Name = "UnidadeMedida";
+            this.UnidadeMedida.ReadOnly = true;
+            this.UnidadeMedida.Width = 45;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.DataPropertyName = "Quantidade";
+            this.Quantidade.HeaderText = "QTD";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            this.Quantidade.Width = 70;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "ValorUnitario";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Valor.HeaderText = "VALOR";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.DataPropertyName = "ValorTotal";
+            dataGridViewCellStyle4.Format = "C2";
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            // 
+            // idServico
+            // 
+            this.idServico.DataPropertyName = "idServico";
+            dataGridViewCellStyle6.Format = "00000";
+            dataGridViewCellStyle6.NullValue = null;
+            this.idServico.DefaultCellStyle = dataGridViewCellStyle6;
+            this.idServico.HeaderText = "ID";
+            this.idServico.Name = "idServico";
+            this.idServico.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "servico_nome";
+            this.dataGridViewTextBoxColumn4.HeaderText = "SERVIÇO";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 508;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Valor";
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn5.HeaderText = "VALOR";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // FrmManutencao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(784, 480);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -891,6 +943,10 @@
         private System.Windows.Forms.ComboBox cmbServico;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblTotal2;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnidadeMedida;

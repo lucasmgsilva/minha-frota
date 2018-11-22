@@ -14,5 +14,7 @@ namespace Trinity.Model.Bean
         public Double ValorUnitario { get; set; }
         public Double ValorTotal { get; set; }
         public int idProduto { get; set; }
+        public string produto_nome { get; set; }
+        public string unidadeMedida { get; set; }
     }
 }

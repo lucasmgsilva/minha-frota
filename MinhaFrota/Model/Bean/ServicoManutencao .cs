@@ -12,5 +12,6 @@ namespace Trinity.Model.Bean
         public Servico Servico { get; set; }
         public Double Valor { get; set; }
         public int idServico { get; set; }
+        public string servico_nome { get; set; }
     }
 }

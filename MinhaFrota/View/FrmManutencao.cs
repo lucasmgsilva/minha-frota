@@ -51,6 +51,23 @@ namespace Trinity.View
             cmbVeiculo.DataSource = new VeiculoDAO().GetListaVeiculos();
         }
 
+        private void CalculaTotal()
+        {
+            Double soma = 0;
+            foreach (var item in listaProdutosManutencao)
+            {
+                soma += item.Quantidade * item.ValorUnitario;
+            }
+
+            foreach (var item in listaServicosManutencao)
+            {
+                soma += item.Valor;
+            }
+
+            lblTotal.Text = soma.ToString("C");
+            lblTotal2.Text = soma.ToString("C");
+        }
+
         private void SelecionaVeiculo()
         {
             foreach (Veiculo item in cmbVeiculo.Items)
@@ -97,12 +114,14 @@ namespace Trinity.View
         {
             dgvProdutos.AutoGenerateColumns = false;
             dgvProdutos.DataSource = new BindingList<ProdutoManutencao>(listaProdutosManutencao);
+            CalculaTotal();
         }
 
         private void CarregaServicosManutencao()
         {
             dgvServicos.AutoGenerateColumns = false;
             dgvServicos.DataSource = new BindingList<ServicoManutencao>(listaServicosManutencao);
+            CalculaTotal();
         }
 
         public void DefineListaProdutoManutencao()
@@ -111,6 +130,7 @@ namespace Trinity.View
             manutencaoCarregada.ListaProdutoManutencao = new ProdutoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
             listaProdutosManutencao = manutencaoCarregada.ListaProdutoManutencao;
             dgvProdutos.DataSource = new BindingList<ProdutoManutencao>(this.listaProdutosManutencao);
+            CalculaTotal();
         }
 
         public void DefineListaServicoManutencao()
@@ -119,6 +139,7 @@ namespace Trinity.View
             manutencaoCarregada.ListaServicoManutencao = new ServicoManutencaoDAO().GetListaProdutoManutencao(this.manutencaoCarregada.IdManutencao);
             listaServicosManutencao = manutencaoCarregada.ListaServicoManutencao;
             dgvServicos.DataSource = new BindingList<ServicoManutencao>(this.listaServicosManutencao);
+            CalculaTotal();
         }
 
         private void CarregaManutencao()
@@ -218,7 +239,7 @@ namespace Trinity.View
                     this.manutencaoCarregada.Tipo = cmbTipo.Text;
                     this.manutencaoCarregada.ListaProdutoManutencao = listaProdutosManutencao;
                     this.manutencaoCarregada.ListaServicoManutencao = listaServicosManutencao;
-
+                    this.manutencaoCarregada.ValorTotal = Convert.ToDouble(lblTotal.Text.Replace("R$", String.Empty));
                     ManutencaoDAO dao = new ManutencaoDAO();
                     if (!this.editando)
                         dao.AdicionaManutencao(this.manutencaoCarregada);
@@ -241,7 +262,11 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Você realmente quer excluir esta MANUTENÇÃO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                new ManutencaoDAO().DeletaManutencao(this.manutencaoCarregada.IdManutencao);
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -288,7 +313,7 @@ namespace Trinity.View
         {
             if(cmbProduto.SelectedItem != null)
             {
-                if (txtQuantidade.Value != 0 && txtValor.Value != 0)
+                if (txtQuantidade.Value > 0 && txtValor.Value > 0)
                 {
                     ProdutoManutencao produtoManutencao = new ProdutoManutencao()
                     {
@@ -299,6 +324,8 @@ namespace Trinity.View
                     };
                     produtoManutencao.ValorTotal = produtoManutencao.Quantidade * produtoManutencao.ValorUnitario;
                     produtoManutencao.idProduto = produtoManutencao.Produto.idProduto;
+                    produtoManutencao.produto_nome = produtoManutencao.Produto.produto;
+                    produtoManutencao.unidadeMedida = produtoManutencao.Produto.UnidadeMedida.unidadeMedida;
 
                     ProdutoManutencao produtoManutencaoExistente = null; //Novo
 
@@ -342,7 +369,7 @@ namespace Trinity.View
                         }
                     }
                     CarregaProdutosManutencao();
-                } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser diferente de zero (0)!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser MAIOR QUE ZERO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -449,7 +476,7 @@ namespace Trinity.View
         {
             if (cmbServico.SelectedItem != null)
             {
-                if (txtValorServico.Value != 0)
+                if (txtValorServico.Value > 0)
                 {
                     ServicoManutencao servicoManutencao = new ServicoManutencao()
                     {
@@ -458,6 +485,7 @@ namespace Trinity.View
                         Valor = Convert.ToDouble(txtValorServico.Value)
                     };
                     servicoManutencao.idServico = servicoManutencao.Servico.IdServico;
+                    servicoManutencao.servico_nome = servicoManutencao.Servico.servico;
 
                     ServicoManutencao servicoManutencaoExistente = null; //Novo
 
@@ -501,7 +529,7 @@ namespace Trinity.View
                     }
                     CarregaServicosManutencao();
                 }
-                else MessageBox.Show("Não foi possível realizar a operação.\nO VALOR do serviço deve ser diferente de R$0,00!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Não foi possível realizar a operação.\nO VALOR do serviço deve ser maior de R$0,00!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNenhum SERVIÇO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

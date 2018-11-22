@@ -45,6 +45,7 @@ namespace Trinity.Model.DAO
                         },
                         Valor = Convert.ToDouble(dtr["valor"])
                     };
+                    servicoManutencao.servico_nome = servicoManutencao.Servico.servico;
                     servicoManutencao.idServico = servicoManutencao.Servico.IdServico;
                     listaServicosManutencao.Add(servicoManutencao);
                 }

@@ -22,7 +22,7 @@ namespace Trinity.Model.DAO
         public void AdicionaManutencao (Manutencao manutencao)
         {
             string query = "EXECUTE SP_INSERE_MANUTENCAO " +
-                           "@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo";
+                           "@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo, @ValorTotal";
             try
             {
                 this.connection.Open();
@@ -31,6 +31,8 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdVeiculo", manutencao.Veiculo.IdVeiculo);
                 cmd.Parameters.AddWithValue("@IdMotorista", manutencao.Motorista.IdMotorista);
                 cmd.Parameters.AddWithValue("@Tipo", manutencao.Tipo);
+                cmd.Parameters.AddWithValue("@ValorTotal", manutencao.ValorTotal);
+
                 SqlDataReader dtr = cmd.ExecuteReader();
 
                 if (dtr.Read())
@@ -73,7 +75,7 @@ namespace Trinity.Model.DAO
             List<ServicoManutencao> listaServicoManutencaoNovo, List<ServicoManutencao> listaServicoManutencaoAlterado, List<ServicoManutencao> listaServicoManutencaoDeletado)
         {
             string query = "EXECUTE SP_ALTERA_MANUTENCAO " +
-                           "@IdManutencao, @DataManutencao, @IdVeiculo, @IdMotorista, @Tipo";
+                           "@IdManutencao, @DataManutencao, @IdVeiculo, @IdMotorista, @Tipo, @ValorTotal";
             try
             {
                 this.connection.Open();
@@ -83,6 +85,7 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdVeiculo", manutencao.Veiculo.IdVeiculo);
                 cmd.Parameters.AddWithValue("@IdMotorista", manutencao.Motorista.IdMotorista);
                 cmd.Parameters.AddWithValue("@Tipo", manutencao.Tipo);
+                cmd.Parameters.AddWithValue("@ValorTotal", manutencao.ValorTotal);
                 cmd.ExecuteNonQuery();
 
                 //Produtos
@@ -194,6 +197,7 @@ namespace Trinity.Model.DAO
                     manutencao.IdManutencao = Convert.ToInt32(dtr["idManutencao"]);
                     manutencao.DataManutencao = Convert.ToDateTime(dtr["dataManutencao"]);
                     manutencao.Tipo = dtr["tipo"].ToString();
+                    manutencao.ValorTotal = Convert.ToDouble(dtr["valorTotal"].ToString());
                     
                     try
                     {
