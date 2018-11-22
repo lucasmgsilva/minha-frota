@@ -65,6 +65,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvServicos = new System.Windows.Forms.DataGridView();
+            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoverServico = new System.Windows.Forms.Button();
             this.btnSalvarServico = new System.Windows.Forms.Button();
             this.txtValorServico = new System.Windows.Forms.NumericUpDown();
@@ -92,9 +95,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.idServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -244,7 +244,7 @@
             // 
             // idProduto
             // 
-            this.idProduto.DataPropertyName = "Produto.idProduto";
+            this.idProduto.DataPropertyName = "idProduto";
             dataGridViewCellStyle2.Format = "00000";
             dataGridViewCellStyle2.NullValue = null;
             this.idProduto.DefaultCellStyle = dataGridViewCellStyle2;
@@ -470,6 +470,33 @@
             this.dgvServicos.TabIndex = 4;
             this.dgvServicos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicos_CellFormatting);
             // 
+            // idServico
+            // 
+            this.idServico.DataPropertyName = "idServico";
+            dataGridViewCellStyle6.Format = "00000";
+            dataGridViewCellStyle6.NullValue = null;
+            this.idServico.DefaultCellStyle = dataGridViewCellStyle6;
+            this.idServico.HeaderText = "ID";
+            this.idServico.Name = "idServico";
+            this.idServico.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Servico.servico";
+            this.dataGridViewTextBoxColumn4.HeaderText = "SERVIÇO";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Valor";
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn5.HeaderText = "VALOR";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
             // btnRemoverServico
             // 
             this.btnRemoverServico.Font = new System.Drawing.Font("Arial", 12F);
@@ -550,6 +577,7 @@
             this.cmbServico.Name = "cmbServico";
             this.cmbServico.Size = new System.Drawing.Size(343, 26);
             this.cmbServico.TabIndex = 0;
+            this.cmbServico.SelectedIndexChanged += new System.EventHandler(this.cmbServico_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -778,33 +806,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 461);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // idServico
-            // 
-            this.idServico.DataPropertyName = "Servico.IdServico";
-            dataGridViewCellStyle6.Format = "00000";
-            dataGridViewCellStyle6.NullValue = null;
-            this.idServico.DefaultCellStyle = dataGridViewCellStyle6;
-            this.idServico.HeaderText = "ID";
-            this.idServico.Name = "idServico";
-            this.idServico.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Servico.servico";
-            this.dataGridViewTextBoxColumn4.HeaderText = "SERVIÇO";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Valor";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "VALOR";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // FrmManutencao
             // 

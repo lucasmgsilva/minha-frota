@@ -103,7 +103,6 @@ namespace Trinity.View
         {
             dgvServicos.AutoGenerateColumns = false;
             dgvServicos.DataSource = new BindingList<ServicoManutencao>(listaServicosManutencao);
-            LimpaCamposServicoManutencao();
         }
 
         public void DefineListaProdutoManutencao()
@@ -298,6 +297,8 @@ namespace Trinity.View
                         Quantidade = Convert.ToDouble(txtQuantidade.Value),
                         ValorUnitario = Convert.ToDouble(txtValor.Value)
                     };
+                    produtoManutencao.ValorTotal = produtoManutencao.Quantidade * produtoManutencao.ValorUnitario;
+                    produtoManutencao.idProduto = produtoManutencao.Produto.idProduto;
 
                     ProdutoManutencao produtoManutencaoExistente = null; //Novo
 
@@ -321,7 +322,7 @@ namespace Trinity.View
                     {
                         produtoManutencaoExistente.Quantidade += produtoManutencao.Quantidade;
                         produtoManutencaoExistente.ValorUnitario = produtoManutencao.ValorUnitario;
-                        produtoManutencaoExistente.ValorTotal = produtoManutencao.Quantidade * produtoManutencao.ValorUnitario;
+                        produtoManutencaoExistente.ValorTotal = produtoManutencaoExistente.Quantidade * produtoManutencao.ValorUnitario;
                         listaProdutosManutencaoAlterado.Add(produtoManutencaoExistente);
                         //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
                     }
@@ -456,6 +457,7 @@ namespace Trinity.View
                         Servico = (Servico)cmbServico.SelectedItem,
                         Valor = Convert.ToDouble(txtValorServico.Value)
                     };
+                    servicoManutencao.idServico = servicoManutencao.Servico.IdServico;
 
                     ServicoManutencao servicoManutencaoExistente = null; //Novo
 
@@ -554,6 +556,11 @@ namespace Trinity.View
             FrmServico frmServico = new FrmServico();
             frmServico.ShowDialog();
             CarregaServicos();
+        }
+
+        private void cmbServico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtValorServico.Value = 0;
         }
     }
 }

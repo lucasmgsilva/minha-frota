@@ -11,5 +11,6 @@ namespace Trinity.Model.Bean
         public Manutencao Manutencao { get; set; }
         public Servico Servico { get; set; }
         public Double Valor { get; set; }
+        public int idServico { get; set; }
     }
 }
