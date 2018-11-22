@@ -715,6 +715,8 @@ AS
 		MANUTENCAO (dataManutencao, idVeiculo, idMotorista, tipo) 
 	VALUES 
 		(@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo)
+
+	SELECT @@IDENTITY
 GO
 
 CREATE PROCEDURE SP_ALTERA_MANUTENCAO (@idManutencao DATETIME, @DataManutencao DATE, @IdVeiculo INT, @IdMotorista INT, @Tipo VARCHAR(10))

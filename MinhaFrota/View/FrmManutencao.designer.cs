@@ -462,7 +462,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dgvServicos.Location = new System.Drawing.Point(9, 59);
+            this.dgvServicos.Location = new System.Drawing.Point(7, 58);
             this.dgvServicos.MultiSelect = false;
             this.dgvServicos.Name = "dgvServicos";
             this.dgvServicos.ReadOnly = true;
@@ -502,7 +502,7 @@
             // btnRemoverServico
             // 
             this.btnRemoverServico.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnRemoverServico.Location = new System.Drawing.Point(679, 24);
+            this.btnRemoverServico.Location = new System.Drawing.Point(677, 23);
             this.btnRemoverServico.Name = "btnRemoverServico";
             this.btnRemoverServico.Size = new System.Drawing.Size(81, 29);
             this.btnRemoverServico.TabIndex = 3;
@@ -514,7 +514,7 @@
             // btnSalvarServico
             // 
             this.btnSalvarServico.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvarServico.Location = new System.Drawing.Point(592, 24);
+            this.btnSalvarServico.Location = new System.Drawing.Point(590, 23);
             this.btnSalvarServico.Name = "btnSalvarServico";
             this.btnSalvarServico.Size = new System.Drawing.Size(81, 29);
             this.btnSalvarServico.TabIndex = 2;
@@ -526,7 +526,7 @@
             // txtValorServico
             // 
             this.txtValorServico.DecimalPlaces = 2;
-            this.txtValorServico.Location = new System.Drawing.Point(376, 27);
+            this.txtValorServico.Location = new System.Drawing.Point(374, 26);
             this.txtValorServico.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -541,7 +541,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(426, 5);
+            this.label9.Location = new System.Drawing.Point(424, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(15, 19);
             this.label9.TabIndex = 110;
@@ -551,7 +551,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(372, 5);
+            this.label10.Location = new System.Drawing.Point(370, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 19);
             this.label10.TabIndex = 109;
@@ -562,7 +562,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Chartreuse;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(352, 31);
+            this.label12.Location = new System.Drawing.Point(350, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 19);
             this.label12.TabIndex = 105;
@@ -574,7 +574,7 @@
             this.cmbServico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbServico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbServico.FormattingEnabled = true;
-            this.cmbServico.Location = new System.Drawing.Point(9, 27);
+            this.cmbServico.Location = new System.Drawing.Point(7, 26);
             this.cmbServico.MaxLength = 25;
             this.cmbServico.Name = "cmbServico";
             this.cmbServico.Size = new System.Drawing.Size(343, 26);
@@ -585,7 +585,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(78, 5);
+            this.label17.Location = new System.Drawing.Point(76, 5);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(15, 19);
             this.label17.TabIndex = 107;
@@ -595,7 +595,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(5, 5);
+            this.label20.Location = new System.Drawing.Point(3, 4);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(73, 19);
             this.label20.TabIndex = 106;

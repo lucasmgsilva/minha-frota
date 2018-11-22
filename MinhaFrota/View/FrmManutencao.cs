@@ -31,6 +31,7 @@ namespace Trinity.View
             CarregaMotoristas();
             CarregaProdutos();
             CarregaServicos();
+            cmbTipo.SelectedIndex = 0;
             if (this.manutencaoCarregada != null)
             {
                 this.editando = true;
@@ -180,9 +181,29 @@ namespace Trinity.View
             txtDataManutencao.Value = DateTime.Now;
             cmbVeiculo.SelectedItem = null;
             cmbMotorista.SelectedItem = null;
-            cmbTipo.SelectedItem = null;
+            cmbTipo.SelectedIndex = 0;
             LimpaCamposProdutoManutencao();
             LimpaCamposServicoManutencao();
+        }
+
+        private int AddManutencao()
+        {
+            if (!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
+                cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
+            {
+                if (this.manutencaoCarregada == null)
+                    this.manutencaoCarregada = new Manutencao();
+
+                this.manutencaoCarregada.DataManutencao = Convert.ToDateTime(txtDataManutencao.Text);
+                this.manutencaoCarregada.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
+                this.manutencaoCarregada.Motorista = (Motorista)cmbMotorista.SelectedItem;
+                this.manutencaoCarregada.Tipo = cmbTipo.Text;
+
+                ManutencaoDAO dao = new ManutencaoDAO();
+                if (!this.editando)
+                    return dao.AdicionaManutencao(this.manutencaoCarregada);
+            } else MessageBox.Show("Mensagem de erro 1 sou gay e curto anal");
+            return -1;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -297,9 +318,36 @@ namespace Trinity.View
                         }
                         CarregaProdutosManutencao();
                 } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE e o VALOR do produto devem ser diferente de 0!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else MessageBox.Show("Não foi possível realizar a operação.\nÉ necessário salvar a MANUTENÇÃO antes de adicionar um PRODUTO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else MessageBox.Show("Não foi possível realizar a operação.\nNenhum PRODUTO foi selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                salvar();
+            }   
+        }
+
+        private void salvar()
+        {
+            if (!String.IsNullOrWhiteSpace(txtDataManutencao.Text.Trim()) && cmbVeiculo.SelectedItem != null &&
+                cmbMotorista.SelectedItem != null && cmbTipo.SelectedItem != null)
+            {
+                /*if(dgvProdutos.RowCount != 0 || dgvServicos.RowCount != 0)
+                {*/
+                if (this.manutencaoCarregada == null)
+                    this.manutencaoCarregada = new Manutencao();
+
+                this.manutencaoCarregada.DataManutencao = Convert.ToDateTime(txtDataManutencao.Text);
+                this.manutencaoCarregada.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
+                this.manutencaoCarregada.Motorista = (Motorista)cmbMotorista.SelectedItem;
+                this.manutencaoCarregada.Tipo = cmbTipo.Text;
+
+                ManutencaoDAO dao = new ManutencaoDAO();
+                if (!this.editando)
+                    this.manutencaoCarregada.IdManutencao = dao.AdicionaManutencao(this.manutencaoCarregada);
+                else dao.AlteraManutencao(this.manutencaoCarregada);
+                //this.Close();
+                //} else MessageBox.Show("Mensagem de erro 2");
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos seu FDP!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private string BindProperty(object property, string propertyName)

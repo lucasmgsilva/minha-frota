@@ -19,10 +19,11 @@ namespace Trinity.Model.DAO
             this.connection = new ConnectionFactory().getConnection();
         }
 
-        public void AdicionaManutencao (Manutencao manutencao)
+        public int AdicionaManutencao (Manutencao manutencao)
         {
             string query = "EXECUTE SP_INSERE_MANUTENCAO " +
                            "@DataManutencao, @IdVeiculo, @IdMotorista, @Tipo";
+            int id = -1;
             try
             {
                 this.connection.Open();
@@ -31,13 +32,20 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdVeiculo", manutencao.Veiculo.IdVeiculo);
                 cmd.Parameters.AddWithValue("@IdMotorista", manutencao.Motorista.IdMotorista);
                 cmd.Parameters.AddWithValue("@Tipo", manutencao.Tipo);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("A MANUTENÇÃO foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.Read())
+                {
+                    id = Convert.ToInt32(dtr[0].ToString());
+                }
+                
+                //MessageBox.Show("A MANUTENÇÃO foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
             } catch (SqlException ex)
             {
                 MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return id;
         }
 
         public void AlteraManutencao (Manutencao manutencao)
