@@ -26,6 +26,7 @@ namespace Trinity.View
             CarregaVeiculos();
             CarregaMotoristas();
             CarregaEstado();
+            txtDataChegada.Value = txtDataChegada.MinDate;
             BuscaRotaEntreOrigemEDestino();
             if (this.motoristaCarregado != null)
             {

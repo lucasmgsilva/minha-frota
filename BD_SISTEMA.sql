@@ -270,6 +270,33 @@ CREATE TABLE ABASTECIMENTO (
 	FOREIGN KEY (idVeiculo) REFERENCES VEICULO (idVeiculo)
 )
 GO
+
+CREATE TABLE VIAGEM (
+	idViagem INT NOT NULL,
+	idVeiculo INT NOT NULL,
+	kmSaida INT NOT NULL,
+	kmChegada INT,
+	idMotorista INT NOT NULL,
+	dataHoraSaida DATETIME NOT NULL,
+	dataHoraChegada DATETIME,
+	PRIMARY KEY (idViagem),
+	FOREIGN KEY (idVeiculo) REFERENCES VEICULO (idVeiculo),
+	FOREIGN KEY (idMotorista) REFERENCES MOTORISTA (idMotorista)
+)
+GO
+
+CREATE TABLE ENDERECO (
+	idEndereco INT NOT NULL,
+	idViagem INT NOT NULL,
+    cep CHAR(9) NOT NULL,
+	idCidade INT NOT NULL,
+	logradouro VARCHAR(70) NOT NULL,
+    numero VARCHAR(8) NOT NULL,
+  	bairro VARCHAR(30) NOT NULL,
+	PRIMARY KEY (idEndereco),
+	FOREIGN KEY (idViagem) REFERENCES VIAGEM (idViagem)
+)
+GO
 -- FIM CRIAÇÃO TABELAS
 
 -- INICIO VIEW'S
