@@ -190,7 +190,7 @@ namespace Trinity.View
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrWhiteSpace(txtDataInfracao.Text.Trim()) && cmbVeiculo.SelectedItem != null && cmbMotorista.SelectedItem != null &&
-                !String.IsNullOrWhiteSpace(txtDataVencimento.Text.Trim()) && !String.IsNullOrWhiteSpace(txtDataPagamento.Text.Trim()) && cmbUf.SelectedItem != null && 
+                !String.IsNullOrWhiteSpace(txtDataVencimento.Text.Trim()) && cmbUf.SelectedItem != null && 
                 cmbCidade.SelectedItem != null && cmbInfracao.SelectedItem != null && !String.IsNullOrWhiteSpace(txtValor.Value.ToString().Trim()))
             {
                 if(txtValor.Value > 0)

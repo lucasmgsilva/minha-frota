@@ -102,6 +102,7 @@
     <Compile Include="Model\Bean\Cidade.cs" />
     <Compile Include="Model\Bean\CNH.cs" />
     <Compile Include="Model\Bean\Combustivel.cs" />
+    <Compile Include="Model\Bean\Endereco.cs" />
     <Compile Include="Model\Bean\Infracao.cs" />
     <Compile Include="Model\Bean\Modelo.cs" />
     <Compile Include="Model\Bean\Cor.cs" />
@@ -119,6 +120,8 @@
     <Compile Include="Model\Bean\UnidadeMedida.cs" />
     <Compile Include="Model\Bean\Usuario.cs" />
     <Compile Include="Model\Bean\Veiculo.cs" />
+    <Compile Include="Model\Bean\Viagem.cs" />
+    <Compile Include="Model\DAO\ViagemDAO .cs" />
     <Compile Include="Model\DAO\AbastecimentoDAO.cs" />
     <Compile Include="Model\DAO\CombustivelDAO.cs" />
     <Compile Include="Model\DAO\InfracaoDAO.cs" />
@@ -162,6 +165,12 @@
     </Compile>
     <Compile Include="View\FrmConsultaManutencao.designer.cs">
       <DependentUpon>FrmConsultaManutencao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmConsultaViagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmConsultaViagem.Designer.cs">
+      <DependentUpon>FrmConsultaViagem.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmConsultaVeiculo.cs">
       <SubType>Form</SubType>
@@ -317,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmConsultaManutencao.resx">
       <DependentUpon>FrmConsultaManutencao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmConsultaViagem.resx">
+      <DependentUpon>FrmConsultaViagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmConsultaVeiculo.resx">
       <DependentUpon>FrmConsultaVeiculo.cs</DependentUpon>

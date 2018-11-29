@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Trinity.Model;
 using Trinity.Model.Bean;
 using Trinity.Model.DAO;
 
@@ -16,53 +10,92 @@ namespace Trinity.View
     public partial class FrmViagem : Form
     {
         bool editando;
-        Motorista motoristaCarregado;
+        Viagem viagemCarregada;
 
-        public FrmViagem(Motorista motoristaCarregado)
+        public FrmViagem(Viagem viagemCarregada)
         {
             InitializeComponent();
-            this.motoristaCarregado = motoristaCarregado;
+            this.viagemCarregada = viagemCarregada;
             DesabilitaBotoes();
             CarregaVeiculos();
             CarregaMotoristas();
             CarregaEstado();
             txtDataChegada.Value = txtDataChegada.MinDate;
-            BuscaRotaEntreOrigemEDestino();
-            if (this.motoristaCarregado != null)
+            if (this.viagemCarregada != null)
             {
                 this.editando = true;
-                CarregaCliente();
+                new ViagemDAO().BuscaEnderecosViagens(viagemCarregada);
+                CarregaViagem();
             }
+            BuscaRotaEntreOrigemEDestino();
         }
 
-        private void CarregaCliente()
+        private void CarregaViagem()
         {
-            txtLogradouro.Text = this.motoristaCarregado.Logradouro;
-            txtNumero.Text = this.motoristaCarregado.Numero;
-            txtBairro.Text = this.motoristaCarregado.Bairro;
-            txtCep.Text = this.motoristaCarregado.Cep;
-            SelecionaEstado();
-            SelecionaCidade();
+            cmbVeiculo.SelectedItem = ((List<Veiculo>)cmbVeiculo.DataSource).Find(v => v.IdVeiculo == viagemCarregada.Veiculo.IdVeiculo);
+            txtKmSaida.Value = viagemCarregada.KmSaida;
+            txtKmChegada.Value = viagemCarregada.KmChegada;
+            cmbMotorista.SelectedItem = ((List<Motorista>)cmbMotorista.DataSource).Find(m => m.IdMotorista == viagemCarregada.Motorista.IdMotorista);
+            txtDataSaida.Value = viagemCarregada.DataHoraSaida;
+            txtDataChegada.Value = viagemCarregada.DataHoraChegada;
+
+            txtCep.Text = this.viagemCarregada.ListaEndereco[0].Cep;
+            cmbUf.SelectedItem = ((List<Estado>)cmbUf.DataSource).Find(es => es.IdEstado == viagemCarregada.ListaEndereco[0].Cidade.Estado.IdEstado);
+            cmbCidade.SelectedItem = ((List<Cidade>)cmbCidade.DataSource).Find(c => c.IdCidade == viagemCarregada.ListaEndereco[0].Cidade.IdCidade);
+            txtLogradouro.Text = this.viagemCarregada.ListaEndereco[0].Logradouro;
+            txtNumero.Text = this.viagemCarregada.ListaEndereco[0].Numero;
+            txtBairro.Text = this.viagemCarregada.ListaEndereco[0].Bairro;
+
+            txtCEPDestino.Text = this.viagemCarregada.ListaEndereco[1].Cep;
+            cmbUfDestino.SelectedItem = ((List<Estado>)cmbUfDestino.DataSource).Find(es => es.IdEstado == viagemCarregada.ListaEndereco[1].Cidade.Estado.IdEstado);
+            cmbCidadeDestino.SelectedItem = ((List<Cidade>)cmbCidadeDestino.DataSource).Find(c => c.IdCidade == viagemCarregada.ListaEndereco[1].Cidade.IdCidade);
+            txtLogradouroDestino.Text = this.viagemCarregada.ListaEndereco[1].Logradouro;
+            txtNumeroDestino.Text = this.viagemCarregada.ListaEndereco[1].Numero;
+            txtBairroDestino.Text = this.viagemCarregada.ListaEndereco[1].Bairro;
         }
 
         private void DesabilitaCampos()
         {
-            txtLogradouro.Enabled = false;
-            txtNumero.Enabled = false;
-            txtBairro.Enabled = false;
+            cmbVeiculo.Enabled = false;
+            txtKmSaida.Enabled = false;
+            txtKmChegada.Enabled = false;
+            cmbMotorista.Enabled = false;
+            txtDataSaida.Enabled = false;
+            txtDataChegada.Enabled = false;
             txtCep.Enabled = false;
             cmbUf.Enabled = false;
             cmbCidade.Enabled = false;
+            txtLogradouro.Enabled = false;
+            txtNumero.Enabled = false;
+            txtBairro.Enabled = false;
+            txtCEPDestino.Enabled = false;
+            cmbUfDestino.Enabled = false;
+            cmbCidadeDestino.Enabled = false;
+            txtLogradouroDestino.Enabled = false;
+            txtNumeroDestino.Enabled = false;
+            txtBairroDestino.Enabled = false;
         }
 
         private void HabilitaCampos()
         {
-            txtLogradouro.Enabled = !false;
-            txtNumero.Enabled = !false;
-            txtBairro.Enabled = !false;
-            txtCep.Enabled = !false;
-            cmbUf.Enabled = !false;
-            cmbCidade.Enabled = !false;
+            cmbVeiculo.Enabled = true;
+            txtKmSaida.Enabled = true;
+            txtKmChegada.Enabled = true;
+            cmbMotorista.Enabled = true;
+            txtDataSaida.Enabled = true;
+            txtDataChegada.Enabled = true;
+            txtCep.Enabled = true;
+            cmbUf.Enabled = true;
+            cmbCidade.Enabled = true;
+            txtLogradouro.Enabled = true;
+            txtNumero.Enabled = true;
+            txtBairro.Enabled = true;
+            txtCEPDestino.Enabled = true;
+            cmbUfDestino.Enabled = true;
+            cmbCidadeDestino.Enabled = true;
+            txtLogradouroDestino.Enabled = true;
+            txtNumeroDestino.Enabled = true;
+            txtBairroDestino.Enabled = true;
         }
 
         private void HabilitaBotoes()
@@ -86,24 +119,23 @@ namespace Trinity.View
         private void LimpaCampos()
         {
             DesabilitaBotoes();
+
+            cmbVeiculo.SelectedItem = null;
+            txtKmSaida.Value = 0;
+            txtKmChegada.Value = 0;
+            cmbMotorista.SelectedItem = null;
+            txtDataSaida.Value = DateTime.Now;
+            txtDataChegada.Value = txtDataChegada.MinDate;
+            txtCep.Text = String.Empty;
+            cmbUf.SelectedIndex = 0;
             txtLogradouro.Text = String.Empty;
             txtNumero.Text = String.Empty;
             txtBairro.Text = String.Empty;
-            txtCep.Text = String.Empty;
-            //cmbUf.SelectedItem = null;
-            //cmbCidade.SelectedItem = null;
-            cmbUf.SelectedIndex = 0;
-        }
-
-        public void SelecionaCidade()
-        {
-            int idCidade = this.motoristaCarregado.Cidade.IdCidade;
-            foreach (Cidade item in cmbCidade.Items)
-                if (item.IdCidade == idCidade)
-                {
-                    cmbCidade.SelectedItem = item;
-                    break;
-                }
+            txtCEPDestino.Text = String.Empty;
+            cmbUfDestino.SelectedItem = 0;
+            txtLogradouroDestino.Text = String.Empty;
+            txtNumeroDestino.Text = String.Empty;
+            txtBairroDestino.Text = String.Empty;
         }
 
         public void CarregaEstado()
@@ -114,38 +146,68 @@ namespace Trinity.View
             cmbUfDestino.DataSource = new EstadoDAO().GetListaEstados();
         }
 
-        public void SelecionaEstado()
-        {
-            int idEstado = this.motoristaCarregado.Cidade.Estado.IdEstado;
-            foreach (Estado item in cmbUf.Items)
-                if (item.IdEstado == idEstado)
-                {
-                    cmbUf.SelectedItem = item;
-                    break;
-                }
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (this.motoristaCarregado == null)
-                this.motoristaCarregado = new Motorista();
-                
-            this.motoristaCarregado.Logradouro = txtLogradouro.Text;
-            this.motoristaCarregado.Numero = txtNumero.Text;
-            this.motoristaCarregado.Bairro = txtBairro.Text;
-            this.motoristaCarregado.Cep = txtCep.Text;
-            this.motoristaCarregado.Cidade = (Cidade) cmbCidade.SelectedItem;
+            if (cmbVeiculo != null && !String.IsNullOrWhiteSpace(txtKmSaida.Value.ToString().Trim()) && !String.IsNullOrWhiteSpace(txtKmChegada.Value.ToString().Trim()) 
+                && !String.IsNullOrWhiteSpace(txtDataSaida.Value.ToString().Trim()) && !String.IsNullOrWhiteSpace(txtDataChegada.Value.ToString().Trim()) 
+                && !String.IsNullOrWhiteSpace(txtCep.Text.Trim()) && cmbUf != null && cmbCidade != null && !String.IsNullOrWhiteSpace(txtLogradouro.Text.Trim()) 
+                && !String.IsNullOrWhiteSpace(txtNumero.Text.Trim()) && !String.IsNullOrWhiteSpace(txtBairro.Text.Trim()) 
+                && !String.IsNullOrWhiteSpace(txtCEPDestino.Text.Trim()) && cmbUfDestino != null && cmbCidadeDestino != null && !String.IsNullOrWhiteSpace(txtLogradouroDestino.Text.Trim())
+                && !String.IsNullOrWhiteSpace(txtNumeroDestino.Text.Trim()) && !String.IsNullOrWhiteSpace(txtBairroDestino.Text.Trim()))
+            {
+                if (this.viagemCarregada == null)
+                    this.viagemCarregada = new Viagem();
 
-            if (this.motoristaCarregado.Cnh == null)
-                this.motoristaCarregado.Cnh = new CNH();
-   
-            MessageBox.Show(this.motoristaCarregado.Cnh.ToString());
+                viagemCarregada.Veiculo = (Veiculo)cmbVeiculo.SelectedItem;
+                viagemCarregada.KmSaida = Convert.ToInt32(txtKmSaida.Value.ToString().Trim());
+                viagemCarregada.KmChegada = Convert.ToInt32(txtKmChegada.Value.ToString().Trim());
+                viagemCarregada.Motorista = (Motorista)cmbMotorista.SelectedItem;
+                viagemCarregada.DataHoraSaida = txtDataSaida.Value;
+                viagemCarregada.DataHoraChegada = txtDataChegada.Value;
 
-            MotoristaDAO dao = new MotoristaDAO();
-            if (!this.editando)
-                dao.AdicionaMotorista(this.motoristaCarregado);
-            else dao.AlteraMotorista(this.motoristaCarregado);
-            this.Close();
+                if (this.viagemCarregada.ListaEndereco == null)
+                    this.viagemCarregada.ListaEndereco = new List<Endereco>();
+
+                Endereco enderecoOrigem = new Endereco()
+                {
+                    Cep = txtCep.Text.Trim(),
+                    Cidade = (Cidade)cmbCidade.SelectedItem,
+                    Logradouro = txtLogradouro.Text.Trim(),
+                    Numero = txtNumero.Text.Trim(),
+                    Bairro = txtBairro.Text.Trim()
+                };
+
+                Endereco enderecoDestino = new Endereco()
+                {
+                    Cep = txtCEPDestino.Text.Trim(),
+                    Cidade = (Cidade)cmbCidadeDestino.SelectedItem,
+                    Logradouro = txtLogradouroDestino.Text.Trim(),
+                    Numero = txtNumeroDestino.Text.Trim(),
+                    Bairro = txtBairroDestino.Text.Trim()
+                };
+
+                if (this.viagemCarregada.ListaEndereco.Count == 0)
+                {
+                    viagemCarregada.ListaEndereco.Add(enderecoOrigem);
+                    viagemCarregada.ListaEndereco.Add(enderecoDestino);
+                } else
+                {
+                    int idEndereco = viagemCarregada.ListaEndereco[0].IdEndereco;
+                    viagemCarregada.ListaEndereco[0] = enderecoOrigem;
+                    viagemCarregada.ListaEndereco[0].IdEndereco = idEndereco;
+
+                    idEndereco = viagemCarregada.ListaEndereco[1].IdEndereco;
+                    viagemCarregada.ListaEndereco[1] = enderecoDestino;
+                    viagemCarregada.ListaEndereco[1].IdEndereco = idEndereco;
+                }
+
+                ViagemDAO dao = new ViagemDAO();
+                        if (!this.editando)
+                            dao.AdicionaViagem(this.viagemCarregada);
+                        else dao.AlteraViagem(this.viagemCarregada);
+                        this.Close();
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
         }
 
         private void cmbUf_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,18 +229,23 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Você realmente quer excluir esta VIAGEM?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ViagemDAO dao = new ViagemDAO();
+                dao.DeletaViagem(this.viagemCarregada.IdViagem);
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (this.editando)
             {
-                if (MessageBox.Show("Você realmente quer desfazer as alterações deste CLIENTE?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Você realmente quer desfazer as alterações desta VIAGEM?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     HabilitaBotoes();
                     this.editando = false;
-                    CarregaCliente();
+                    CarregaViagem();
                 }
             }
             else this.Close();

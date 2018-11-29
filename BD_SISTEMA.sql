@@ -272,7 +272,7 @@ CREATE TABLE ABASTECIMENTO (
 GO
 
 CREATE TABLE VIAGEM (
-	idViagem INT NOT NULL,
+	idViagem INT IDENTITY NOT NULL,
 	idVeiculo INT NOT NULL,
 	kmSaida INT NOT NULL,
 	kmChegada INT,
@@ -286,7 +286,7 @@ CREATE TABLE VIAGEM (
 GO
 
 CREATE TABLE ENDERECO (
-	idEndereco INT NOT NULL,
+	idEndereco INT NOT NULL IDENTITY,
 	idViagem INT NOT NULL,
     cep CHAR(9) NOT NULL,
 	idCidade INT NOT NULL,
@@ -322,6 +322,16 @@ GO
 CREATE VIEW VW_SELECIONA_ESTADO 
 AS 
 SELECT * FROM ESTADO
+GO
+
+CREATE VIEW VW_SELECIONA_VIAGEM 
+AS 
+	SELECT 
+		idViagem, kmSaida, kmChegada, dataHoraSaida, dataHoraChegada, VEICULO.*, MOTORISTA.* 
+	FROM 
+		VIAGEM
+	INNER JOIN VEICULO ON VIAGEM.idVeiculo = VEICULO.idVeiculo
+	INNER JOIN MOTORISTA ON VIAGEM.idMotorista = MOTORISTA.idMotorista
 GO
 
 CREATE PROCEDURE SP_OBTEM_CIDADES (@IdEstado INT) 
@@ -427,6 +437,33 @@ AS
 		MODELO.modelo like '%' + @PalavraChave + '%' OR 
 		combustivel.combustivel like '%' + @PalavraChave + '%' OR
 		COR.cor like '%' + @PalavraChave + '%'
+GO
+
+CREATE PROCEDURE SP_BUSCA_VIAGEM (@PalavraChave VARCHAR(255)) 
+AS
+	SELECT 
+		idViagem, kmSaida, kmChegada, dataHoraSaida, dataHoraChegada, VEICULO.*, MOTORISTA.* 
+	FROM 
+		VIAGEM
+	INNER JOIN VEICULO ON VIAGEM.idVeiculo = VEICULO.idVeiculo
+	INNER JOIN MOTORISTA ON VIAGEM.idMotorista = MOTORISTA.idMotorista
+	WHERE
+		VIAGEM.idViagem like '%' + @PalavraChave + '%' OR
+		VIAGEM.dataHoraSaida like '%' + @PalavraChave + '%' OR
+		MOTORISTA.nome like '%' + @PalavraChave + '%' OR
+		VEICULO.placa like '%' + @PalavraChave + '%'
+GO
+
+CREATE PROCEDURE SP_BUSCA_ENDERECO (@IdViagem INT) 
+AS
+	SELECT 
+		ENDERECO.*, ESTADO.idEstado 
+	FROM 
+		ENDERECO
+	INNER JOIN CIDADE ON ENDERECO.idCidade = CIDADE.idCidade
+	INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
+	WHERE
+		idViagem = @IdViagem
 GO
 
 CREATE PROCEDURE SP_BUSCA_MULTA (@PalavraChave VARCHAR(255)) 
@@ -1018,7 +1055,6 @@ BEGIN
 	UPDATE CNH SET numeroRegistro = @numeroRegistro, dataValidade = @dataValidade, categoria = @categoria
 		WHERE idCNH = @idCNH
 
-		select * from cnh
 	UPDATE MOTORISTA SET nome = @nome, apelido = @apelido, sexo = @sexo, cpf = @cpf, rg = @rg, 
 		dataNascimento = @dataNascimento, dataCadastro = @dataCadastro, idCNH = @idCNH
 			WHERE idMotorista = @idMotorista
@@ -1078,6 +1114,67 @@ AS
 		FROM
 	ABASTECIMENTO
 		WHERE idAbastecimento = @IdAbastecimento
+GO
+
+CREATE PROCEDURE SP_DELETA_VIAGEM (@IdViagem INT)
+AS
+BEGIN TRAN
+	BEGIN TRY
+		DELETE FROM ENDERECO WHERE idViagem = @IdViagem
+		DELETE FROM VIAGEM WHERE idViagem = @IdViagem
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN
+	END CATCH
+GO
+
+CREATE PROCEDURE SP_INSERE_VIAGEM (@IdVeiculo INT, @KmSaida INT, @KmChegada INT, @IdMotorista INT, @DataHoraSaida DATETIME, @DataHoraChegada DATETIME, @Cep_Origem CHAR(9),  @IdCidade_Origem INT, @Logradouro_Origem VARCHAR(70), @Numero_Origem VARCHAR(8), @Bairro_Origem VARCHAR(30), @Cep_Destino CHAR(9), @IdCidade_Destino INT, @Logradouro_Destino VARCHAR(70), @Numero_Destino VARCHAR(8), @Bairro_Destino VARCHAR(30))
+AS
+BEGIN TRAN
+	BEGIN TRY
+		INSERT INTO 
+			VIAGEM (idVeiculo, kmSaida, kmChegada, idMotorista, dataHoraSaida, dataHoraChegada)
+		VALUES (@IdVeiculo, @KmSaida, @KmChegada, @IdMotorista, @DataHoraSaida, @DataHoraChegada)
+
+		DECLARE @IdViagem INT = @@IDENTITY
+		
+		INSERT INTO
+			ENDERECO (idViagem, cep, idCidade, logradouro, numero, bairro)
+		VALUES (@IdViagem, @Cep_Origem, @IdCidade_Origem, @Logradouro_Origem, @Numero_Origem, @Bairro_Origem)
+
+		INSERT INTO
+			ENDERECO (idViagem, cep, idCidade, logradouro, numero, bairro)
+		VALUES (@IdViagem, @Cep_Destino, @IdCidade_Destino, @Logradouro_Destino, @Numero_Destino, @Bairro_Destino)
+
+		COMMIT TRAN
+		END TRY
+		BEGIN CATCH
+			ROLLBACK TRAN
+		END CATCH
+GO
+
+CREATE PROCEDURE SP_ALTERA_VIAGEM (@IdViagem INT, @IdVeiculo INT, @KmSaida INT, @KmChegada INT, @IdMotorista INT, @DataHoraSaida DATETIME, @DataHoraChegada DATETIME, @idEndereco_Origem INT, @Cep_Origem CHAR(9),  @IdCidade_Origem INT, @Logradouro_Origem VARCHAR(70), @Numero_Origem VARCHAR(8), @Bairro_Origem VARCHAR(30), @idEndereco_Destino INT, @Cep_Destino CHAR(9), @IdCidade_Destino INT, @Logradouro_Destino VARCHAR(70), @Numero_Destino VARCHAR(8), @Bairro_Destino VARCHAR(30))
+AS
+BEGIN TRAN
+	BEGIN TRY
+		UPDATE VIAGEM
+			SET idVeiculo = @IdVeiculo, kmSaida = @KmSaida, kmChegada = @KmChegada, idMotorista = @IdMotorista, dataHoraSaida = @DataHoraSaida, dataHoraChegada = @DataHoraChegada
+		WHERE idViagem = @IdViagem
+
+		UPDATE ENDERECO 
+			SET cep = @Cep_Origem, idCidade = @IdCidade_Origem, logradouro = @Logradouro_Origem, numero = @Numero_Origem, bairro = @Bairro_Origem
+		WHERE idEndereco = @idEndereco_Origem
+
+		UPDATE ENDERECO
+			SET cep = @Cep_Destino, idCidade = @IdCidade_Destino, logradouro = @Logradouro_Destino, numero = @Numero_Destino, bairro = @Bairro_Destino
+		WHERE idEndereco = @idEndereco_Destino
+
+		COMMIT TRAN
+		END TRY
+		BEGIN CATCH
+			ROLLBACK TRAN
+		END CATCH
 GO
 -- FIM STORED PROCEDURES
 

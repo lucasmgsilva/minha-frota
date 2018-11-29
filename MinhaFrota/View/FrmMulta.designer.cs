@@ -43,7 +43,6 @@
             this.txtValor = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbInfracao = new System.Windows.Forms.ComboBox();
             this.txtDataVencimento = new System.Windows.Forms.DateTimePicker();
@@ -164,7 +163,6 @@
             this.groupBox2.Controls.Add(this.txtValor);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.cmbInfracao);
             this.groupBox2.Controls.Add(this.txtDataVencimento);
@@ -259,17 +257,6 @@
             this.label7.Size = new System.Drawing.Size(15, 19);
             this.label7.TabIndex = 103;
             this.label7.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(296, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 19);
-            this.label5.TabIndex = 109;
-            this.label5.Text = "*";
             // 
             // label8
             // 
@@ -598,7 +585,6 @@
         private System.Windows.Forms.ComboBox cmbInfracao;
         private System.Windows.Forms.DateTimePicker txtDataPagamento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker txtDataVencimento;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

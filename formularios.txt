@@ -3,6 +3,7 @@ FrmPrincipal (Abrir FrmAvisos)
 
 -Em Manipulação:
 FrmViagem
+FrmConsultaViagem
 
 -Finalizados:
 FrmManutencao
