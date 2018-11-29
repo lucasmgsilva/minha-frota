@@ -1,10 +1,11 @@
 -Pendentes:
 FrmPrincipal (Abrir FrmAvisos)
+FrmVeiculo (Categoria Exigida)
+FrmViagem ("Condutores: permitir que o mesmo apenas dirija os veículos em que possui habilitação para dirigir")
 
 -Em Manipulação:
 
 -Finalizados:
-FrmViagem
 FrmConsultaViagem
 FrmManutencao
 FrmConsultaManutencao
@@ -20,7 +21,6 @@ FrmCombustivel
 FrmCor
 FrmModelo
 FrmConsultaVeiculo
-FrmVeiculo
 FrmMotorista
 FrmConsultaMotorista
 FrmSobre
