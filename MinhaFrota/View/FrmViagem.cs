@@ -365,5 +365,17 @@ namespace Trinity.View
         {
             txtKmChegada.Minimum = txtKmSaida.Value;
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            new FrmVeiculo(null).ShowDialog();
+            CarregaVeiculos();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            new FrmMotorista(null).ShowDialog();
+            CarregaMotoristas();
+        }
     }
 }
