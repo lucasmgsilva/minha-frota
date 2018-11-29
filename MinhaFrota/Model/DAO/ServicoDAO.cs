@@ -70,7 +70,7 @@ namespace Trinity.Model.DAO
                 SqlCommand cmd = new SqlCommand(query, this.connection);
                 cmd.Parameters.AddWithValue("@IdServico", idServico);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("O SERVIÇO foi excluída com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("O SERVIÇO foi excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
             }
             catch (SqlException ex)

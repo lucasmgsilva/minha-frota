@@ -116,8 +116,8 @@ namespace Trinity
 
         private void viagensToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmViagem telaViagem = new FrmViagem(null);
-            telaViagem.ShowDialog();
+            FrmConsultaViagem telaConsultaViagem = new FrmConsultaViagem();
+            telaConsultaViagem.ShowDialog();
         }
 
         private void multasToolStripMenuItem1_Click(object sender, EventArgs e)

@@ -92,7 +92,7 @@ namespace Trinity.Model.DAO
             catch (SqlException ex)
             {
                 if (ex.Number == 547)
-                    MessageBox.Show("Não foi possível realizar a operação.\nEste VEÍCULO está sendo referenciado em alguma VIAGEM ou MANUTENÇÃO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Não foi possível realizar a operação.\nEste VEÍCULO está sendo referenciado em alguma VIAGEM, ABASTECIMENTO ou MANUTENÇÃO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

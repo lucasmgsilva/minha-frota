@@ -360,7 +360,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(4, 631);
+            this.btnExcluir.Location = new System.Drawing.Point(82, 631);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
             this.btnExcluir.TabIndex = 7;
@@ -372,7 +372,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(108, 631);
+            this.btnCancelar.Location = new System.Drawing.Point(186, 631);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
             this.btnCancelar.TabIndex = 8;
@@ -384,7 +384,7 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(4, 596);
+            this.btnNovo.Location = new System.Drawing.Point(32, 596);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
             this.btnNovo.TabIndex = 4;
@@ -396,7 +396,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(108, 596);
+            this.btnSalvar.Location = new System.Drawing.Point(136, 596);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
             this.btnSalvar.TabIndex = 5;
@@ -466,6 +466,7 @@
             this.txtKmSaida.Name = "txtKmSaida";
             this.txtKmSaida.Size = new System.Drawing.Size(104, 26);
             this.txtKmSaida.TabIndex = 1;
+            this.txtKmSaida.ValueChanged += new System.EventHandler(this.txtKmSaida_ValueChanged);
             // 
             // label8
             // 
@@ -622,7 +623,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(212, 596);
+            this.btnEditar.Location = new System.Drawing.Point(240, 596);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
             this.btnEditar.TabIndex = 6;

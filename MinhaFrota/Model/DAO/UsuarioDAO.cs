@@ -136,9 +136,7 @@ namespace Trinity.Model.DAO
                 }
                 catch (SqlException ex)
                 {
-                    if (ex.Number == 547)
-                        MessageBox.Show("Não foi possível realizar a operação.\nEste USUÁRIO está sendo referenciado em alguma COMPRA ou VENDA!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nEste USUÁRIO é PADRÃO do sistema e em hipótese alguma pode ser deletado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);

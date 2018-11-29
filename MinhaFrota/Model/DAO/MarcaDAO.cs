@@ -50,7 +50,7 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdMarca", marca.IdMarca);
                 cmd.Parameters.AddWithValue("@Marca", marca.marca);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("A MARCA foi alterado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("A MARCA foi alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
             }
             catch (SqlException ex)

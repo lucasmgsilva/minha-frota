@@ -355,5 +355,15 @@ namespace Trinity.View
         {
             BuscaRotaEntreOrigemEDestino();
         }
+
+        private void cmbVeiculo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(((Veiculo) cmbVeiculo.SelectedItem).KmInicial.ToString());
+        }
+
+        private void txtKmSaida_ValueChanged(object sender, EventArgs e)
+        {
+            txtKmChegada.Minimum = txtKmSaida.Value;
+        }
     }
 }
